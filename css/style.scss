@@ -6,11 +6,20 @@
 body {
   font: 12px/1.5 'Arial','Microsoft YaHei';
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
 .container {
   display: block;
   width: 1024px;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.pull-right {
+  float: right;
 }
 
 @keyframes bling {
@@ -90,13 +99,93 @@ body {
       border: 4px solid #fff;
       width: 86px;
       height: 86px;
+      &:hover {
+        border-color: #fa7d3c;
+      }
     }
   }
-  .info {
+  .userinfo {
     float: left;
   }
   .username {
     margin-top: 50px;
     font-size: 22px;
+    padding-left: 15px;
+  }
+  .userdesc {
+    padding-left: 15px;
+    color: #999;
+  }
+  .count {
+    margin-top: 10px;
+    overflow: hidden;
+    .item {
+      float: left;
+      list-style-type: none;
+      padding: 0 15px;
+      border-right: 1px solid #999;
+      color: #999;
+      text-align: center;
+      .num {
+        color: #fa7d3c;
+      }
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+  }
+  .third-entry {
+    float: right;
+    margin-top: 76px;
+    a {
+      margin-left: 10px;
+    }
+  }
+}
+
+.input {
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 0 5px;
+  line-height: 24px;
+  &:focus {
+    outline: none;
+    background-color: #eee;
+  }
+}
+
+.menu-box {
+  background-color: #1F2D3D;
+  color: #8492A6;
+  a {
+    color: #8492A6;
+  }
+  .menu {
+    float: left;
+  }
+  .menu-item {
+    float: left;
+    list-style-type: none;
+    a {
+      display: block;
+      text-decoration: none;
+      height: 42px;
+      line-height: 42px;
+      padding: 0 15px;
+    }
+    &:hover, &.active {
+      background-color: #FF4949;
+      a {
+        color: #fff;
+      }
+    }
+  }
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+  .input {
+    margin-top: 7px;
   }
 }
