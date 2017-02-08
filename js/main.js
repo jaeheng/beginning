@@ -23,7 +23,7 @@ $(function () {
     });
 
     // 点击其它地方， 关闭已经通过toggle-open打开的元素
-    $(document).on('click', function () {
+    $(document).on('click', function (e) {
         if(isMobile) {
             toggleOpenAll(false)
         }

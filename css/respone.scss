@@ -31,6 +31,7 @@
       }
     }
     .search {
+      z-index: 998;
       top: 40px;
       width: 100%;
       padding: 0 15px;
@@ -41,6 +42,30 @@
         margin: 10px 0;
         line-height: 28px;
       }
+    }
+  }
+
+  .content {
+    padding-right: 0;
+  }
+  .log_list_item {
+    padding-left: 15px;
+    .title {
+      margin: 10px 0;
+    }
+    .pic-link {
+      width: 100%;
+      position: initial;
+    }
+  }
+  .sidebar {
+    position: initial;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .footer {
+    .widget {
+      width: 100%;
     }
   }
 }
