@@ -1,0 +1,46 @@
+@import "var";
+
+@media all and (max-width: 960px) {
+  .header {
+    display: none;
+  }
+
+  .menu-box {
+    position: relative;
+    .icon-menu , .icon-search {
+      display: block;
+      border: none;
+    }
+    .menu, .search {
+      display: none;
+      position: absolute;
+      left: 0;
+    }
+    .icon-search {
+      position: absolute;
+      right: 15px;
+      top: 0;
+    }
+
+    .menu {
+      width: 50%;
+      background-color: $light-black;
+      z-index: 999;
+      li {
+        float: none;
+      }
+    }
+    .search {
+      top: 40px;
+      width: 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+      background-color: $light-black;
+      .input {
+        width: 100%;
+        margin: 10px 0;
+        line-height: 28px;
+      }
+    }
+  }
+}
