@@ -55,7 +55,12 @@
       }
     }
   }
-
+  .main.container {
+    padding: 0;
+  }
+  .content-wrap {
+    float: none;
+  }
   .content {
     padding-right: 0;
   }
@@ -70,9 +75,10 @@
     }
   }
   .sidebar {
-    position: initial;
+    float: none;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-left: 0;
   }
   .footer {
     .widget {
@@ -93,6 +99,16 @@
       .iconfont {
         font-size: 12px;
       }
+    }
+  }
+  .neighbor {
+    .prev, .next {
+      width: 100%;
+      float: none;
+      margin-bottom: 10px;
+    }
+    .iconfont {
+      display: none;
     }
   }
 }
