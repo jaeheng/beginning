@@ -198,6 +198,7 @@ li {
   .menu-item {
     float: left;
     list-style-type: none;
+    position: relative;
     a {
       display: block;
       text-decoration: none;
@@ -210,6 +211,22 @@ li {
       background-color: $danger;
       a {
         color: #fff;
+      }
+      .sub-nav {
+        display: block;
+      }
+    }
+    .sub-nav {
+      position: absolute;
+      z-index: 999;
+      background-color: $extra-light-black;
+      width: 120px;
+      display: none;
+      a {
+        display: block;
+        &:hover {
+          background-color: $danger;
+        }
       }
     }
   }
@@ -274,6 +291,9 @@ li {
     padding: 3px 10px;
     color: #fff;
     z-index: 100;
+    a {
+      color: #fff;
+    }
   }
   .pic-link {
     position: absolute;
@@ -303,6 +323,13 @@ li {
     }
   }
   .title {
+    background-color: transparent;
+    padding: 0;
+    font-style: normal;
+    img {
+      width: 16px;
+      height: 16px;
+    }
     a {
       font-size: 18px;
     }
@@ -312,6 +339,10 @@ li {
   }
   .description {
     margin: 10px 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .info {
     font-size: 12px;
@@ -401,6 +432,10 @@ li {
       left: 0;
       top: 0;
       border-radius: 50%;
+    }
+    .username {
+      font-style: normal;
+      font-weight: bold;
     }
     .time {
       float: right;
