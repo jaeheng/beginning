@@ -44,4 +44,23 @@ $(function () {
         var target = $('#' + _this.data('target'));
         target.slideToggle(100);
     });
+
+    // gotoup
+    var gotoup = $('.gotoup');
+    // 页面滚动400px后显示gotoup按钮
+    $(window).on('scroll', function (e) {
+        var topHeight = $(window).scrollTop();
+        if (topHeight > 400) {
+           gotoup.slideDown(100);
+        } else {
+            gotoup.slideUp();
+        }
+    });
+    // 点击gotoup按钮， 页面平滑滚动到顶部
+    gotoup.on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: '0px'
+        }, 700);
+    })
 });

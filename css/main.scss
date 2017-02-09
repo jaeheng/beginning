@@ -88,6 +88,10 @@ li {
     margin-top: 50px;
     font-size: 22px;
     padding-left: 15px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
   .userdesc {
     padding-left: 15px;
@@ -113,9 +117,14 @@ li {
   }
   .third-entry {
     float: right;
-    margin-top: 76px;
+    margin-top: 50px;
+
     a {
       margin-left: 10px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
     }
   }
 }
@@ -467,5 +476,35 @@ li {
     &:hover {
       color: #fff;
     }
+  }
+}
+
+$tools-item-width: 50px;
+.site-tools {
+  position: fixed;
+  bottom: 50%;
+  right: 30px;
+  margin-bottom: -2*$tools-item-width;
+  .item {
+    display: block;
+    background-color: #fff;
+    width: $tools-item-width;
+    height: $tools-item-width;
+    line-height: $tools-item-width;
+    text-align: center;
+    &:hover, &.active {
+      background-color: $danger;
+      .iconfont {
+        color: #fff;
+      }
+    }
+  }
+  .gotoup {
+    display: none;
+    cursor: pointer;
+  }
+  .iconfont {
+    font-size: 22px;
+    color: $extra-light-black;
   }
 }
