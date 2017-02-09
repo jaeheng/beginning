@@ -324,19 +324,20 @@ li {
   display: inline-block;
   margin-right: 5px;
   background-color: $extra-light-black;
-  color: $extra-light-grey!important;
+  color: #fff!important;
   padding: 0 10px;
   font-size: 12px;
-  &.label-tag {
-    &:nth-of-type(n){
-      background-color: $green;
-    }
-    &:nth-of-type(2n){
-      background-color: $danger;
-    }
-    &:nth-of-type(3n){
-      background-color: $blue;
-    }
+  &.label-tag:nth-of-type(n),
+  &.label-success {
+    background-color: $green;
+  }
+  &.label-tag:nth-of-type(2n),
+  &.label-danger {
+    background-color: $danger;
+  }
+  &.label-tag:nth-of-type(3n),
+  &.label-info {
+    background-color: $blue;
   }
 }
 
@@ -492,11 +493,24 @@ $tools-item-width: 50px;
     height: $tools-item-width;
     line-height: $tools-item-width;
     text-align: center;
+    position: relative;
     &:hover, &.active {
       background-color: $danger;
       .iconfont {
         color: #fff;
       }
+    }
+    .popup {
+      display: none;
+      position: absolute;
+      right: 50px;
+      top: 0;
+      background: #fff;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+    &:hover .popup {
+      display: block;
     }
   }
   .gotoup {
