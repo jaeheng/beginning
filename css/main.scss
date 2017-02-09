@@ -78,9 +78,6 @@ li {
       background-color: #fff;
       width: 86px;
       height: 86px;
-      &:hover {
-        border-color: $danger;
-      }
     }
   }
   .userinfo {
@@ -510,7 +507,7 @@ $tools-item-width: 50px;
       top: 0;
       background: #fff;
       padding: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid #eee;
       .title {
         line-height: 1.5;
         margin: 0;
