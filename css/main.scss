@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   float: right;
 }
 
-.clearfix {
+.clearfix, .clear {
   clear: both;
 }
 
@@ -212,6 +212,8 @@ li {
       a {
         color: #fff;
       }
+    }
+    &:hover {
       .sub-nav {
         display: block;
       }
@@ -376,6 +378,7 @@ li {
 .pagination {
   text-align: center;
   font-size: 0;
+  margin-top: 15px;
   a, span {
     font-size: 14px;
     display: inline-block;
@@ -388,7 +391,7 @@ li {
   }
   span, a:hover {
     background-color: $danger;
-    color: #fff;
+    color: #fff!important;
   }
 }
 
@@ -638,10 +641,10 @@ $tools-item-width: 50px;
   }
 }
 
-.relation {
+#related_log {
   line-height: 1.8;
-  li a {
-    display: block;
+  p{
+    margin-bottom: 0;
   }
   .time {
     display: inline-block;
@@ -665,4 +668,256 @@ $tools-item-width: 50px;
   li {
     margin-bottom: 20px;
   }
+}
+
+.comment-box .comment-header {
+  margin: 0 0 15px;
+  font-weight: bold;
+}
+.comment-box .comment {
+  padding: 20px 0 20px 74px;
+  font-size: 12px;
+  border-bottom: 1px #f7f7f7 solid;
+  overflow: hidden;
+  color: #333;
+  height: 100%;
+  zoom: 1;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.comment-box .comment .avatar {
+  position: absolute;
+  left: 0;
+}
+.comment-box .comment .avatar img {
+  width: 54px;
+  height: 54px;
+}
+.comment-box .comment .comment-children {
+  background-color: #F2F7F8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.comment-box .comment .comment-children .avatar {
+  left: 10px;
+}
+.comment-box .comment .comment-time {
+  color: #999999;
+  display: inline;
+}
+.comment-box .comment .comment-content {
+  margin: 10px 0;
+}
+.comment-box .comment .comment-post {
+  margin: 15px 15px 0 0;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+}
+.form-group input,
+.form-group textarea {
+  padding: 5px 10px;
+  border: 1px #eee solid;
+  border-radius: 4px;
+  color: #333;
+  width: 50%;
+  font-size: 12px;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+.form-group textarea {
+  width: 100%;
+}
+.btn {
+  background: #FF2C3C;
+  border: 0;
+  color: #fff;
+  padding: 5px 20px;
+  text-align: center;
+  cursor: pointer;
+  _cursor: hand;
+  border-radius: 4px;
+}
+.btn:hover {
+  background-color: #ff7983;
+}
+.btn.btn-block {
+  display: block;
+}
+
+#tw {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 15px;
+}
+#tw ul {
+  margin: 0;
+  line-height: 1.8;
+  padding: 0 15px;
+}
+#tw ul .li {
+  padding: 10px 0;
+  border-bottom: #F7F7F7 1px solid;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+#tw .main_img {
+  float: left;
+  padding-top: 5px;
+}
+#tw .main_img img {
+  border: 1px #fff solid;
+}
+#tw ul li .post1 {
+  float: right;
+  font-size: 13px;
+  width: 580px;
+}
+#tw ul li .post1 h3 {
+  font-weight: bold;
+}
+#tw ul li .bttome {
+  margin: 5px 0;
+}
+#tw ul li .bttome .time {
+  float: left;
+  width: 50%;
+  line-height: 14px;
+  font-size: 12px;
+  margin: 0;
+}
+#tw ul li .bttome .post {
+  float: right;
+  width: 50%;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0;
+  text-align: right;
+}
+#tw ul li {
+  clear: both;
+  padding: 0;
+  margin: 0;
+}
+#tw ul .r {
+  margin: 0 0 0 74px;
+  color: #666666;
+  border: 0;
+  padding: 0;
+}
+#tw ul .r li {
+  padding: 5px 3px 3px;
+  border-bottom: #F7F7F7 1px solid;
+  width: 475px;
+}
+#tw ul .r .num {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0079b7;
+  padding: 0px 5px;
+  float: left;
+  width: 20px;
+}
+#tw ul .r .name {
+  padding: 0;
+  font-size: 12px;
+  color: #336699;
+}
+#tw ul .r em a {
+  font-style: normal;
+}
+#tw ul .huifu {
+  margin: 0 0 0 74px;
+  background: #F5F5F5;
+  border: #CCCCCC solid 1px;
+  text-align: center;
+  display: none;
+}
+#tw ul .huifu textarea {
+  margin: 5px;
+  width: 460px;
+  border: #CCCCCC solid 1px;
+  overflow: auto;
+}
+#tw ul .huifu input {
+  margin: 0 5px;
+}
+#tw ul .huifu div {
+  padding: 0 5px;
+  text-align: center;
+}
+#tw ul .huifu .text {
+  width: 60px;
+}
+#tw ul .button_p {
+  border: 0;
+  cursor: pointer;
+  _cursor: hand;
+  width: 63px;
+  height: 25px;
+}
+#tw .tbutton {
+  font-size: 12px;
+  float: none;
+  margin-bottom: 3px;
+}
+#tw .tbutton input {
+  width: 90px;
+  border: #CCCCCC solid 1px;
+}
+#tw .tbutton .button_p {
+  border: 0;
+  cursor: pointer;
+  _cursor: hand;
+  width: 60px;
+  height: 25px;
+}
+#tw .tbutton .tinfo {
+  float: left;
+}
+#tw .msg {
+  clear: both;
+}
+#tw li {
+  list-style: none;
+}
+#tw ul .huifu textarea {
+  background-color: #FFFFFF;
+}
+#tw ul .huifu input {
+  background-color: #FFFFFF;
+}
+#tw ul li ul {
+  line-height: 0;
+  font-size: 0;
+}
+#tw ul li ul li {
+  font-size: 12px;
+  line-height: 22px;
+}
+#tw .top {
+  width: 650px;
+}
+#tw ul .r li {
+  width: 565px;
+}
+#tw ul .huifu textarea {
+  width: 550px;
+}
+#tw p .t_img {
+  background: url(../images/img.gif) no-repeat;
+  padding: 0 7px;
+  margin: 0 0 0 10px;
 }
