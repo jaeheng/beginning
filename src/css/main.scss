@@ -1,83 +1,35 @@
-@import "var";
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font: 14px/1.5 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans, 'Arial';
-  -webkit-font-smoothing: antialiased;
-  background-color: $extra-light-grey;
-  color: $light-black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  font-family: 'Arial', Microsoft Yahei, sans-serif;
-}
-
-.container {
-  display: block;
-  width: 1166px;
-  padding: 0 15px;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.pull-right {
-  float: right;
-}
-
-.clearfix, .clear {
-  clear: both;
-}
-
-a {
-  text-decoration: none;
-}
-li {
-  list-style-type: none;
-}
-.gold-v {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  background: url(../images/steps_gold_v.png) no-repeat -636px 0;
-  background-size: cover;
-}
-
-.avatar {
-  display: inline-block;
-  position: relative;
-  line-height: 1;
-  img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-  }
-  .gold-v {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-}
-
+/* 头部 */
 .header {
-  width: 100%;
   height: 200px;
-  background: rgba(0, 0, 0, 1) url("../images/snowberg.jpg") no-repeat center bottom;
-  color: #eee;
+  background: $extra-light-black url("../images/snowberg.jpg") no-repeat center bottom;
+  color: $dark-white;
   .avatar {
     float: left;
     margin-top: 50px;
-    margin-right: 15px;
-    img {
-      border: 4px solid #fff;
+    margin-right: 30px;
+    width: 76px;
+    height: 76px;
+    position: relative;
+    .img {
+      overflow: hidden;
       background-color: #fff;
-      width: 86px;
-      height: 86px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      transition: all .3s;
+    }
+    &:hover img {
+      transform: scale(1.2)
+    }
+    .gold-v {
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
   .userinfo {
@@ -85,16 +37,16 @@ li {
   }
   .username {
     margin-top: 50px;
-    font-size: 22px;
-    padding-left: 15px;
+    font-size: 18px;
     img {
-      width: 20px;
-      height: 20px;
+      margin-left: 10px;
+      width: 18px;
+      height: 18px;
     }
   }
   .userdesc {
-    padding-left: 15px;
-    color: #999;
+    color: $sliver;
+    font-size: 12px;
   }
   .count {
     margin-top: 10px;
@@ -102,19 +54,22 @@ li {
     .item {
       float: left;
       list-style-type: none;
-      padding: 0 15px;
-      border-right: 1px solid #999;
-      color: #999;
-      text-align: center;
+      padding: 0 20px;
+      border-right: 1px solid $extra-light-black;
+      color: $sliver;
       .num {
         color: $danger;
       }
       &:last-of-type {
         border-right: none;
       }
+      &:first-of-type {
+        padding-left: 0;
+      }
     }
   }
   .third-entry {
+    display: none;
     float: right;
     margin-top: 50px;
 
@@ -128,116 +83,56 @@ li {
   }
 }
 
-.input {
-  border: 1px solid $extra-light-black;
-  border-radius: 4px;
-  padding: 0 5px;
-  line-height: 24px;
-  width: 120px;
-  &:focus {
-    outline: none;
-    background-color: #eee;
-    width: 150px;
-    transition: all .5s;
-  }
-}
-
-.icon-menu {
-  display: block;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  .icon-menu-item {
-    display: block;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #ccc;
-    margin: 5px 0;
-  }
-}
-
-.icon-search {
-  display: block;
-  width: 30px;
-  height: 20px;
-  padding: 10px 5px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  .icon-search-item {
-    display: block;
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    position: relative;
-    &:after {
-      position: absolute;
-      top: 14px;
-      right: -6px;
-      content: '';
-      display: block;
-      width: 8px;
-      height: 2px;
-      background-color: #fff;
-      transform: rotate(45deg);
-    }
-  }
-}
-
+/* 导航栏 */
 .menu-box {
-  background-color: #1F2D3D;
-  color: #8492A6;
+  background-color: $light-black;
   a {
-    color: #8492A6;
+    color: $sliver;
+    white-space: nowrap;
   }
   .menu {
     float: left;
+    line-height: 50px;
   }
   .menu-item {
     float: left;
-    list-style-type: none;
     position: relative;
     a {
       display: block;
       text-decoration: none;
-      height: 48px;
-      line-height: 48px;
-      padding: 0 15px;
+      padding: 0 20px;
     }
     &:hover, &.active {
-      transition: all .5s;
-      background-color: $danger;
+      transition: all .3s;
       a {
         color: #fff;
+        background-color: $extra-light-black;
       }
     }
-    &:hover {
-      .sub-nav {
-        display: block;
-      }
+    &:hover .sub-nav,
+    a:focus + .sub-nav {
+      display: block;
     }
+
     .sub-nav {
       position: absolute;
       z-index: 999;
       background-color: $extra-light-black;
-      width: 120px;
       display: none;
       a {
-        display: block;
         &:hover {
-          background-color: $danger;
+          background-color: $light-black;
         }
       }
     }
   }
   .input {
-    margin-top: 11px;
-    background-color: $extra-light-black;
+    margin-top: 10px;
+    background-color: $light-black;
     color: lighten($extra-light-black, 10%);
     &:focus {
-      background-color: #eee;
+      background-color: #fff;
+      color: $extra-light-black;
     }
   }
   .icon-menu, .icon-search {
@@ -250,11 +145,11 @@ li {
   }
 }
 
+/* 面包屑导航 */
 .breadthumb {
-  padding: 10px 0;
+  padding: 15px 0;
   .bread-item {
     color: $light-black;
-    text-decoration: none;
     margin-right: 5px;
     &:after {
       content: ' >';
@@ -337,10 +232,11 @@ li {
     }
   }
   .description, .info {
-    color: $sliver;
+    color: $extra-light-black;
   }
   .description {
     margin: 10px 0;
+    line-height: 1.8;
     img {
       width: 100%;
       height: auto;

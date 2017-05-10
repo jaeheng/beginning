@@ -9,23 +9,23 @@ $(function () {
         if (type) {
             toggleOpenDoms.each(function () {
                 $('#' + $(this).data('target')).show();
-            })
+            });
         } else {
             toggleOpenDoms.each(function () {
                 $('#' + $(this).data('target')).slideUp(100);
-            })
+            });
         }
     };
 
     $(window).resize(function (e) {
         isMobile = document.body.clientWidth < 960;
-        toggleOpenAll(!isMobile)
+        toggleOpenAll(!isMobile);
     });
 
     // 点击其它地方， 关闭已经通过toggle-open打开的元素
     $(document).on('click', function (e) {
         if(isMobile) {
-            toggleOpenAll(false)
+            toggleOpenAll(false);
         }
     });
 
@@ -33,7 +33,7 @@ $(function () {
     $('.toggle-open').each(function () {
         $('#' + $(this).data('target')).click(function (e) {
             e.stopPropagation();
-        })
+        });
     });
 
     // 点击.toggle-open自己的时候阻止冒泡， 不触发slideup
@@ -47,6 +47,7 @@ $(function () {
 
     // gotoup
     var gotoup = $('.gotoup');
+
     // 页面滚动400px后显示gotoup按钮
     $(window).on('scroll', function (e) {
         var topHeight = $(window).scrollTop();
@@ -62,5 +63,5 @@ $(function () {
         $('html,body').animate({
             scrollTop: '0px'
         }, 700);
-    })
+    });
 });

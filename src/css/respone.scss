@@ -1,32 +1,28 @@
-@import "var";
-
 @media all and (max-width: 960px) {
   body {
-    padding-top: 46px;
+    padding-top: $mini-header-height;
   }
   .header {
     display: none;
   }
-
   .menu-box {
     position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 46px;
     top: 0;
+    width: 100%;
+    height: $mini-header-height;
+    z-index: 999;
     .icon-menu{
       display: block;
-      border: none;
       position: absolute;
-      right: 10px;
-      top: 3px;
+      right: 15px;
+      top: 15px;
       z-index: 99;
     }
     .menu {
       display: none;
       position: absolute;
-      right: 15px;
-      top: 46px;
+      right: 0;
+      top: 50px;
       width: 50%;
       background-color: $light-black;
       z-index: 999;
@@ -54,9 +50,11 @@
       box-sizing: border-box;
       .input {
         width: 100%;
-        margin: 3px 0;
-        line-height: 28px;
+        margin: 5px 0;
+        line-height: 30px;
         padding: 0 10px;
+        border: none;
+        //border-bottom: 1px solid $sliver;
         &:focus {
           background-color: #fff;
         }

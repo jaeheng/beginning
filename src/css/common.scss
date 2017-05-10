@@ -1,0 +1,106 @@
+html, body, h1, h2, h3, h4, h5, h6, p, img, ul, li, ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans, 'Arial';
+  -webkit-font-smoothing: antialiased;
+  background-color: $extra-light-grey;
+  color: $light-black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: 'Arial', Microsoft Yahei, sans-serif;
+}
+
+img {
+  border: none;
+}
+.container {
+  display: block;
+  width: 1166px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix, .clear {
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+.gold-v {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: url(../images/steps_gold_v.png) no-repeat -525px 0;
+  background-size: cover;
+}
+
+.input {
+  border: 1px solid $extra-light-black;
+  padding: 0 10px;
+  line-height: 30px;
+  width: 120px;
+  height: 30px;
+  outline: none;
+  &:focus {
+    background-color: $sliver;
+    width: 150px;
+    transition: all .5s;
+  }
+}
+
+.icon-menu {
+  display: block;
+  width: 30px;
+  .icon-menu-item {
+    display: block;
+    height: 1px;
+    background-color: $sliver;
+    margin: 0 0 8px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.icon-search {
+  display: block;
+  width: 30px;
+  height: 20px;
+  padding: 10px 5px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  .icon-search-item {
+    display: block;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    position: relative;
+    &:after {
+      position: absolute;
+      top: 14px;
+      right: -6px;
+      content: '';
+      display: block;
+      width: 8px;
+      height: 2px;
+      background-color: #fff;
+      transform: rotate(45deg);
+    }
+  }
+}

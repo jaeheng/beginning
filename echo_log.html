@@ -6,25 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>测试</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_gz3j33wago06n7b9.css">
-    <link rel="stylesheet" href="css/style.css?version=v1.0.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_df2mbqcqkeasjor.css">
+    <link rel="stylesheet" href="dist/css/style.css?version=v1.0.0">
 </head>
 <body>
 <!--[if lte IE 8]>
-<div id="browsehappy">您正在使用的浏览器版本过低，请<a href="http://browsehappy.com/" target="_blank"><strong>升级您的浏览器</strong></a>，获得最佳的浏览体验！</div>
+<div id="browsehappy" style="text-align:center;background:#ff0;">您正在使用的浏览器版本过低，请<a href="http://browsehappy.com/" target="_blank"><strong>升级您的浏览器</strong></a>，获得最佳的浏览体验！</div>
 <![endif]-->
 
 <!--头部区域-->
 <header id="header" class="header">
     <div class="container">
         <a href="/" class="avatar">
-            <img src="images/logo.png" alt="头像">
-            <em class="gold-v"></em>
+            <div class="img"><img src="dist/images/logo.png" alt="头像"></div>
+            <i class="gold-v"></i>
         </a>
         <div class="userinfo">
             <h1 class="username">
                 戴墨镜的刘备
-                <a href="http://weibo.com/theheng" target="_blank"><img src="images/weibo_48_48.png" alt="weibo"></a>
+                <a href="http://weibo.com/theheng" target="_blank"><img src="dist/images/weibo_48_48.png" alt="weibo"></a>
             </h1>
             <h3 class="userdesc">演员， 自媒体人</h3>
             <ul class="count">
@@ -33,13 +33,17 @@
                     文章
                 </li>
                 <li class="item">
-                    <div class="num">23039213</div>
+                    <div class="num">2309213</div>
                     阅读量
+                </li>
+                <li class="item">
+                    <div class="num">4526</div>
+                    留言
                 </li>
             </ul>
         </div>
         <div class="third-entry">
-            <img src="images/payme.png" alt="wechat">
+            <img src="dist/images/payme.png" alt="wechat">
             <p>关注微信公众号</p>
         </div>
     </div>
@@ -54,15 +58,24 @@
             <i class="icon-menu-item"></i>
             <i class="icon-menu-item"></i>
         </a>
+        <!--菜单部分-->
         <ul class="menu" id="menu">
             <li class="menu-item active"><a href="">首页</a></li>
             <li class="menu-item"><a href="">财经</a></li>
-            <li class="menu-item"><a href="">手机</a></li>
+            <li class="menu-item">
+                <a href="">手机</a>
+                <ul class="sub-nav">
+                    <li><a href="http://localhost:8090/?sort=61">EMLOG模版</a></li>
+                    <li><a href="http://localhost:8090/?sort=60">EMLOG插件</a></li>
+                    <li><a href="http://localhost:8090/?sort=59">EMLOG教程</a></li>
+                </ul>
+            </li>
             <li class="menu-item"><a href="">科技</a></li>
             <li class="menu-item"><a href="">巨头</a></li>
         </ul>
+        <!--菜单部分 /-->
         <form action="" method="get" class="pull-right search" id="search-form">
-            <input type="search" class="input" placeholder="search..." />
+            <input type="search" class="input" placeholder="搜索" />
         </form>
     </div>
 </div>
@@ -133,9 +146,9 @@
                     <span class="pull-right">本文最后编辑于2017-2-2 12:12:12</span>
                 </div>
                 <div class="panel-body author">
-                    <img src="images/default_avatar.png" alt="作者" class="avatar">
+                    <img src="dist/images/default_avatar.png" alt="作者" class="avatar">
                     <p class="author-desc">演员、自媒体人</p>
-                    <a href=""><img src="images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
+                    <a href=""><img src="dist/images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
                 </div>
             </div>
 
@@ -160,7 +173,7 @@
                 <ul class="log-comments">
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">御风牧云007</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">大争之世，哪一国敢妄言灭一国？</p>
@@ -169,7 +182,7 @@
                     </li>
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">雾</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">日狗花钱买的记者，西方的走狗</p>
@@ -178,7 +191,7 @@
                     </li>
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">烽烟无限</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">好好好，我们一群农夫你们满意了吧！开战了别你们一群勇士被打成农夫了，农夫没什么怕的，勇士被打的丢盔弃甲成农夫，那可就要对调了，战胜勇士的农夫要穿上勇士的衣服成为新农夫，战败被丢盔卸甲的勇士就只有去做农夫了</p>
@@ -187,7 +200,7 @@
                     </li>
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">ailin</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">战争是残酷的，但也有其必然性，中美必有一战，只是时间问题，战争规模问题，因为人类社会还没有出现过不发生战争的历史，也不可能维持不发生战争的历史，这是规律，无法改变。如果现在或短期内爆发战争，美国实力明显占优，如果往后就不好说了，越往后中国实力会越强！但即便现在就爆发战争，在美国占优的情况下开战，中国也不会输！输赢是相对的，除非你彻底占领并完全控制一个国家，否则，你即便赢得了一些战场上的优势，最终结果仍是未知！以中国如今的实力，即便军事上遭受失败，但绝不会发生被美国占领的可能，既然如此，美国最终将被中国拖垮。如果要发生核大战...那谁都不会赢</p>
@@ -196,7 +209,7 @@
                     </li>
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">静静</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">日元发挥作用了？到时连农夫都打不赢，你那眼光比农夫都不如了。</p>
@@ -205,7 +218,7 @@
                     </li>
                     <li>
                         <div class="comment-inner">
-                            <img class="avatar" src="images/default_avatar.png">
+                            <img class="avatar" src="dist/images/default_avatar.png">
                             <i class="username">烽烟无限</i>
                             <span class="time">2016年12月14日</span>
                             <p class="comment-content">就从一个使用者的角度，来看看这款笔电表现如何</p>
@@ -241,7 +254,7 @@
             <ul>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">御风牧云007</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">大争之世，哪一国敢妄言灭一国？</p>
@@ -253,7 +266,7 @@
                 </li>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">雾</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">日狗花钱买的记者，西方的走狗</p>
@@ -265,7 +278,7 @@
                 </li>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">烽烟无限</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">好好好，我们一群农夫你们满意了吧！开战了别你们一群勇士被打成农夫了，农夫没什么怕的，勇士被打的丢盔弃甲成农夫，那可就要对调了，战胜勇士的农夫要穿上勇士的衣服成为新农夫，战败被丢盔卸甲的勇士就只有去做农夫了</p>
@@ -277,7 +290,7 @@
                 </li>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">ailin</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">战争是残酷的，但也有其必然性，中美必有一战，只是时间问题，战争规模问题，因为人类社会还没有出现过不发生战争的历史，也不可能维持不发生战争的历史，这是规律，无法改变。如果现在或短期内爆发战争，美国实力明显占优，如果往后就不好说了，越往后中国实力会越强！但即便现在就爆发战争，在美国占优的情况下开战，中国也不会输！输赢是相对的，除非你彻底占领并完全控制一个国家，否则，你即便赢得了一些战场上的优势，最终结果仍是未知！以中国如今的实力，即便军事上遭受失败，但绝不会发生被美国占领的可能，既然如此，美国最终将被中国拖垮。如果要发生核大战...那谁都不会赢</p>
@@ -289,7 +302,7 @@
                 </li>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">静静</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">日元发挥作用了？到时连农夫都打不赢，你那眼光比农夫都不如了。</p>
@@ -301,7 +314,7 @@
                 </li>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="images/default_avatar.png">
+                        <img class="avatar" src="dist/images/default_avatar.png">
                         <i class="username">烽烟无限</i>
                         <span class="time">2016年12月14日</span>
                         <p class="comment-content">就从一个使用者的角度，来看看这款笔电表现如何</p>
@@ -367,7 +380,7 @@
     <a href="javascript:;" class="item">
         <i class="iconfont icon-qrcode"></i>
         <div class="popup">
-            <img src="images/payme.png" alt="关注公众号">
+            <img src="dist/images/payme.png" alt="关注公众号">
             <h3 class="title">关注公众号</h3>
         </div>
     </a>
@@ -376,7 +389,7 @@
 </div>
 <!--网站小工具 ／-->
 
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/main.js?version=v1.0.0"></script>
+<script src="dist/vendor/jquery-3.1.1.min.js"></script>
+<script src="dist/js/main.js?version=v1.0.0"></script>
 </body>
 </html>
