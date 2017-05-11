@@ -12,6 +12,8 @@ var mainscss = './src/css/style.scss'
 var images = './src/images/*'
 var vendor = './src/lib/*'
 
+var dest = './public/dist/'
+
 /* 检查代码 */
 gulp.task('lint', function() {
     return gulp.src(mainjs)
@@ -24,7 +26,7 @@ gulp.task('script', ['lint'], function (cb) {
     pump([
             gulp.src(mainjs),
             uglify(),
-            gulp.dest('dist/js')
+            gulp.dest(dest + 'js')
         ],
         cb
     );
@@ -36,19 +38,19 @@ gulp.task('stylesheet', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest(dest + 'css'));
 });
 
 /* move images */
 gulp.task('images', function () {
     return gulp.src(images)
-        .pipe(gulp.dest('dist/images'));
+        .pipe(gulp.dest(dest + 'images'));
 })
 
 /* move jquery and * */
 gulp.task('vendor', function () {
     return gulp.src(vendor)
-        .pipe(gulp.dest('dist/vendor'));
+        .pipe(gulp.dest(dest + 'vendor'));
 })
 
 /* 监控js和scss */
@@ -60,11 +62,12 @@ gulp.task('watch', ['script', 'stylesheet', 'images', 'vendor'], function () {
 })
 
 gulp.task('default', ['watch'], function () {
-    gulp.src('./')
-        .pipe(webserver({
-            host: '192.168.2.254',
-            livereload: true,
-            directoryListing: true,
-            open: true
-        }));
+    // 可启动一个静态服务器
+    // gulp.src('./')
+    //     .pipe(webserver({
+    //         host: '192.168.2.254',
+    //         livereload: true,
+    //         directoryListing: true,
+    //         open: true
+    //     }));
 });

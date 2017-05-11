@@ -1,95 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>测试</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_df2mbqcqkeasjor.css">
-    <link rel="stylesheet" href="dist/css/style.css?version=v1.0.0">
-</head>
-<body>
-<!--[if lte IE 8]>
-<div id="browsehappy" style="text-align:center;background:#ff0;">您正在使用的浏览器版本过低，请<a href="http://browsehappy.com/" target="_blank"><strong>升级您的浏览器</strong></a>，获得最佳的浏览体验！</div>
-<![endif]-->
-
-<!--头部区域-->
-<header id="header" class="header">
-    <div class="container">
-        <a href="/" class="avatar">
-            <div class="img"><img src="dist/images/logo.png" alt="头像"></div>
-            <i class="gold-v"></i>
-        </a>
-        <div class="userinfo">
-            <h1 class="username">
-                戴墨镜的刘备
-                <a href="http://weibo.com/theheng" target="_blank"><img src="dist/images/weibo_48_48.png" alt="weibo"></a>
-            </h1>
-            <h3 class="userdesc">演员， 自媒体人</h3>
-            <ul class="count">
-                <li class="item">
-                    <div class="num">234</div>
-                    文章
-                </li>
-                <li class="item">
-                    <div class="num">2309213</div>
-                    阅读量
-                </li>
-                <li class="item">
-                    <div class="num">4526</div>
-                    留言
-                </li>
-            </ul>
-        </div>
-        <div class="third-entry">
-            <img src="dist/images/payme.png" alt="wechat">
-            <p>关注微信公众号</p>
-        </div>
-    </div>
-</header>
-<!--头部区域 ／-->
-
-<!--导航-->
-<div class="menu-box">
-    <div class="container">
-        <a href="javascript:;" class="icon-menu toggle-open" data-target="menu">
-            <i class="icon-menu-item"></i>
-            <i class="icon-menu-item"></i>
-            <i class="icon-menu-item"></i>
-        </a>
-        <!--菜单部分-->
-        <ul class="menu" id="menu">
-            <li class="menu-item active"><a href="">首页</a></li>
-            <li class="menu-item"><a href="">财经</a></li>
-            <li class="menu-item">
-                <a href="">手机</a>
-                <ul class="sub-nav">
-                    <li><a href="http://localhost:8090/?sort=61">EMLOG模版</a></li>
-                    <li><a href="http://localhost:8090/?sort=60">EMLOG插件</a></li>
-                    <li><a href="http://localhost:8090/?sort=59">EMLOG教程</a></li>
-                </ul>
-            </li>
-            <li class="menu-item"><a href="">科技</a></li>
-            <li class="menu-item"><a href="">巨头</a></li>
-        </ul>
-        <!--菜单部分 /-->
-        <form action="" method="get" class="pull-right search" id="search-form">
-            <input type="search" class="input" placeholder="搜索" />
-        </form>
-    </div>
-</div>
-<!--导航 ／-->
-
-<!--面包屑导航-->
-<div class="breadthumb">
-    <div class="container">
-        <i class="iconfont icon-notice"></i>
-        Welcome to my blog, thank you
-    </div>
-</div>
-<!--面包屑导航-->
-
+<!--默认的日志列表-->
 <div class="main container">
     <div class="content-wrap">
         <div class="content" id="content">
@@ -119,9 +28,9 @@
                     <h3 class="title"><a href="echo_log.html">印媒：中国银行业市值首超美国银行 成全球领导者</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         参考消息网2月7日报道 印媒称，某商业评估咨询机构的报告称，随着中国的银行崛起成为资产基础以及品牌价值方面的全球领导者，中国银行业的总价值首次超过美国银行。
@@ -138,9 +47,9 @@
                     <h3 class="title"><a href="echo_log.html">英媒称英对华出口数据或不实 有些交易有始无终</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -158,9 +67,9 @@
                     <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -178,9 +87,9 @@
                     <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -198,9 +107,9 @@
                     <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -218,9 +127,9 @@
                     <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -238,9 +147,9 @@
                     <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
-                        <i class="iconfont icon-user"></i> <a href="/" class="user">jaeheng</a>
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
                         <i class="iconfont icon-view"></i> <span class="views">235</span>
+                        <a href="/" class="user">jaeheng</a>
                     </div>
                     <p class="description">
                         中工网北京2月6日电（记者赵剑影）今天，记者从国家统计局获悉，文化及相关产业10个行业的营业收入均保持增长，文化服务业快速增长。
@@ -364,67 +273,4 @@
     </div>
     <div class="clearfix"></div>
 </div>
-
-<!--footer-->
-<footer class="footer">
-    <div class="container">
-        <div class="widget widget-topic">
-            <h3>热门话题</h3>
-            <div class="widget-inner">
-                <a href="" class="topic-item">#孤单北半球#</a>
-                <a href="" class="topic-item">#emlog#</a>
-                <a href="" class="topic-item">#超级碗#</a>
-                <a href="" class="topic-item">#蜂鸟主题#</a>
-                <a href="" class="topic-item">#fntheme.com#</a>
-                <a href="" class="topic-item">#孤单北半球#</a>
-                <a href="" class="topic-item">#周杰伦#</a>
-            </div>
-        </div>
-        <div class="widget">
-            <h3>联系我们</h3>
-            <div class="widget-inner">
-                <p>Email: <a href="mailto:service@fntheme.com">service@fntheme.com</a></p>
-                <p>Weibo: <a href="http://weibo.com/fntheme">fntheme</a></p>
-            </div>
-        </div>
-        <div class="widget">
-            <h3>合作伙伴</h3>
-            <div class="widget-inner">
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-                <a href="" class="label label-tag">子恒博客</a>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--footer ／-->
-
-<!--版权信息-->
-<div class="copyright">
-    Copyright &copy; <a href="/">fntheme</a> && <a href="http://zhangziheng.com" target="_blank">jaeheng</a> | 京ICP备11008151号
-</div>
-<!--版权信息 ／-->
-
-<!--网站小工具-->
-<div class="site-tools">
-    <a href="javascript:;" class="item"><i class="iconfont icon-gift"></i></a>
-    <a href="javascript:;" class="item">
-        <i class="iconfont icon-qrcode"></i>
-        <div class="popup">
-            <img src="dist/images/payme.png" alt="关注公众号">
-            <h3 class="title">关注公众号</h3>
-        </div>
-    </a>
-    <a href="javascript:;" class="item"><i class="iconfont icon-qq"></i></a>
-    <div class="item active gotoup"><i class="iconfont icon-up"></i></div>
-</div>
-<!--网站小工具 ／-->
-
-<script src="dist/vendor/jquery-3.1.1.min.js"></script>
-<script src="dist/js/main.js?version=v1.0.0"></script>
-</body>
-</html>
+<!--默认的日志列表-->

@@ -1,0 +1,57 @@
+@media all and (min-width: 960px) {
+  .log_list_single {
+    .log_list_item {
+      min-height: inherit;
+      padding-left: 15px;
+      .pic-link {
+        position: static;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+        &:hover img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .log_list_img {
+    overflow: hidden;
+    .log_list_item {
+      float: left;
+      width: 49%;
+      box-sizing: border-box;
+      height: 250px;
+      .description {
+        max-height: 100px;
+        overflow: hidden;
+      }
+      &:nth-of-type(2n-1) {
+        margin-right: 2%;
+      }
+    }
+  }
+  .log_list_three {
+    overflow: hidden;
+    .log_list_item {
+      float: left;
+      width: 32.33%;
+      margin-right: 1.5%;
+      box-sizing: border-box;
+      padding-left: 15px;
+      height: 410px;
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      .pic-link {
+        position: static;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      .description {
+        max-height: 100px;
+        overflow: hidden;
+      }
+    }
+  }
+}
