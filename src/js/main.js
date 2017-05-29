@@ -69,16 +69,16 @@ $(function () {
     var siteNotice = $('#site-notice');
     if (siteNotice) {
         var time = 1;
-        var ul = siteNotice.find('ul')
-        var lis = ul.find('li')
-        var len = lis.length
+        var ul = siteNotice.find('ul');
+        var lis = ul.find('li');
+        var len = lis.length;
         setInterval(function () {
             if (time >= len) {
-                time = 0
+                time = 0;
             }
             ul.animate({
                 top: -24 * time++
-            })
-        }, 5000)
+            });
+        }, 5000);
     }
 });

@@ -1,6 +1,6 @@
 <!--双栏列表-->
 <div class="main container">
-    <ul class="log_list log_list_img">
+    <ul class="log_list log_list_2">
         <li class="log_list_item">
             <div class="tag">财经</div>
             <a href="echo_log.html" class="pic-link"><img src="dist/images/1486267879376.jpg" alt="文化信息服务业营收实现两位数增长"></a>

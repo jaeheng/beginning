@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>测试</title>
+    <title>演示页面</title>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_df2mbqcqkeasjor.css">
     <link rel="stylesheet" href="dist/css/style.css?version=v1.0.0">
 </head>
@@ -49,7 +49,9 @@
     </div>
 </header>
 <!--头部区域 ／-->
-
+<?php
+    $sn = $_SERVER['SCRIPT_NAME'];
+?>
 <!--导航-->
 <div class="menu-box">
     <div class="container">
@@ -60,18 +62,18 @@
         </a>
         <!--菜单部分-->
         <ul class="menu" id="menu">
-            <li class="menu-item active"><a href="">首页</a></li>
-            <li class="menu-item"><a href="">财经</a></li>
+            <li class="menu-item <?php echo $sn === '/index.php' ? 'active' : '';?>"><a href="/index.php">首页</a></li>
+            <li class="menu-item <?php echo $sn === '/log_list_2.php' ? 'active' : '';?>"><a href="/log_list_2.php">二栏布局</a></li>
+            <li class="menu-item <?php echo $sn === '/log_list_3.php' ? 'active' : '';?>"><a href="/log_list_3.php">三栏布局</a></li>
+            <li class="menu-item <?php echo $sn === '/log_list_img.php' ? 'active' : '';?>"><a href="/log_list_img.php">图片列表</a></li>
             <li class="menu-item">
-                <a href="">手机</a>
+                <a href="/index.php">下拉菜单</a>
                 <ul class="sub-nav">
-                    <li><a href="http://localhost:8090/?sort=61">EMLOG模版</a></li>
-                    <li><a href="http://localhost:8090/?sort=60">EMLOG插件</a></li>
-                    <li><a href="http://localhost:8090/?sort=59">EMLOG教程</a></li>
+                    <li><a href="/index.php">EMLOG模版</a></li>
+                    <li><a href="/index.php">EMLOG插件</a></li>
+                    <li><a href="/index.php">EMLOG教程</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a href="">科技</a></li>
-            <li class="menu-item"><a href="">巨头</a></li>
         </ul>
         <!--菜单部分 /-->
         <form action="" method="get" class="pull-right search" id="search-form">

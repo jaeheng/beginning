@@ -1,7 +1,7 @@
 /* 头部 */
 .header {
   height: 200px;
-  background: $extra-light-black url("../images/snowberg.jpg") no-repeat center bottom;
+  background: $light-black url("../images/snowberg.jpg") no-repeat center bottom;
   color: $dark-white;
   .avatar {
     float: left;
@@ -85,7 +85,7 @@
 
 /* 导航栏 */
 .menu-box {
-  background-color: $light-black;
+  background-color: $black;
   a {
     color: $sliver;
     white-space: nowrap;
@@ -106,7 +106,7 @@
       transition: all .3s;
       a {
         color: #fff;
-        background-color: $extra-light-black;
+        background-color: $light-black;
       }
     }
     &:hover .sub-nav,
@@ -117,18 +117,18 @@
     .sub-nav {
       position: absolute;
       z-index: 999;
-      background-color: $extra-light-black;
+      background-color: $light-black;
       display: none;
       a {
         &:hover {
-          background-color: $light-black;
+          background-color: $black;
         }
       }
     }
   }
   .input {
     margin-top: 10px;
-    background-color: $light-black;
+    background-color: $black;
     color: lighten($extra-light-black, 10%);
     &:focus {
       background-color: #fff;
@@ -163,13 +163,16 @@
     }
   }
 }
+
 .main {
   position: relative;
 }
+
 .content-wrap {
   float: left;
   width: 100%;
 }
+
 .content {
   padding-right: 375px;
 }
@@ -297,78 +300,11 @@
   margin-left: -360px;
 }
 
-.widget {
-  margin-bottom: 15px;
-  background-color: #fff;
-  li {
-    list-style-type: none;
-  }
-  h3 {
-    border-bottom: 1px solid $extra-light-grey;
-    padding: 10px 15px;
-    position: relative;
-    &:after {
-      position: absolute;
-      bottom: -1px;
-      display: block;
-      content: '';
-      width: 70px;
-      height: 1px;
-      background-color: $danger;
-    }
-  }
-  ul {
-    padding: 15px;
-  }
-  .widget-inner {
-    padding: 15px;
-  }
-  .comment-inner {
-    padding-left: 55px;
-    position: relative;
-    .avatar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      border-radius: 50%;
-    }
-    .username {
-      font-style: normal;
-      font-weight: bold;
-    }
-    .time {
-      float: right;
-      color: #999;
-    }
-    .comment-content {
-      color: $extra-light-black;
-    }
-  }
-  .comment-refer {
-    margin: 10px 0 15px;
-    .iconfont {
-      font-size: 22px;
-      color: $danger;
-      margin-right: 10px;
-    }
-    a {
-      color: $danger;
-      margin-left: 10px;
-    }
-  }
-  .label-tag {
-    margin-bottom: 5px;
-    &:hover {
-      opacity: .9;
-    }
-  }
-}
-
 //footer
 .footer {
   margin-top: 30px;
   padding: 30px 0;
-  background-color: $extra-light-black;
+  background-color: $light-black;
   color: $dark-white;
   a {
     color: #fff;
@@ -404,7 +340,7 @@
 .copyright {
   text-align: center;
   padding: 30px 0;
-  background-color: $light-black;
+  background-color: $black;
   color: $extra-light-black;
   a {
     color: $extra-light-black;
