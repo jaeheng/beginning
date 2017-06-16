@@ -8,7 +8,7 @@ beginning_emlog_v1.0.zip 文件是emlog模版的安装包，在emlog后台可直
 
 ## 捐赠
 
-> ![](images/payme.png)
+> ![](src/images/payme.png)
 
 ## LICENSE
 MIT
