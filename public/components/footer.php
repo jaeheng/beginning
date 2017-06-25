@@ -38,7 +38,7 @@
 
 <!--版权信息-->
 <div class="copyright">
-    Copyright &copy; <a href="/">fntheme</a> && <a href="http://zhangziheng.com" target="_blank">jaeheng</a> | 京ICP备11008151号
+    Copyright &copy; <a href="/">fntheme</a> && <a href="http://zhangziheng.com" target="_blank">jaeheng</a> | 京ICP备11231123号
 </div>
 <!--版权信息 ／-->
 

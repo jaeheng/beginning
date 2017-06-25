@@ -50,7 +50,8 @@ li {
 }
 
 .input {
-  border: 1px solid $light-black;
+  border: none;
+  border-bottom: 1px solid $light-black;
   padding: 0 10px;
   line-height: 30px;
   width: 120px;

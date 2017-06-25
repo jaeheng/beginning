@@ -57,9 +57,6 @@
       padding: 0 20px;
       border-right: 1px solid $extra-light-black;
       color: $sliver;
-      .num {
-        color: $danger;
-      }
       &:last-of-type {
         border-right: none;
       }
@@ -207,11 +204,11 @@
     overflow: hidden;
     img {
       width: 100%;
-      transition: all .5s;
+      transition: all 1s;
     }
     &:hover {
       img {
-        width: 120%;
+        transform: scale(1.4);
       }
     }
   }
@@ -260,17 +257,8 @@
   color: #fff!important;
   padding: 0 10px;
   font-size: 12px;
-  &.label-tag:nth-of-type(n),
-  &.label-success {
-    background-color: $green;
-  }
-  &.label-tag:nth-of-type(2n),
-  &.label-danger {
+  &:hover {
     background-color: $danger;
-  }
-  &.label-tag:nth-of-type(3n),
-  &.label-info {
-    background-color: $blue;
   }
 }
 
@@ -306,12 +294,6 @@
   padding: 30px 0;
   background-color: $light-black;
   color: $dark-white;
-  a {
-    color: #fff;
-    &:hover {
-      color: $danger;
-    }
-  }
   &:after {
     content: '';
     display: block;
@@ -327,6 +309,12 @@
       border-color: $sliver;
       &:after {
         display: none;
+      }
+    }
+    a {
+      color: #fff;
+      &:hover {
+        color: $danger;
       }
     }
   }
@@ -451,6 +439,10 @@ $tools-item-width: 50px;
       color: $danger;
     }
   }
+  h1, h2, h3, h4, h5 {
+    border-left: 2px solid #9299a5;
+    padding-left: 15px;
+  }
 }
 .relief {
   text-indent: 2em;
@@ -473,7 +465,7 @@ $tools-item-width: 50px;
   }
 }
 
-#related_log {
+#related_log, .relation {
   line-height: 1.8;
   p{
     margin-bottom: 0;
@@ -498,7 +490,7 @@ $tools-item-width: 50px;
 
 .log-comments {
   li {
-    margin-bottom: 20px;
+    padding: 20px 0;
   }
 }
 
@@ -584,172 +576,4 @@ $tools-item-width: 50px;
 }
 .btn.btn-block {
   display: block;
-}
-
-#tw {
-  background-color: #fff;
-  box-sizing: border-box;
-  padding: 15px;
-}
-#tw ul {
-  margin: 0;
-  line-height: 1.8;
-  padding: 0 15px;
-}
-#tw ul .li {
-  padding: 10px 0;
-  border-bottom: #F7F7F7 1px solid;
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-#tw .main_img {
-  float: left;
-  padding-top: 5px;
-}
-#tw .main_img img {
-  border: 1px #fff solid;
-}
-#tw ul li .post1 {
-  float: right;
-  font-size: 13px;
-  width: 580px;
-}
-#tw ul li .post1 h3 {
-  font-weight: bold;
-}
-#tw ul li .bttome {
-  margin: 5px 0;
-}
-#tw ul li .bttome .time {
-  float: left;
-  width: 50%;
-  line-height: 14px;
-  font-size: 12px;
-  margin: 0;
-}
-#tw ul li .bttome .post {
-  float: right;
-  width: 50%;
-  font-size: 12px;
-  line-height: 14px;
-  margin: 0;
-  text-align: right;
-}
-#tw ul li {
-  clear: both;
-  padding: 0;
-  margin: 0;
-}
-#tw ul .r {
-  margin: 0 0 0 74px;
-  color: #666666;
-  border: 0;
-  padding: 0;
-}
-#tw ul .r li {
-  padding: 5px 3px 3px;
-  border-bottom: #F7F7F7 1px solid;
-  width: 475px;
-}
-#tw ul .r .num {
-  font-size: 16px;
-  font-weight: bold;
-  color: #0079b7;
-  padding: 0px 5px;
-  float: left;
-  width: 20px;
-}
-#tw ul .r .name {
-  padding: 0;
-  font-size: 12px;
-  color: #336699;
-}
-#tw ul .r em a {
-  font-style: normal;
-}
-#tw ul .huifu {
-  margin: 0 0 0 74px;
-  background: #F5F5F5;
-  border: #CCCCCC solid 1px;
-  text-align: center;
-  display: none;
-}
-#tw ul .huifu textarea {
-  margin: 5px;
-  width: 460px;
-  border: #CCCCCC solid 1px;
-  overflow: auto;
-}
-#tw ul .huifu input {
-  margin: 0 5px;
-}
-#tw ul .huifu div {
-  padding: 0 5px;
-  text-align: center;
-}
-#tw ul .huifu .text {
-  width: 60px;
-}
-#tw ul .button_p {
-  border: 0;
-  cursor: pointer;
-  _cursor: hand;
-  width: 63px;
-  height: 25px;
-}
-#tw .tbutton {
-  font-size: 12px;
-  float: none;
-  margin-bottom: 3px;
-}
-#tw .tbutton input {
-  width: 90px;
-  border: #CCCCCC solid 1px;
-}
-#tw .tbutton .button_p {
-  border: 0;
-  cursor: pointer;
-  _cursor: hand;
-  width: 60px;
-  height: 25px;
-}
-#tw .tbutton .tinfo {
-  float: left;
-}
-#tw .msg {
-  clear: both;
-}
-#tw li {
-  list-style: none;
-}
-#tw ul .huifu textarea {
-  background-color: #FFFFFF;
-}
-#tw ul .huifu input {
-  background-color: #FFFFFF;
-}
-#tw ul li ul {
-  line-height: 0;
-  font-size: 0;
-}
-#tw ul li ul li {
-  font-size: 12px;
-  line-height: 22px;
-}
-#tw .top {
-  width: 650px;
-}
-#tw ul .r li {
-  width: 565px;
-}
-#tw ul .huifu textarea {
-  width: 550px;
-}
-#tw p .t_img {
-  background: url(../images/img.gif) no-repeat;
-  padding: 0 7px;
-  margin: 0 0 0 10px;
 }

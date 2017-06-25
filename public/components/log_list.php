@@ -5,8 +5,8 @@
             <ul class="log_list">
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/1486267879376.jpg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">世界经济不理会悲观警讯：PMI一片“繁荣”</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/1486267879376.jpg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">世界经济不理会悲观警讯：PMI一片“繁荣”</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -24,8 +24,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/1486607924169.jpg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">印媒：中国银行业市值首超美国银行 成全球领导者</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/1486607924169.jpg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">印媒：中国银行业市值首超美国银行 成全球领导者</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -43,8 +43,9 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag label label-danger">国际财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/1486529385139.jpg" alt="英媒称英对华出口数据或不实 有些交易有始无终"></a>
-                    <h3 class="title"><a href="echo_log.html">英媒称英对华出口数据或不实 有些交易有始无终</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/1486529385139.jpg" alt="英媒称英对华出口数据或不实
+                    有些交易有始无终"></a>
+                    <h3 class="title"><a href="echo_log.php">英媒称英对华出口数据或不实 有些交易有始无终</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -63,8 +64,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -83,8 +84,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -103,8 +104,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -123,8 +124,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>
@@ -143,8 +144,8 @@
                 </li>
                 <li class="log_list_item">
                     <div class="tag">财经</div>
-                    <a href="echo_log.html" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
-                    <h3 class="title"><a href="echo_log.html">文化信息服务业营收实现两位数增长</a></h3>
+                    <a href="echo_log.php" class="pic-link"><img src="dist/images/pic1.jpeg" alt="文化信息服务业营收实现两位数增长"></a>
+                    <h3 class="title"><a href="echo_log.php">文化信息服务业营收实现两位数增长</a></h3>
 
                     <div class="info">
                         <i class="iconfont icon-time"></i> <span class="time">2017-1-1 10:10:10</span>

@@ -30,6 +30,35 @@
   .widget-inner {
     padding: 15px;
   }
+
+  .more {
+    text-align: right;
+    padding: 0 15px 15px;
+    a {
+      color: $black;
+    }
+  }
+}
+
+.widget_twitter {
+  ul {
+    margin-top: 15px;
+  }
+  li {
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  .time {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.widget-comment {
   .comment-inner {
     padding-left: 55px;
     position: relative;
@@ -59,40 +88,8 @@
       margin-right: 10px;
     }
     a {
-      color: $danger;
       margin-left: 10px;
     }
-  }
-  .label-tag {
-    margin-bottom: 5px;
-    &:hover {
-      opacity: .9;
-    }
-  }
-  .more {
-    text-align: right;
-    padding: 0 15px 15px;
-    a {
-      color: $black;
-    }
-  }
-}
-
-.widget_twitter {
-  ul {
-    margin-top: 15px;
-  }
-  li {
-    overflow: hidden;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-  }
-  .time {
-    display: block;
-    width: 100%;
-    text-align: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
 }
 
@@ -118,6 +115,43 @@
     width: 100%;
     &:hover {
       opacity: .8;
+    }
+  }
+}
+
+.widget-sorts {
+  ul {
+    overflow: hidden;
+  }
+  li {
+    width: 50%;
+    float: left;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background-color: #E5E9F2;
+      border-bottom: 1px solid #E5E9F2;
+      &:hover {
+        background-color: $extra-light-black;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.widget-tags {
+  a {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    &:hover {
+      background-color: $danger;
+      color: #fff;
     }
   }
 }

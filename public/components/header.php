@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>演示页面</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_df2mbqcqkeasjor.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_5erwxi32ywlv7vi.css">
     <link rel="stylesheet" href="dist/css/style.css?version=v1.0.0">
 </head>
 <body>
@@ -66,6 +66,7 @@
             <li class="menu-item <?php echo $sn === '/log_list_2.php' ? 'active' : '';?>"><a href="/log_list_2.php">二栏布局</a></li>
             <li class="menu-item <?php echo $sn === '/log_list_3.php' ? 'active' : '';?>"><a href="/log_list_3.php">三栏布局</a></li>
             <li class="menu-item <?php echo $sn === '/log_list_img.php' ? 'active' : '';?>"><a href="/log_list_img.php">图片列表</a></li>
+            <li class="menu-item <?php echo $sn === '/log_list_mv.php' ? 'active' : '';?>"><a href="/log_list_mv.php">视频列表</a></li>
             <li class="menu-item">
                 <a href="/index.php">下拉菜单</a>
                 <ul class="sub-nav">
