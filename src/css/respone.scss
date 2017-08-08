@@ -118,4 +118,15 @@
       display: none;
     }
   }
+
+  .log_list_mv .log_list_item,
+  .log_list_img .log_list_item,
+  .log_list_2 .log_list_item,
+  .log_list_three .log_list_item {
+    width: 100%;
+    height: auto;
+  }
+  .log_list_mv .log_list_item .pic-link .play {
+    display: block;
+  }
 }

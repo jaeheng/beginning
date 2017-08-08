@@ -443,6 +443,9 @@ $tools-item-width: 50px;
     border-left: 2px solid #9299a5;
     padding-left: 15px;
   }
+  img {
+    max-width: 100%;
+  }
 }
 .relief {
   text-indent: 2em;
