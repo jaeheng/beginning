@@ -26,10 +26,10 @@ doAction('index_loglist_top'); ?>
                             <div class="tag"><?php blog_sort($value['logid']); ?></div>
                             <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
                             <h2 class="title">
+                                <?php //topflg($value['top'], $value['sortop']); ?>
                                 <a href="<?php echo $value['log_url']; ?>" title="<?php echo $value['log_title']; ?>">
                                     <?php echo $value['log_title']; ?>
                                 </a>
-                                <?php topflg($value['top'], $value['sortop']); ?>
                             </h2>
                             <div class="info">
                                 <?php blog_author($value['author']); ?>

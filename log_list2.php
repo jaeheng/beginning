@@ -25,7 +25,7 @@ doAction('index_loglist_top'); ?>
         <li class="log_list_item">
             <div class="tag"><?php blog_sort($value['logid']); ?></div>
             <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
-            <h2 class="title"><?php topflg($value['top'], $value['sortop']);?><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
+            <h2 class="title"><?php //topflg($value['top'], $value['sortop']);?><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
 
             <div class="info">
                 <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
