@@ -1,29 +1,14 @@
-# beginning
+# emlog插件 beginning
 
-## 介绍
+## 特性
 
->beginning 是一款博客模版，已制作成emlog博客程序的模版，接下来会将其制作成zblog以及wordpress的模版，并优化和增加更多功能
+1. 5种列表： 普通2列带侧边log_list.php , 2列布局log_list2.php, 3列布局log_list3.php， 图片类型列表log_list_img.php, 视频类型列表log_list_mv.php
+2. 个人中心类型头部， 显示出博客的一些统计数据：文章数，阅读数，评论数
+3. 遵循emlog模板开发规范
+4. 侧边小工具，可用于展示二维码或qq临时会话
 
-- 有边栏博文列表
-- 2列布局博文列表
-- 3列布局博文列表
-- 图片博文列表
-- 视频博文列表
-- 首页滚动公告通知
-- 网站小工具（侧边二维码，qq，其它链接等）
-- 更多Feature敬请期待，也可提issue
+## 适用于
+本模板是在emlog5.3.1下开发的， 完美适配该版本。 该版本也是目前 emlog 的最新版本。
 
-
-## 模版安装
-
-template中的是适配的各大主流博客系统的模版安装包，其中名称中含有emlog字样的是[emlog](http://www.emlog.net), 其他博客系统如wordpress, zblog等下班后写一下
-
-- 2017-08-08: 修复若干bug
-- 2017-06-25: 发布beginning_emlog_v1.1.0.zip
-    - 新增2列、3栏、图片、视频等模式的博文列表
-    - 修改部分组件颜色配置
-    - 开发环境修改为使用php环境 + gulp
-- 2017-05-20: 发布beginning_emlog_v1.0.0.zip
-
-## LICENSE
-MIT
+## 反馈
+如有疑问、建议或要提交bug，可发邮件至459269125@qq.com， 或直接加我 qq， 备注beginning

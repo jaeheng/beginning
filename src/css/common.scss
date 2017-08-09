@@ -4,7 +4,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, img, ul, li, ol {
 }
 
 body {
-  font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans, 'Arial';
+  font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, sans, 'Arial';
   -webkit-font-smoothing: antialiased;
   background-color: $extra-light-grey;
   color: $light-black;
@@ -13,11 +13,21 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: 'Arial', Microsoft Yahei, sans-serif;
+  font-size: inherit;
 }
 
 img {
   border: none;
 }
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 .container {
   display: block;
   width: 1166px;
@@ -35,12 +45,6 @@ img {
   clear: both;
 }
 
-a {
-  text-decoration: none;
-}
-li {
-  list-style-type: none;
-}
 .gold-v {
   display: inline-block;
   width: 22px;
@@ -49,21 +53,20 @@ li {
   background-size: cover;
 }
 
+// 输入框
 .input {
-  border: none;
-  border-bottom: 1px solid $light-black;
+  border: 1px solid transparent;
   padding: 0 10px;
   line-height: 30px;
-  width: 120px;
   height: 30px;
   outline: none;
+  color: inherit;
   &:focus {
-    background-color: $sliver;
-    width: 150px;
-    transition: all .5s;
+    border-bottom-color: $blue;
   }
 }
 
+// 移动端菜单图标
 .icon-menu {
   display: block;
   width: 30px;
@@ -78,30 +81,27 @@ li {
   }
 }
 
-.icon-search {
-  display: block;
-  width: 30px;
-  height: 20px;
-  padding: 10px 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  .icon-search-item {
-    display: block;
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    border: 2px solid #fff;
+// 页头的统计信息
+.count {
+  overflow: hidden;
+  position: relative;
+  left: -15px;
+  .item {
+    float: left;
+    list-style-type: none;
+    padding: 0 15px 1.5em;
+    border-right: 1px solid $extra-light-black;
+    color: inherit;
     position: relative;
-    &:after {
+    text-align: center;
+    .tit {
       position: absolute;
-      top: 14px;
-      right: -6px;
-      content: '';
-      display: block;
-      width: 8px;
-      height: 2px;
-      background-color: #fff;
-      transform: rotate(45deg);
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    &:last-of-type {
+      border-right: none;
     }
   }
 }

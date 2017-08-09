@@ -1,0 +1,33 @@
+//菜单
+.menu {
+  line-height: 50px;
+}
+.menu-item {
+  float: left;
+  position: relative;
+  a {
+    display: block;
+    padding: 0 20px;
+    color: inherit;
+    white-space: nowrap;
+  }
+  &:hover, &.active {
+    color: #fff;
+    background-color: $light-black;
+  }
+  &:hover .sub-menu,
+  a:focus + .sub-menu {
+    display: block;
+    min-width: 100%;
+  }
+
+  .sub-menu {
+    position: absolute;
+    z-index: 999;
+    background-color: $light-black;
+    display: none;
+    a:hover {
+      background-color: $black;
+    }
+  }
+}
