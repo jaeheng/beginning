@@ -11,6 +11,7 @@ if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
 require_once View::getView('config');
 $systemInfo = getSystemInfo();
+$version = 'v1.0.2';
 ?>
 <!doctype html>
 <html lang="zh-CN">
@@ -25,8 +26,8 @@ $systemInfo = getSystemInfo();
     <title><?php echo $site_title; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS"  href="<?php echo BLOG_URL; ?>rss.php" />
     <link rel="stylesheet" href="//at.alicdn.com/t/font_5erwxi32ywlv7vi.css">
-    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=v1.0.0">
-    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>common.css?version=v1.0.0">
+    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=<?php echo $version;?>">
+    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>common.css?version=<?php echo $version;?>">
     <link href="<?php echo BLOG_URL; ?>admin/editor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet"
           type="text/css" />
     <script src="<?php echo BLOG_URL; ?>admin/editor/third-party/SyntaxHighlighter/shCore.js"></script>

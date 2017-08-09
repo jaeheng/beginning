@@ -56,7 +56,7 @@ if (!defined('EMLOG_ROOT')) {
 <!--网站小工具 ／-->
 
 <script src="<?php echo TEMPLATE_URL; ?>dist/vendor/jquery-3.1.1.min.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>dist/js/main.js?version=v1.2.5"></script>
+<script src="<?php echo TEMPLATE_URL; ?>dist/js/main.js?version=<?php echo $version;?>"></script>
 <script>SyntaxHighlighter.all();</script>
 </body>
 </html>
