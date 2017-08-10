@@ -47,6 +47,10 @@
     z-index: 100;
     a {
       color: #fff;
+      &:hover {
+        color: #fff;
+        opacity: .8;
+      }
     }
   }
   .pic-link {
