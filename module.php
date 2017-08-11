@@ -332,15 +332,6 @@ function blog_navi()
     </ul>
 <?php } ?>
 <?php
-//blog：置顶
-function topflg($top, $sortop = 'n')
-{
-    if ($top === 'y' || $sortop === 'y') {
-        echo '<span class="top">置顶</span>';
-    }
-}
-?>
-<?php
 //blog：编辑
 function editflg($logid, $author)
 {
@@ -571,4 +562,17 @@ function getImgFromDesc($content)
 {
     preg_match_all("|<img[^>]+src=\"([^>\"]+)\"?[^>]*>|is", $content, $img);
     return !empty($img[1]) ? $img[1][0] : TEMPLATE_URL . 'dist/images/article.jpg';
+}
+
+/**
+ * 获取某用户的头像
+ * @param int $uid 用户的id
+ * @return string 头像的URL, 如该用户没有头像会返回一个默认头像
+ */
+function getAuthorAvatar($uid = 1)
+{
+    global $CACHE;
+    $user_cache = $CACHE->readCache('user');
+    $photo = $user_cache[$uid]['photo'];
+    return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . 'admin/views/images/avatar.jpg';
 }

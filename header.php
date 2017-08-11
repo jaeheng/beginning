@@ -25,7 +25,7 @@ $version = 'v1.0.2';
     <meta name="generator" content="emlog" />
     <title><?php echo $site_title; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS"  href="<?php echo BLOG_URL; ?>rss.php" />
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_5erwxi32ywlv7vi.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_so3n7xpiffajor.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=<?php echo $version;?>">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>common.css?version=<?php echo $version;?>">
     <link href="<?php echo BLOG_URL; ?>admin/editor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet"
@@ -45,7 +45,7 @@ $version = 'v1.0.2';
 <header id="header" class="header">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="avatar">
-            <div class="img"><img src="<?php echo TEMPLATE_URL; ?>dist/images/logo.png" alt="头像"></div>
+            <div class="img"><img src="<?php echo getAuthorAvatar(); ?>" alt="<?php echo $blogname; ?>"></div>
             <i class="gold-v"></i>
         </a>
         <h1 class="username">

@@ -281,27 +281,30 @@ $tools-item-width: 50px;
 //log
 .log-info {
   color: $sliver;
-  margin: 15px 0;
   border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
+  padding: 10px 0 15px;
+  text-align: center;
   a {
     color: $sliver;
+  }
+  span {
+    margin-right: 10px;
   }
 }
 .log-title {
   color: $extra-light-black;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 .log-body {
-  p, strong, h2, h3{
-    display: block;
+  padding: 20px 0;
+  p, strong, h3, h4, h5, h6 {
     margin-bottom: 15px;
     font-size: 16px;
-    line-height: 1.8;
     word-break: break-all;
   }
-  strong, h2, h3, h4 {
+  strong, h3, h4, h5 {
     font-weight: bold;
   }
   a {
@@ -310,9 +313,8 @@ $tools-item-width: 50px;
       color: $danger;
     }
   }
-  h1, h2, h3, h4, h5 {
-    border-left: 2px solid #9299a5;
-    padding-left: 15px;
+  h3 {
+    padding: 5px 0;
   }
   img {
     max-width: 100%;
@@ -320,6 +322,21 @@ $tools-item-width: 50px;
   }
   pre {
     white-space: pre-wrap;
+  }
+  .code {
+    background-color: $dark-white;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  ol, ul {
+    padding-left: 15px;
+  }
+  li {
+    list-style: decimal;
+    margin-bottom: 10px;
+    p {
+      display: inline;
+    }
   }
 }
 .relief {
