@@ -51,12 +51,11 @@ if (!defined('EMLOG_ROOT')) {
     <a href="http://wpa.qq.com/msgrd?v=3&uin=459269125&site=qq&menu=yes" class="item" target="_blank">
         <i class="iconfont icon-qq"></i>
     </a>
-    <div class="item active gotoup"><i class="iconfont icon-up"></i></div>
+    <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->
-
-<script src="<?php echo TEMPLATE_URL; ?>dist/vendor/jquery-3.1.1.min.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>dist/js/main.js?version=<?php echo $version;?>"></script>
-<script>SyntaxHighlighter.all();</script>
+<script>
+    !function(n){"use strict";var o=function(n){var o="";return"object"==typeof n?n:(n.indexOf("#")>-1&&(o=document.getElementById(n.split("#")[1])),o)};n.on=function(o,t,e){n.addEventListener?t.addEventListener(o,e):t.attachEvent("on"+o,e)};var t=function(n,o){o.style.display=n?"block":"none"},e=o("#menu");n.on("resize",n,function(){var n=document.body.clientWidth<960;t(!n,e)}),n.on("click",document,function(){var n=document.body.clientWidth<960;t(!n,e)}),n.on("click",o("#open-menu"),function(n){n.stopPropagation(),t(!0,e)});var c=o("#gotoup");n.on("scroll",n,function(){var o=n.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;c.style.display=o>400?"block":"none"}),n.on("click",c,function(){var n=setInterval(function(){document.body.scrollTop-=50,0===document.body.scrollTop&&clearInterval(n)},1)});var i=o("#site-notice");if(i){var l=1,r=i.children[0],d=r.children,u=d.length;setInterval(function(){l>=u&&(l=0),r.style.top=-24*l+++"px"},5e3)}}(window);
+</script>
 </body>
 </html>

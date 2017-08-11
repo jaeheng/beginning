@@ -5,5 +5,7 @@
   position: relative;
   ul {
     position: absolute;
+    transition: all .3s;
+    top: 0;
   }
 }

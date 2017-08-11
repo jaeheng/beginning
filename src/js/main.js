@@ -1,84 +1,114 @@
-$(function () {
-    // target-open
-    var isMobile = document.body.clientWidth < 960;
+(function (window) {
+    "use strict";
+    /**
+     * 获取 dom 元素
+     * @param tag
+     * @returns {*}
+     */
+    var $ = function (tag) {
+        var dom = '';
+        if (typeof tag === 'object') {
+            return tag;
+        } else if (tag.indexOf('#') > -1) {
+            dom = document.getElementById(tag.split('#')[1]);
+        }
+        return dom;
+    };
 
-    // 全部打开或关闭
-    // type ? '打开' : '关闭'
-    var toggleOpenAll = function (type) {
-        var toggleOpenDoms = $('.toggle-open');
+    /**
+     * 绑定事件
+     * @param event
+     * @param dom
+     * @param func
+     */
+    window.on = function (event, dom, func) {
+      if (window.addEventListener) {
+          dom.addEventListener(event, func);
+      } else {
+          dom.attachEvent('on' + event, func);
+      }
+    };
+
+    /**
+     * 打开或关闭相应的元素
+     * @param type true:打开 false:关闭
+     * @param dom
+     */
+    var display = function (type, dom) {
         if (type) {
-            toggleOpenDoms.each(function () {
-                $('#' + $(this).data('target')).show();
-            });
+            dom.style.display = 'block';
         } else {
-            toggleOpenDoms.each(function () {
-                $('#' + $(this).data('target')).slideUp(100);
-            });
+            dom.style.display = 'none';
         }
     };
 
-    $(window).resize(function (e) {
-        isMobile = document.body.clientWidth < 960;
-        toggleOpenAll(!isMobile);
+    var menu = $('#menu');
+
+    /**
+     * 非手机模式要保证显示菜单
+     */
+    window.on('resize', window, function () {
+        var isMobile = document.body.clientWidth < 960;
+        display(!isMobile, menu);
     });
 
-    // 点击其它地方， 关闭已经通过toggle-open打开的元素
-    $(document).on('click', function (e) {
-        if(isMobile) {
-            toggleOpenAll(false);
-        }
+    /**
+     * 点击页面时，手机需要将菜单隐藏，PC 不用
+     */
+    window.on('click', document, function () {
+        var isMobile = document.body.clientWidth < 960;
+        display(!isMobile, menu);
     });
 
-    // 点击toggle-open的目标元素不触发toggle
-    $('.toggle-open').each(function () {
-        $('#' + $(this).data('target')).click(function (e) {
-            e.stopPropagation();
-        });
-    });
-
-    // 点击.toggle-open自己的时候阻止冒泡， 不触发slideup
-    $(document).on('click', '.toggle-open', function (e) {
-        e.preventDefault();
+    /**
+     * 点击菜单按钮， 打开菜单
+     * 需阻止冒泡，要不就触发了document的click事件, 又把菜单给隐藏了
+     */
+    window.on('click', $('#open-menu'), function (e) {
         e.stopPropagation();
-        var _this = $(this);
-        var target = $('#' + _this.data('target'));
-        target.slideToggle(100);
+        display(true, menu);
     });
 
-    // gotoup
-    var gotoup = $('.gotoup');
+    var gotoup = $('#gotoup');
+    /**
+     * 页面滚动400px后显示gotoup按钮
+     */
+    window.on('scroll', window, function () {
+        var topHeight = window.pageYOffset|| document.documentElement.scrollTop || document.body.scrollTop;
 
-    // 页面滚动400px后显示gotoup按钮
-    $(window).on('scroll', function (e) {
-        var topHeight = $(window).scrollTop();
         if (topHeight > 400) {
-           gotoup.slideDown(100);
+            gotoup.style.display = 'block';
         } else {
-            gotoup.slideUp();
+            gotoup.style.display = 'none';
         }
     });
-    // 点击gotoup按钮， 页面平滑滚动到顶部
-    gotoup.on('click', function (e) {
-        e.preventDefault();
-        $('html,body').animate({
-            scrollTop: '0px'
-        }, 700);
+
+    /**
+     * 回到顶部
+     */
+    window.on('click', gotoup, function () {
+        var time = setInterval(function () {
+            document.body.scrollTop -= 50;
+            if (document.body.scrollTop === 0) {
+                clearInterval(time);
+            }
+        }, 1);
     });
 
     // 首页动态提醒轮播
     var siteNotice = $('#site-notice');
     if (siteNotice) {
         var time = 1;
-        var ul = siteNotice.find('ul');
-        var lis = ul.find('li');
+        var ul = siteNotice.children[0];
+        var lis = ul.children;
         var len = lis.length;
         setInterval(function () {
             if (time >= len) {
                 time = 0;
             }
-            ul.animate({
-                top: -24 * time++
-            });
+            ul.style.top = -24 * time++ + 'px'
         }, 5000);
     }
-});
+
+})(window);
+
