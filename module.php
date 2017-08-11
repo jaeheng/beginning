@@ -72,7 +72,7 @@ function widget_hot_tag($num = 10)
             $arrSort[$key][$uniqid] = $value;
         }
     }
-    if ($sort['direction']) {
+    if (!empty($arrSort) && $sort['direction']) {
         array_multisort($arrSort[$sort['field']], constant($sort['direction']), $tag_cache);
     }
     ?>
@@ -549,8 +549,11 @@ function getSystemInfo()
     $articleNum = $db->fetch_array($db->query($articleNumSql));
     $viewNum = $db->fetch_array($db->query($viewNumSql));
     $commentsNum = $db->fetch_array($db->query($commentsNumSql));
-    return array('articelNum' => $articleNum['article'], 'viewNum' => $viewNum['views'], 'commentsNum' =>
-        $commentsNum['comments']);
+    return array(
+        'articelNum' => $articleNum['article'],
+        'viewNum' => $viewNum['views'] ? $viewNum['views'] : 0,
+        'commentsNum' => $commentsNum['comments']
+    );
 }
 
 /**

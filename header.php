@@ -67,7 +67,7 @@ $blogName = $blogname;
                 <span class="num"><?php echo $systemInfo['commentsNum']; ?></span>
             </li>
             <li class="item">
-                <span class="tit">阅读量</span>
+                <span class="tit">阅读</span>
                 <span class="num"><?php echo $systemInfo['viewNum']; ?></span>
             </li>
         </ul>
