@@ -6,6 +6,11 @@ if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
 ?>
+<?php
+if (blog_tool_ishome()) {
+    doAction('only_index_footer');
+}
+?>
 <!--footer-->
 <footer class="footer">
     <div class="container">
@@ -29,8 +34,8 @@ if (!defined('EMLOG_ROOT')) {
 
 <!--版权信息-->
 <div class="copyright">
-    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a> && <a href="http://zhangziheng.com"
-                                                                                          target="_blank">jaeheng</a> |
+    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>
+    <a href="http://zhangziheng.com" target="_blank" style="display: none;">theme by jaeheng</a> |
     <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a> <?php echo $footer_info; ?> | Powered
     by <a href="http://www.emlog.net" title="采用emlog系统" target="_blank">emlog</a>
 </div>
@@ -48,14 +53,12 @@ if (!defined('EMLOG_ROOT')) {
         </div>
     </a>
     <?php endforeach;?>
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=459269125&site=qq&menu=yes" class="item" target="_blank">
+    <a href="<?php echo $config['qq'];?>" class="item" target="_blank">
         <i class="iconfont icon-qq"></i>
     </a>
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->
-<script>
-    !function(n){"use strict";var o=function(n){var o="";return"object"==typeof n?n:(n.indexOf("#")>-1&&(o=document.getElementById(n.split("#")[1])),o)};n.on=function(o,t,e){n.addEventListener?t.addEventListener(o,e):t.attachEvent("on"+o,e)};var t=function(n,o){o.style.display=n?"block":"none"},e=o("#menu");n.on("resize",n,function(){var n=document.body.clientWidth<960;t(!n,e)}),n.on("click",document,function(){var n=document.body.clientWidth<960;t(!n,e)}),n.on("click",o("#open-menu"),function(n){n.stopPropagation(),t(!0,e)});var c=o("#gotoup");n.on("scroll",n,function(){var o=n.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;c.style.display=o>400?"block":"none"}),n.on("click",c,function(){var n=setInterval(function(){document.body.scrollTop-=50,0===document.body.scrollTop&&clearInterval(n)},1)});var i=o("#site-notice");if(i){var l=1,r=i.children[0],d=r.children,u=d.length;setInterval(function(){l>=u&&(l=0),r.style.top=-24*l+++"px"},5e3)}}(window);
-</script>
+<script src="<?php echo TEMPLATE_URL;?>/dist/js/main.js"></script>
 </body>
 </html>

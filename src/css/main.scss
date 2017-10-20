@@ -37,6 +37,13 @@
   background-color: #fff;
   margin-bottom: 15px;
   padding: 15px 15px 15px 250px;
+  box-shadow: 0 2px 5px 0 rgba(146,146,146,.1);
+  transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
+  transition-duration: 1s;
+  &:hover {
+    box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
+    cursor: pointer
+  }
   .tag {
     background-color: $danger;
     position: absolute;
@@ -214,6 +221,7 @@ $tools-item-width: 50px;
   bottom: 50%;
   right: 30px;
   margin-bottom: -2*$tools-item-width;
+  box-shadow: 0 2px 5px 0 rgba(146,146,146,.1);
   .item {
     display: block;
     background-color: #fff;

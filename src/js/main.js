@@ -6,7 +6,7 @@
      * @returns {*}
      */
     var $ = function (tag) {
-        var dom = '';
+        var dom = 0;
         if (typeof tag === 'object') {
             return tag;
         } else if (tag.indexOf('#') > -1) {
@@ -70,6 +70,7 @@
     });
 
     var gotoup = $('#gotoup');
+
     /**
      * 页面滚动400px后显示gotoup按钮
      */
@@ -87,9 +88,12 @@
      * 回到顶部
      */
     window.on('click', gotoup, function () {
+        var delay = 50; // 200ms 到顶端
+        var perMs = document.documentElement.scrollTop / delay;
+
         var time = setInterval(function () {
-            document.body.scrollTop -= 50;
-            if (document.body.scrollTop === 0) {
+            document.documentElement.scrollTop -= perMs;
+            if (document.documentElement.scrollTop < 1) {
                 clearInterval(time);
             }
         }, 1);
@@ -106,9 +110,8 @@
             if (time >= len) {
                 time = 0;
             }
-            ul.style.top = -24 * time++ + 'px'
+            ul.style.top = -24 * time++ + 'px';
         }, 5000);
     }
 
 })(window);
-
