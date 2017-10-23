@@ -56,11 +56,11 @@ li {
 // 输入框
 .input {
   border: 1px solid transparent;
-  padding: 0 10px;
-  line-height: 30px;
-  height: 30px;
+  padding: 8px 10px;
+  line-height: 14px;
   outline: none;
   color: inherit;
+  appearance: none;
   &:focus {
     border-bottom-color: $blue;
   }

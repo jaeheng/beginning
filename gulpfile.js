@@ -4,7 +4,8 @@ var uglify = require('gulp-uglify')
 var pump = require('pump')
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var webserver = require('gulp-webserver');
+var rename = require("gulp-rename");
+var autoprefixer = require("gulp-autoprefixer");
 var fs = require('fs');
 
 /* paths */
@@ -27,6 +28,19 @@ gulp.task('script', ['lint'], function (cb) {
     pump([
             gulp.src(mainjs),
             uglify(),
+            rename(function (path) {
+                path.basename += ".min";
+            }),
+            gulp.dest(dest + 'js')
+        ],
+        cb
+    );
+});
+
+// 不混淆压缩 js
+gulp.task('script2', ['lint'], function (cb) {
+    pump([
+            gulp.src(mainjs),
             gulp.dest(dest + 'js')
         ],
         cb
@@ -38,6 +52,10 @@ gulp.task('stylesheet', function () {
     return gulp.src(mainscss)
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest(dest + 'css'));
 });
@@ -45,6 +63,10 @@ gulp.task('stylesheet', function () {
 gulp.task('cssWithoutMap', function () {
     return gulp.src(mainscss)
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest(dest + 'css'));
 });
 
@@ -94,4 +116,4 @@ gulp.task('deleteDist', function () {
 gulp.task('default', ['watch']);
 
 /* 打包 */
-gulp.task('build', ['deleteDist', 'script', 'cssWithoutMap', 'images', 'vendor'])
+gulp.task('build', ['deleteDist', 'script', 'script2', 'cssWithoutMap', 'images', 'vendor'])

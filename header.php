@@ -36,7 +36,7 @@ $blogName = $blogname;
 <body>
 <!--[if lte IE 8]>
 <div id="browsehappy">
-    您正在使用的浏览器版本过低，请<a href="http://browsehappy.com/" target="_blank">
+    您正在使用的浏览器版本过低，请<a href="https://browsehappy.com/" target="_blank">
     <strong>升级您的浏览器</strong></a>，获得最佳的浏览体验！
 </div>
 <![endif]-->

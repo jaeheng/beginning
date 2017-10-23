@@ -88,12 +88,10 @@
      * 回到顶部
      */
     window.on('click', gotoup, function () {
-        var delay = 50; // 200ms 到顶端
-        var perMs = document.documentElement.scrollTop / delay;
-
         var time = setInterval(function () {
-            document.documentElement.scrollTop -= perMs;
-            if (document.documentElement.scrollTop < 1) {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            document.body.scrollTop = document.documentElement.scrollTop = scrollTop - 50;
+            if (scrollTop < 1) {
                 clearInterval(time);
             }
         }, 1);

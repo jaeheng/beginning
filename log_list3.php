@@ -46,6 +46,7 @@ doAction('index_loglist_top'); ?>
             ?>
             <li style="background-color: #fff;padding: 30px;">未找到 <br>抱歉，没有符合您查询条件的结果。</li>
         <?php endif;?>
+        <li class="clear"></li>
     </ul>
     <!--分页-->
     <div class="pagination" id="pagenavi">
