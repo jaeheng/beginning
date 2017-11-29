@@ -2,7 +2,7 @@
 /*
 Template Name:beginning
 Description:简洁，多种布局，个人介绍，金v闪亮你的自媒体之路 <br /> 提交bug: http://zhangziheng.com/play/451.html
-Version:1.0.2
+Version:1.1
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
@@ -11,7 +11,7 @@ if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
 require_once View::getView('config');
 $systemInfo = getSystemInfo();
-$version = 'v1.0.2';
+$version = 'v1.1';
 $siteKey = $site_key;
 $siteDescription = $site_description;
 $siteTitle = $site_title;

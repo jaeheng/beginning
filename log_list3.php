@@ -23,7 +23,7 @@ doAction('index_loglist_top'); ?>
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
-                    <div class="tag"><?php blog_sort($value['logid']); ?></div>
+                    <div class="tag fix"><?php blog_sort($value['logid']); ?></div>
                     <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
                     <h2 class="title"><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
 
@@ -36,9 +36,6 @@ doAction('index_loglist_top'); ?>
                     <p class="description">
                         <?php echo subString(strip_tags($value['log_description']),0,45);?>
                     </p>
-                    <div class="tags">
-                        <?php blog_tag($value['logid']); ?>
-                    </div>
                 </li>
                 <?php
             endforeach;

@@ -285,7 +285,7 @@ function widget_link($title)
         <h3><?php echo $title; ?></h3>
         <div class="widget-inner">
             <?php foreach ($link_cache as $value): ?>
-                <a class="label label-tag" href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>"
+                <a class="tag" href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>"
                    target="_blank"><?php echo $value['link']; ?></a>
             <?php endforeach; ?>
         </div>
@@ -365,7 +365,7 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='label label-tag'>#" . $value['tagname'] . '#</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='tag'>#" . $value['tagname'] . '#</a>';
         }
         echo $tag;
     }

@@ -30,113 +30,27 @@
   padding-right: 375px;
 }
 
-// 普通列表
-.log_list_item {
-  position: relative;
-  min-height: 150px;
-  background-color: rgba(255, 255, 255, .3);
-  margin-bottom: 15px;
-  padding: 15px 15px 15px 250px;
-  box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
-  transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
-  transition-duration: 1s;
-  &:hover {
-    background-color: rgba(255, 255, 255, 1);
-    cursor: pointer;
-    transform: translateZ(0) scale(1.02);
-  }
-  .tag {
-    background-color: $danger;
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    padding: 3px 10px;
-    color: #fff;
-    z-index: 100;
-    a {
-      color: #fff;
-      &:hover {
-        color: #fff;
-        opacity: .8;
-      }
-    }
-  }
-  .pic-link {
-    position: absolute;
-    left: 15px;
-    top: 15px;
-    z-index: 99;
-    display: block;
-    border: none;
-    width: 220px;
-    height: 150px;
-    overflow: hidden;
-    img {
-      width: 100%;
-      transition: all 1s;
-    }
-    &:hover {
-      img {
-        transform: scale(1.4);
-      }
-    }
+// 标签
+.tag {
+  background-color: rgba(0, 0, 0, .3);
+  padding: 3px 10px;
+  color: #fff;
+  font-size: 12px;
+  .iconfont {
+    font-size: 12px;
   }
   a {
-    color: $light-black;
-    text-decoration: none;
-    &:hover {
-      color: $danger;
-    }
-  }
-  .title {
-    background-color: transparent;
-    padding: 0;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: bold;
-    img {
-      width: 16px;
-      height: 16px;
-    }
-  }
-  .top {
-    background-color: $danger;
     color: #fff;
-    font-size: 12px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    position: relative;
-    top: -2px;
-  }
-  .description, .info {
-    color: $extra-light-black;
-  }
-  .description {
-    margin: 10px 0;
-    line-height: 1.8;
-    img {
-      width: 100%;
-      height: auto;
+    &:hover {
+      color: #fff;
+      opacity: .8;
     }
   }
-  .info {
-    font-size: 12px;
-    line-height: 2;
-    .iconfont {
-      font-size: 12px;
-    }
-  }
-}
-
-.label {
-  display: inline-block;
-  margin-right: 5px;
-  background-color: $extra-light-black;
-  color: #fff!important;
-  padding: 0 10px;
-  font-size: 12px;
-  &:hover {
-    background-color: $danger;
+  &.fix {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index: 100;
   }
 }
 

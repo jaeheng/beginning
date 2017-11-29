@@ -22,9 +22,9 @@ doAction('index_loglist_top'); ?>
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
+                    <div class="tag fix"><i class="iconfont icon-view"></i> <?php echo $value['views']; ?></div>
                     <a href="<?php echo $value['log_url']; ?>" class="pic-link">
                         <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
-                        <div class="views"><i class="iconfont icon-view"></i> <?php echo $value['views']; ?></div>
                         <div class="play">
                             <i class="iconfont icon-play"></i>
                         </div>

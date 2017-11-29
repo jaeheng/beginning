@@ -1,12 +1,8 @@
 .widget {
   margin-bottom: 15px;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: #fff;
   box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
-  transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
-  transition-duration: 1s;
-  &:hover {
-    background-color: #fff;
-  }
+  border-radius: $border-radius;
   li {
     list-style-type: none;
     border-bottom: 1px solid $extra-light-grey;

@@ -1,3 +1,83 @@
+// 普通列表
+.log_list_item {
+  position: relative;
+  min-height: 150px;
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px 15px 15px 250px;
+  box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
+  border-radius: $border-radius;
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .pic-link {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    z-index: 99;
+    display: block;
+    border: none;
+    width: 220px;
+    height: 150px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      transition: all 1s;
+    }
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+  a {
+    color: $light-black;
+    text-decoration: none;
+    &:hover {
+      color: $danger;
+    }
+  }
+  .title {
+    background-color: transparent;
+    padding: 0;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: bold;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .top {
+    background-color: $danger;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    position: relative;
+    top: -2px;
+  }
+  .description, .info {
+    color: $extra-light-black;
+  }
+  .description {
+    margin: 10px 0;
+    line-height: 1.8;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .info {
+    font-size: 12px;
+    line-height: 2;
+    .iconfont {
+      font-size: 12px;
+    }
+  }
+}
+
+// 单列列表
 .log_list_single {
   .log_list_item {
     min-height: inherit;
@@ -13,6 +93,8 @@
     }
   }
 }
+
+// 双列列表
 .log_list_2 {
   .log_list_item {
     float: left;
@@ -28,6 +110,8 @@
     }
   }
 }
+
+// 三列列表
 .log_list_three {
   .log_list_item {
     float: left;
@@ -35,7 +119,7 @@
     margin-right: 1.5%;
     box-sizing: border-box;
     padding-left: 15px;
-    height: 410px;
+    height: 300px;
     &:nth-of-type(3n) {
       margin-right: 0;
     }
@@ -50,6 +134,8 @@
     }
   }
 }
+
+// 图片形式列表
 .log_list_img {
   .log_list_item {
     float: left;
@@ -81,6 +167,8 @@
     }
   }
 }
+
+// 视频形式列表
 .log_list_mv {
   .log_list_item {
     float: left;
@@ -99,13 +187,6 @@
       left: 0;
       top: 0;
       height: 200px;
-      .views {
-        position: absolute;
-        bottom: 0;
-        background-color: $danger;
-        color: #fff;
-        padding: 0 10px;
-      }
       .play {
         display: none;
         position: absolute;
