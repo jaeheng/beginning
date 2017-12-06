@@ -72,6 +72,7 @@
   }
   .log_list_item {
     padding-left: 15px;
+    border-radius: 0;
     .title {
       margin: 10px 0;
     }
@@ -138,5 +139,11 @@
     text-align: left;
     font-size: 12px;
     padding: 3px 0;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .log_list_three .log_list_item {
+    height: 340px;
   }
 }

@@ -28,9 +28,9 @@ doAction('index_loglist_top'); ?>
                     <h2 class="title"><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
 
                     <div class="info">
+                        <?php blog_sort($value['logid']); ?>
                         <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
                         <i class="iconfont icon-view"></i> <span class="views"><?php echo $value['views']; ?></span>
-                        <?php blog_author($value['author']); ?>
                         <?php editflg($value['logid'],$value['author']); ?>
                     </div>
                     <p class="description">

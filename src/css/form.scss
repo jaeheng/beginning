@@ -1,0 +1,53 @@
+// 输入框
+.input {
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 8px 10px;
+  line-height: 14px;
+  outline: none;
+  color: inherit;
+  appearance: none;
+  box-sizing: border-box;
+  border-bottom-color: $light-grey;
+  &:focus {
+    border-bottom-color: $blue;
+  }
+}
+
+//表单
+.form-group {
+  margin-bottom: 15px;
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input,
+  textarea {
+    border-color: #eee;
+  }
+  textarea {
+    width: 100%;
+  }
+  .verify-code .input {
+    width: 120px;
+    margin-left: 10px;
+  }
+}
+
+//按钮
+.btn {
+  background: #FF2C3C;
+  border: 0;
+  color: #fff;
+  padding: 5px 20px;
+  text-align: center;
+  cursor: pointer;
+  _cursor: hand;
+  border-radius: 4px;
+}
+.btn:hover {
+  background-color: #ff7983;
+}
+.btn.btn-block {
+  display: block;
+}

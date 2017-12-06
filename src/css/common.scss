@@ -21,13 +21,20 @@ img {
 }
 
 a {
+  color: $light-black;
   text-decoration: none;
+  &:hover {
+    color: $sliver;
+  }
 }
 
 li {
   list-style-type: none;
 }
 
+input, textarea {
+  appearance: none;
+}
 .container {
   display: block;
   width: 1166px;
@@ -37,7 +44,7 @@ li {
   margin: 0 auto;
 }
 
-.pull-right {
+.pull-right, .fr {
   float: right;
 }
 
@@ -51,19 +58,6 @@ li {
   height: 22px;
   background: url(../images/steps_gold_v.png) no-repeat;
   background-size: cover;
-}
-
-// 输入框
-.input {
-  border: 1px solid transparent;
-  padding: 8px 10px;
-  line-height: 14px;
-  outline: none;
-  color: inherit;
-  appearance: none;
-  &:focus {
-    border-bottom-color: $blue;
-  }
 }
 
 // 移动端菜单图标

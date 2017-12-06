@@ -32,7 +32,7 @@ doAction('index_loglist_top'); ?>
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
                                 <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
-                                <i class="iconfont icon-view"></i> <span class="view"><?php echo $value['views']; ?></span>
+                                <i class="iconfont icon-tongji"></i> <span class="view"><?php echo $value['views']; ?></span>
                                 <?php editflg($value['logid'],$value['author']); ?>
                             </div>
                             <div class="description">

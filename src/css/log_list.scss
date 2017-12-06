@@ -30,13 +30,6 @@
       }
     }
   }
-  a {
-    color: $light-black;
-    text-decoration: none;
-    &:hover {
-      color: $danger;
-    }
-  }
   .title {
     background-color: transparent;
     padding: 0;
@@ -47,15 +40,6 @@
       width: 16px;
       height: 16px;
     }
-  }
-  .top {
-    background-color: $danger;
-    color: #fff;
-    font-size: 12px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    position: relative;
-    top: -2px;
   }
   .description, .info {
     color: $extra-light-black;
@@ -70,9 +54,10 @@
   }
   .info {
     font-size: 12px;
-    line-height: 2;
+    line-height: 3;
     .iconfont {
       font-size: 12px;
+      margin-left: 20px;
     }
   }
 }

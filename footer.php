@@ -59,6 +59,8 @@ if (blog_tool_ishome()) {
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->
+<script src="<?php echo TEMPLATE_URL;?>/dist/vendor/jquery-3.2.1.min.js"></script>
+<script src="<?php echo TEMPLATE_URL;?>/dist/vendor/echarts.min.js"></script>
 <script src="<?php echo TEMPLATE_URL;?>/dist/js/main.min.js"></script>
 </body>
 </html>

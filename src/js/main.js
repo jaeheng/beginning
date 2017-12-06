@@ -1,33 +1,5 @@
-(function (window) {
+(function (window, $) {
     "use strict";
-    /**
-     * 获取 dom 元素
-     * @param tag
-     * @returns {*}
-     */
-    var $ = function (tag) {
-        var dom = 0;
-        if (typeof tag === 'object') {
-            return tag;
-        } else if (tag.indexOf('#') > -1) {
-            dom = document.getElementById(tag.split('#')[1]);
-        }
-        return dom;
-    };
-
-    /**
-     * 绑定事件
-     * @param event
-     * @param dom
-     * @param func
-     */
-    window.on = function (event, dom, func) {
-      if (window.addEventListener) {
-          dom.addEventListener(event, func);
-      } else {
-          dom.attachEvent('on' + event, func);
-      }
-    };
 
     /**
      * 打开或关闭相应的元素
@@ -35,11 +7,7 @@
      * @param dom
      */
     var display = function (type, dom) {
-        if (type) {
-            dom.style.display = 'block';
-        } else {
-            dom.style.display = 'none';
-        }
+        type ? dom.show() : dom.hide()
     };
 
     var menu = $('#menu');
@@ -47,7 +15,7 @@
     /**
      * 非手机模式要保证显示菜单
      */
-    window.on('resize', window, function () {
+    $(window).resize(function () {
         var isMobile = document.body.clientWidth < 960;
         display(!isMobile, menu);
     });
@@ -55,7 +23,7 @@
     /**
      * 点击页面时，手机需要将菜单隐藏，PC 不用
      */
-    window.on('click', document, function () {
+    $(document).on('click', function () {
         var isMobile = document.body.clientWidth < 960;
         display(!isMobile, menu);
     });
@@ -64,7 +32,7 @@
      * 点击菜单按钮， 打开菜单
      * 需阻止冒泡，要不就触发了document的click事件, 又把菜单给隐藏了
      */
-    window.on('click', $('#open-menu'), function (e) {
+    $('#open-menu').on('click', function (e) {
         e.stopPropagation();
         display(true, menu);
     });
@@ -74,42 +42,92 @@
     /**
      * 页面滚动400px后显示gotoup按钮
      */
-    window.on('scroll', window, function () {
+    $(window).on('scroll', function () {
         var topHeight = window.pageYOffset|| document.documentElement.scrollTop || document.body.scrollTop;
 
         if (topHeight > 400) {
-            gotoup.style.display = 'block';
+            display(true, gotoup);
         } else {
-            gotoup.style.display = 'none';
+            display(false, gotoup);
         }
     });
 
     /**
      * 回到顶部
      */
-    window.on('click', gotoup, function () {
-        var time = setInterval(function () {
-            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            document.body.scrollTop = document.documentElement.scrollTop = scrollTop - 50;
-            if (scrollTop < 1) {
-                clearInterval(time);
-            }
-        }, 1);
+    gotoup.on('click', function () {
+        $('body,html').animate({scrollTop:0},1000);
     });
 
     // 首页动态提醒轮播
     var siteNotice = $('#site-notice');
     if (siteNotice) {
         var time = 1;
-        var ul = siteNotice.children[0];
-        var lis = ul.children;
+        var ul = siteNotice.find('ul');
+        var lis = siteNotice.find('li');
         var len = lis.length;
         setInterval(function () {
             if (time >= len) {
                 time = 0;
             }
-            ul.style.top = -24 * time++ + 'px';
+            ul.css({
+                top: -24 * time++ + 'px'
+            })
         }, 5000);
     }
 
-})(window);
+    // 存档折线图
+    var archiveChart = document.getElementById('archive-chart');
+    var data = $(archiveChart).data('value')
+    var myChart = window.echarts.init(archiveChart)
+    myChart.showLoading()
+    var option = {
+        calculable: true,
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: data.x
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                scale: true,
+                name: '已发布'
+            }
+        ],
+        dataZoom: [
+            {
+                show: true,
+                type: 'slider'
+            }
+        ],
+        series: [
+            {
+                name: '文章数量',
+                type: 'line',
+                itemStyle : {
+                    normal : {
+                        color:'#333',
+                        lineStyle:{
+                            color:'#666'
+                        }
+                    }
+                },
+                data: data.y
+            }
+        ]
+    }
+    myChart.setOption(option)
+    myChart.hideLoading()
+    myChart.on('click', function (e) {
+        window.location.href = '/?record=' + e.name
+    })
+
+})(window, jQuery);

@@ -26,7 +26,7 @@ if (!defined('EMLOG_ROOT')) {
                             <span><i class="iconfont icon-user"></i><?php blog_author($author); ?></span>
                             <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-n-j', $date); ?></span>
                             <span><i class="iconfont icon-comment"></i><a href="#comments"><?php echo $comnum; ?></a></span>
-                            <span><i class="iconfont icon-view"></i><?php echo $views; ?></span>
+                            <span><i class="iconfont icon-tongji"></i><?php echo $views; ?></span>
                             <?php editflg($logid, $author); ?>
                         </div>
                         <div class="log-body">
@@ -67,13 +67,9 @@ if (!defined('EMLOG_ROOT')) {
                         <?php neighbor_log($neighborLog); ?>
                     </div>
                 </div>
-                <!--Todo:评论-->
-                <div class="panel comment-box">
-                    <div class="panel-body">
-                        <?php blog_comments($comments); ?>
-                        <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
-                    </div>
-                </div>
+
+                <?php blog_comments($comments); ?>
+                <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
             </div>
         </div>
         <?php include View::getView('side'); ?>

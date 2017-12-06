@@ -49,15 +49,23 @@ function widget_tag($title)
     <div class="widget widget-tags">
         <h3><?php echo $title; ?></h3>
         <div class="widget-inner">
-            <?php foreach ($tag_cache as $value): ?>
-                <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章" class="widget-tag"><?php echo $value['tagname']; ?></a>
+            <?php foreach ($tag_cache as $value):
+                $tag = $_GET['tag'];
+                ?>
+                <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章" class="widget-tag <?php echo $tag === $value['tagname'] ? 'active' : '';?>">
+                    <i class="iconfont icon-tag"></i>
+                    <?php echo $value['tagname']; ?>
+                </a>
             <?php endforeach; ?>
         </div>
     </div>
 <?php } ?>
 
 <?php
-//widget：热门标签
+/**
+ * 热门标签
+ * @param int $num 数量
+ */
 function widget_hot_tag($num = 10)
 {
     global $CACHE;
@@ -88,6 +96,7 @@ function widget_hot_tag($num = 10)
         </div>
     </div>
 <?php } ?>
+
 <?php
 //widget：分类
 function widget_sort($title)
@@ -99,10 +108,12 @@ function widget_sort($title)
         <h3><?php echo $title; ?></h3>
         <ul id="blogsort">
             <?php
+            $sid = $_GET['sort'];
             foreach ($sort_cache as $value):
                 if ($value['pid'] != 0) continue;
+
                 ?>
-                <li>
+                <li class="<?php echo $sid == $value['sid'] ? 'active' : '';?>">
                     <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                         (<?php echo $value['lognum'] ?>)</a>
                 </li>
@@ -112,8 +123,8 @@ function widget_sort($title)
                 foreach ($children as $key):
                     $value = $sort_cache[$key];
                     ?>
-                    <li>
-                        <a href="<?php echo Url::sort($value['sid']); ?>">| <?php echo $value['sortname']; ?>
+                    <li class="<?php echo $sid == $value['sid'] ? 'active' : '';?>">
+                        <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                             (<?php echo $value['lognum'] ?>)</a>
                     </li>
                 <?php endforeach; ?>
@@ -168,8 +179,7 @@ function widget_newcomm($title)
                     </div>
                     <div class="comment-refer">
                         <i class="iconfont icon-yinhao"></i>
-                        <span class="t">来源<a href="<?php echo $url; ?>"
-                                             target="_blank"><?php echo $log['log_title']; ?></a></span>
+                        <span class="t">><a href="<?php echo $url; ?>" target="_blank"><?php echo $log['log_title']; ?></a></span>
                     </div>
                 </li>
             <?php endforeach; ?>
@@ -198,17 +208,20 @@ function widget_hotlog($title)
 {
     $index_hotlognum = Option::get('index_hotlognum');
     $Log_Model = new Log_Model();
-    $randLogs = $Log_Model->getLogsForHome("order by views desc", $page = 1, $index_hotlognum);
+    $hotlogs = $Log_Model->getLogsForHome("order by views desc", $page = 1, $index_hotlognum);
     ?>
     <div class="widget widget-hot">
         <h3><?php echo $title; ?></h3>
         <ul id="hotlog">
-            <?php foreach ($randLogs as $value): ?>
+            <?php foreach ($hotlogs as $value): ?>
                 <li>
                     <a href="<?php echo Url::log($value['gid']); ?>">
                         <img src="<?php echo getImgFromDesc($value['content']); ?>"
                              alt="<?php echo $value['title']; ?>">
-                        <h4><?php echo $value['title']; ?></h4>
+                        <h4>
+                            <?php echo $value['title']; ?>
+                            <span class="fr"><i class="iconfont icon-tongji"></i> <?php echo $value['views']; ?></span>
+                        </h4>
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -233,14 +246,14 @@ function widget_random_log($title)
 <?php } ?>
 <?php
 //widget：搜索
-function widget_search($title)
-{ ?>
+function widget_search($title) {
+    $keyword = $_GET['keyword'];
+    ?>
     <div class="widget widget-search">
         <h3><?php echo $title; ?></h3>
         <ul id="logsearch">
             <form name="keyform" method="get" action="<?php echo BLOG_URL; ?>index.php">
-                <input name="keyword" class="input" style="width: 100%;box-sizing: border-box;border: 1px solid #eee;"
-                       placeholder="search.." type="text"/>
+                <input name="keyword" class="input" placeholder="search.." type="text" value="<?php echo $keyword;?>"/>
             </form>
         </ul>
     </div>
@@ -254,12 +267,24 @@ function widget_archive($title)
     ?>
     <div class="widget widget-archive">
         <h3><?php echo $title; ?></h3>
+        <?php if (count($record_cache) < 5):?>
         <ul id="record">
             <?php foreach ($record_cache as $value): ?>
-                <li><a href="<?php echo Url::record($value['date']); ?>"><?php echo $value['record']; ?>
+                <li><a href="<?php echo Url::record($value['date']); ?>">
+                        <?php echo $value['record']; ?>
                         (<?php echo $value['lognum']; ?>)</a></li>
             <?php endforeach; ?>
         </ul>
+            <?php else: ?>
+            <?php
+                $myChartData = array();
+                foreach ($record_cache as $value) {
+                    $myChartData['x'][] = $value['date'];
+                    $myChartData['y'][] = $value['lognum'];
+                }
+            ?>
+            <div id="archive-chart" style="height: 250px;width: 100%;" data-value='<?php echo json_encode($myChartData);?>'></div>
+        <?php endif; ?>
     </div>
 <?php } ?>
 <?php
@@ -281,10 +306,12 @@ function widget_link($title)
     $link_cache = $CACHE->readCache('link');
     //if (!blog_tool_ishome()) return;#只在首页显示友链去掉双斜杠注释即可
     ?>
-    <div class="widget">
+    <div class="widget widget-link">
         <h3><?php echo $title; ?></h3>
         <div class="widget-inner">
-            <?php foreach ($link_cache as $value): ?>
+            <?php
+            foreach ($link_cache as $value):
+                ?>
                 <a class="tag" href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>"
                    target="_blank"><?php echo $value['link']; ?></a>
             <?php endforeach; ?>
@@ -419,33 +446,39 @@ function blog_comments($comments)
 {
     extract($comments);
     if ($commentStacks): ?>
-        <a name="comments"></a>
-        <h3 class="comment-header">评论：</h3>
-    <?php endif; ?>
-    <?php
-    $isGravatar = Option::get('isgravatar');
-    foreach ($commentStacks as $cid):
-        $comment = $comments[$cid];
-        $comment['poster'] = $comment['url'] ? '<a href="' . $comment['url'] . '" target="_blank">' . $comment['poster'] . '</a>' : $comment['poster'];
-        ?>
-        <div class="comment" id="comment-<?php echo $comment['cid']; ?>">
-            <a name="<?php echo $comment['cid']; ?>"></a>
-            <?php if ($isGravatar == 'y'): ?>
-                <div class="avatar"><img src="<?php echo getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
-            <div class="comment-info">
-                <div class="poster"><?php echo $comment['poster']; ?> </div>
-                <span class="comment-time"><?php echo
-                    $comment['date']; ?></span>
-                <div class="comment-content"><?php echo $comment['content']; ?></div>
-                <div class="comment-reply"><a href="#comment-<?php echo $comment['cid']; ?>"
-                                              onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
+    <div class="panel comment-box">
+        <div class="panel-heading">
+            <a name="comments"></a>
+            <h3 class="comment-header">评论列表：</h3>
+        </div>
+        <div class="panel-body">
+            <?php
+            $isGravatar = Option::get('isgravatar');
+            foreach ($commentStacks as $cid):
+            $comment = $comments[$cid];
+            $comment['poster'] = $comment['url'] ? '<a href="' . $comment['url'] . '" target="_blank">' . $comment['poster'] . '</a>' : $comment['poster'];
+            ?>
+            <div class="comment" id="comment-<?php echo $comment['cid']; ?>">
+                <a name="<?php echo $comment['cid']; ?>"></a>
+                <?php if ($isGravatar == 'y'): ?>
+                    <div class="avatar"><img src="<?php echo getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
+                <div class="comment-info">
+                    <div class="poster"><?php echo $comment['poster']; ?> </div>
+                    <span class="comment-time"><?php echo
+                        $comment['date']; ?></span>
+                    <div class="comment-content"><?php echo $comment['content']; ?></div>
+                    <div class="comment-reply"><a href="#comment-<?php echo $comment['cid']; ?>"
+                                                  onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
+                </div>
             </div>
             <?php blog_comments_children($comments, $comment['children']); ?>
+        <?php endforeach; ?>
+            <div class="pagination" id="pagenavi">
+                <?php echo $commentPageUrl; ?>
+            </div>
         </div>
-    <?php endforeach; ?>
-    <div class="pagination" id="pagenavi">
-        <?php echo $commentPageUrl; ?>
     </div>
+    <?php endif; ?>
 <?php } ?>
 <?php
 //blog：子评论列表
@@ -479,39 +512,48 @@ function blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allo
 {
     if ($allow_remark == 'y'): ?>
         <div id="comment-place">
-            <div class="comment-post" id="comment-post">
-                <div class="cancel-reply" id="cancel-reply" style="display:none"><a href="javascript:void(0);"
-                                                                                    onclick="cancelReply()">取消回复</a>
+            <div class="panel" id="comment-post">
+                <div class="panel-heading">
+                    <h3 class="comment-header">发表评论<a name="respond"></a>
+                    <a href="javascript:void(0);" id="cancel-reply" style="display: none;" class="fr" onclick="cancelReply()">取消回复</a>
+                    </h3>
                 </div>
-                <h3 class="comment-header">发表评论:<a name="respond"></a></h3>
-                <form method="post" name="commentform" action="<?php echo BLOG_URL; ?>index.php?action=addcom"
-                      id="commentform">
-                    <input type="hidden" name="gid" value="<?php echo $logid; ?>"/>
-                    <?php if (ROLE == ROLE_VISITOR): ?>
+                <div class="comment-post panel-body">
+                    <form method="post" name="commentform" action="<?php echo BLOG_URL; ?>index.php?action=addcom"
+                          id="commentform">
+                        <input type="hidden" name="gid" value="<?php echo $logid; ?>"/>
+                        <?php if (ROLE == ROLE_VISITOR): ?>
+                            <div class="form-group">
+                                <label for="comname">昵称</label>
+                                <input type="text" class="input" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22"
+                                       tabindex="1" placeholder="昵称">
+                            </div>
+                            <div class="form-group">
+                                <label for="commail">邮件地址 (选填)</label>
+                                <input type="text" class="input" name="commail" maxlength="128" value="<?php echo $ckmail; ?>" size="22"
+                                       tabindex="2" placeholder="填写邮件方便联系">
+                            </div>
+                            <div class="form-group">
+                                <label for="comurl">个人主页 (选填)</label>
+                                <input type="text" class="input" name="comurl" maxlength="128" value="<?php echo $ckurl; ?>" size="22"
+                                       tabindex="3">
+                            </div>
+                        <?php endif; ?>
                         <div class="form-group">
-                            <label for="comname">昵称</label>
-                            <input type="text" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22"
-                                   tabindex="1" placeholder="昵称">
+                            <label for="comment">评论内容</label>
+                            <textarea name="comment" class="input" id="comment" rows="5" tabindex="4" placeholder="请文明评论"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="commail">邮件地址 (选填)</label>
-                            <input type="text" name="commail" maxlength="128" value="<?php echo $ckmail; ?>" size="22"
-                                   tabindex="2" placeholder="填写邮件方便联系">
+                            <label for="comment">验证码</label>
+                            <div class="verify-code">
+                                <?php echo $verifyCode; ?>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="comurl">个人主页 (选填)</label>
-                            <input type="text" name="comurl" maxlength="128" value="<?php echo $ckurl; ?>" size="22"
-                                   tabindex="3">
-                        </div>
-                    <?php endif; ?>
-                    <div class="form-group">
-                        <label for="comment">评论内容</label>
-                        <textarea name="comment" id="comment" rows="5" tabindex="4" placeholder="请文明评论"></textarea>
-                    </div>
-                    <p><?php echo $verifyCode; ?> <input type="submit" id="comment_submit" value="发表评论" class="btn"
-                                                         tabindex="6"/></p>
-                    <input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1"/>
-                </form>
+                        <input type="submit" id="comment_submit" value="发表评论" class="btn"
+                               tabindex="6"/>
+                        <input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1"/>
+                    </form>
+                </div>
             </div>
         </div>
     <?php endif; ?>

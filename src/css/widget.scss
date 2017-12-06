@@ -1,3 +1,4 @@
+// 侧边栏通用
 .widget {
   margin-bottom: 15px;
   background-color: #fff;
@@ -7,29 +8,16 @@
     list-style-type: none;
     border-bottom: 1px solid $extra-light-grey;
     padding: 15px 0;
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
   h3 {
     border-bottom: 1px solid $extra-light-grey;
     padding: 10px 15px;
-    position: relative;
-    &:after {
-      position: absolute;
-      bottom: -1px;
-      display: block;
-      content: '';
-      width: 70px;
-      height: 1px;
-      background-color: $danger;
-    }
   }
   ul {
     padding: 15px;
-  }
-  a {
-    color: $black;
-    &:hover {
-      color: $danger;
-    }
   }
   .widget-inner {
     padding: 15px;
@@ -37,12 +25,10 @@
   .more {
     text-align: right;
     padding: 0 15px 15px;
-    a {
-      color: $black;
-    }
   }
 }
 
+// 侧边栏微语
 .widget_twitter {
   ul {
     margin-top: 15px;
@@ -51,6 +37,10 @@
     overflow: hidden;
     margin-bottom: 15px;
     border-bottom: 1px solid #eee;
+    p {
+      text-align: right;
+      margin: 10px;
+    }
   }
   .time {
     display: block;
@@ -61,6 +51,7 @@
   }
 }
 
+// 侧边栏最新评论
 .widget-comment {
   .comment-inner {
     padding-left: 55px;
@@ -69,7 +60,6 @@
       position: absolute;
       left: 0;
       top: 0;
-      border-radius: 50%;
     }
     .username {
       font-style: normal;
@@ -77,7 +67,7 @@
     }
     .time {
       float: right;
-      color: #999;
+      color: $sliver;
     }
     .comment-content {
       color: $extra-light-black;
@@ -87,7 +77,7 @@
     margin: 10px 0;
     .iconfont {
       font-size: 22px;
-      color: $danger;
+      color: $light-grey;
       margin-right: 10px;
     }
     a {
@@ -96,6 +86,7 @@
   }
 }
 
+// 侧边栏归档
 .widget-archive {
   ul {
     overflow: hidden;
@@ -104,10 +95,12 @@
     float: left;
     width: 50%;
     border-bottom: none;
-    padding: 5px 0;
+    padding: 5px 10px 5px 0;
+    box-sizing: border-box;
   }
 }
 
+// 侧边栏最热博文
 .widget-hot {
   img {
     width: 100%;
@@ -115,8 +108,12 @@
       opacity: .8;
     }
   }
+  h4 {
+    overflow: hidden;
+  }
 }
 
+// 侧边栏分类
 .widget-sorts {
   ul {
     overflow: hidden;
@@ -136,19 +133,75 @@
       padding-bottom: 5px;
       background-color: #E5E9F2;
       border-bottom: 1px solid #E5E9F2;
-      &:hover {
-        background-color: $extra-light-black;
-        color: #fff;
-      }
+    }
+    &.active a,
+    a:hover {
+      background-color: $extra-light-black;
+      color: #fff;
     }
   }
 }
 
+// 侧边栏标签
 .widget-tags {
+  .widget-inner {
+    overflow: hidden;
+  }
   .widget-tag {
-    display: inline-block;
-    width: 32%;
+    float: left;
+    width: 33%;
     box-sizing: border-box;
-    padding: 5px 10px;
+    padding: 5px 0;
+  }
+  .active {
+    color: $black;
+    font-weight: bold;
+  }
+}
+
+// 侧边栏友链
+.widget-link {
+  .tag {
+    background-color: $extra-light-black;
+  }
+}
+
+// 侧边栏用户
+#bloggerinfo {
+  text-align: center;
+}
+
+// 侧边栏日历
+#calendar {
+  .calendartop {
+    width: 100%;
+    text-align: center;
+  }
+
+  .calendartop td {
+    width: 50%;
+    padding: 10px 0;
+  }
+
+  .calendar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .calendar td {
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .calendar td a {
+    font-weight: bold;
+  }
+
+  .calendar td.day a {
+    color: #fff;
+  }
+  .calendar td.day {
+    background-color: $extra-light-black;
+    color: #fff;
   }
 }
