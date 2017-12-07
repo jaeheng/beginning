@@ -93,7 +93,7 @@
             xAxis: [
                 {
                     type: 'category',
-                    data: data.x
+                    data: data.x.reverse()
                 }
             ],
             yAxis: [
@@ -121,7 +121,7 @@
                             }
                         }
                     },
-                    data: data.y
+                    data: data.y.reverse()
                 }
             ]
         };

@@ -47,12 +47,9 @@ if (!defined('EMLOG_ROOT')) {
                         <a href="<?php echo $config['weibo_url'];?>"><img src="<?php echo TEMPLATE_URL;?>/dist/images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
                     </div>
                 </div>
-                <div class="panel comment-box">
-                    <div class="panel-body">
-                        <?php blog_comments($comments); ?>
-                        <?php blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_remark); ?>
-                    </div>
-                </div>
+
+                <?php blog_comments($comments); ?>
+                <?php blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_remark); ?>
             </div>
         </div>
         <?php include View::getView('side');?>
