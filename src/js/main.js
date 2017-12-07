@@ -7,7 +7,7 @@
      * @param dom
      */
     var display = function (type, dom) {
-        type ? dom.show() : dom.hide()
+        return type ? dom.show() : dom.hide();
     };
 
     var menu = $('#menu');
@@ -43,7 +43,7 @@
      * 页面滚动400px后显示gotoup按钮
      */
     $(window).on('scroll', function () {
-        var topHeight = window.pageYOffset|| document.documentElement.scrollTop || document.body.scrollTop;
+        var topHeight = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
         if (topHeight > 400) {
             display(true, gotoup);
@@ -56,7 +56,7 @@
      * 回到顶部
      */
     gotoup.on('click', function () {
-        $('body,html').animate({scrollTop:0},1000);
+        $('body,html').animate({scrollTop: 0}, 1000);
     });
 
     // 首页动态提醒轮播
@@ -72,62 +72,134 @@
             }
             ul.css({
                 top: -24 * time++ + 'px'
-            })
+            });
         }, 5000);
     }
 
     // 存档折线图
     var archiveChart = document.getElementById('archive-chart');
-    var data = $(archiveChart).data('value')
-    var myChart = window.echarts.init(archiveChart)
-    myChart.showLoading()
-    var option = {
-        calculable: true,
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        xAxis: [
-            {
-                type: 'category',
-                data: data.x
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-                scale: true,
-                name: '已发布'
-            }
-        ],
-        dataZoom: [
-            {
-                show: true,
-                type: 'slider'
-            }
-        ],
-        series: [
-            {
-                name: '文章数量',
-                type: 'line',
-                itemStyle : {
-                    normal : {
-                        color:'#333',
-                        lineStyle:{
-                            color:'#666'
+    if (archiveChart) {
+        var data = $(archiveChart).data('value');
+        var myChart = window.echarts.init(archiveChart);
+        myChart.showLoading();
+        var option = {
+            calculable: true,
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: data.x
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    scale: true,
+                    name: '已发布'
+                }
+            ],
+            dataZoom: [
+                {
+                    show: true,
+                    type: 'slider'
+                }
+            ],
+            series: [
+                {
+                    name: '文章数量',
+                    type: 'line',
+                    itemStyle: {
+                        normal: {
+                            color: '#333',
+                            lineStyle: {
+                                color: '#666'
+                            }
                         }
-                    }
-                },
-                data: data.y
-            }
-        ]
+                    },
+                    data: data.y
+                }
+            ]
+        };
+        myChart.setOption(option);
+        myChart.hideLoading();
+        myChart.on('click', function (e) {
+            window.location.href = '/?record=' + e.name;
+        });
     }
-    myChart.setOption(option)
-    myChart.hideLoading()
-    myChart.on('click', function (e) {
-        window.location.href = '/?record=' + e.name
-    })
+
+    // 图片相册
+    var album = $('#album');
+
+    // 阻止图片链接跳转
+    var logBody = $('#log-body');
+
+    logBody.find('img').parent('a').click(function (e) {
+        e.preventDefault();
+    });
+    // 点击图片后将文章中图片复制到相册盒子
+    logBody.on('click', 'img', function (e) {
+        e.stopPropagation();
+        var activeSrc = $(e.target).attr('src');
+        var imgs = logBody.find('img');
+        var imgDom = [];
+        imgs.each(function (index, item) {
+            var src = $(item).attr('src');
+            var img = '';
+            if (activeSrc === src) {
+                img = "<img src='" + src + "' class='active' />";
+            } else {
+                img = "<img src='" + src + "' />";
+            }
+            if ($.inArray(img, imgDom) === -1){
+                imgDom.push(img);
+            }
+        });
+        $('#album-pic').html(imgDom.join(''));
+        album.fadeIn(100);
+    });
+
+    // 相册的控制逻辑
+    var albumCtrl = $('#album-ctrl');
+    var albumPic = $('#album-pic');
+    albumCtrl.on('click', '#next', function () {
+        var albumPicImg = albumPic.find('img');
+        if (albumPicImg.length < 2) {
+            return false;
+        }
+        var activeImg = $('#album-pic').find('img.active');
+        if (activeImg.next().length) {
+            activeImg.next().attr('class', 'active');
+        } else {
+            $(albumPicImg[0]).attr('class', 'active');
+        }
+        activeImg.removeClass('active');
+    });
+
+    albumCtrl.on('click', '#prev', function () {
+        var albumPicImg = albumPic.find('img');
+        if (albumPicImg.length < 2) {
+            return false;
+        }
+        var activeImg = $('#album-pic').find('img.active');
+        if (activeImg.prev().length) {
+            activeImg.prev().attr('class', 'active');
+        } else {
+            $(albumPicImg[albumPicImg.length - 1]).addClass('active');
+        }
+        activeImg.removeClass('active');
+    });
+
+    albumCtrl.on('click', '#close-album', function () {
+        album.hide();
+    });
+    album.on('click', '.shadow', function () {
+        album.fadeOut(100);
+    });
+
 
 })(window, jQuery);

@@ -29,7 +29,7 @@ if (!defined('EMLOG_ROOT')) {
                             <span><i class="iconfont icon-tongji"></i><?php echo $views; ?></span>
                             <?php editflg($logid, $author); ?>
                         </div>
-                        <div class="log-body">
+                        <div class="log-body" id="log-body">
                             <?php echo $log_content; ?>
 
                             <p class="tags"><?php blog_tag($logid); ?></p>
@@ -68,11 +68,23 @@ if (!defined('EMLOG_ROOT')) {
                     </div>
                 </div>
 
-                <?php blog_comments($comments); ?>
                 <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
+                <?php blog_comments($comments); ?>
             </div>
         </div>
         <?php include View::getView('side'); ?>
         <div class="clearfix"></div>
     </div>
+
+    <!--相册-->
+    <div class="album" id="album">
+        <div class="shadow"></div>
+        <div class="pic" id="album-pic"></div>
+        <div class="ctrl" id="album-ctrl">
+            <i class="iconfont icon-left" id="prev"></i>
+            <i class="iconfont icon-right" id="next"></i>
+            <i class="iconfont icon-close" id="close-album"></i>
+        </div>
+    </div>
+    <!--相册 /-->
 <?php include View::getView('footer'); ?>

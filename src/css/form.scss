@@ -23,7 +23,10 @@
   }
   input,
   textarea {
-    border-color: #eee;
+    border-color: $light-grey;
+    &:focus {
+      background-color: $dark-white;
+    }
   }
   textarea {
     width: 100%;
@@ -32,22 +35,21 @@
     width: 120px;
     margin-left: 10px;
   }
+  .btn {
+    margin-top: 20px;
+  }
 }
 
 //按钮
 .btn {
-  background: #FF2C3C;
+  background: $extra-light-black;
   border: 0;
   color: #fff;
-  padding: 5px 20px;
+  padding: 8px 20px;
   text-align: center;
   cursor: pointer;
-  _cursor: hand;
-  border-radius: 4px;
+  box-sizing: border-box;
 }
 .btn:hover {
-  background-color: #ff7983;
-}
-.btn.btn-block {
-  display: block;
+  background-color: $light-black;
 }

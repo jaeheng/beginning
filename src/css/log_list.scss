@@ -123,32 +123,28 @@
 // 图片形式列表
 .log_list_img {
   .log_list_item {
-    float: left;
-    padding-left: 15px;
-    width: 49%;
+    display: inline-block;
     box-sizing: border-box;
-    padding-bottom: 45px;
-    &:nth-of-type(2n-1) {
-      margin-right: 2%;
-    }
+    padding: 15px;
+    margin-right: 15px;
+    width: 31%;
+    vertical-align: bottom;
     .img-link {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      position: relative;
       display: block;
-      height: 300px;
+      img {
+        width: 100%;
+      }
       &:hover {
         transition: all .5s;
         opacity: .8;
       }
-      .title {
-        position: absolute;
-        bottom: -35px;
-        left: 0;
-        right: 0;
-        font-size: 14px;
-      }
+    }
+    .title, .title span {
+      font-size: 14px;
+      font-weight: normal;
     }
   }
 }

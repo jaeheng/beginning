@@ -549,9 +549,10 @@ function blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allo
                                 <?php echo $verifyCode; ?>
                             </div>
                         </div>
-                        <input type="submit" id="comment_submit" value="发表评论" class="btn"
-                               tabindex="6"/>
-                        <input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1"/>
+                        <div class="form-group">
+                            <input type="submit" id="comment_submit" value="发表评论" class="btn" />
+                        </div>
+                        <input type="hidden" name="pid" id="comment-pid" value="0" size="22"/>
                     </form>
                 </div>
             </div>

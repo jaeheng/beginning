@@ -15,19 +15,19 @@ doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
 <div class="main container">
-    <ul class="log_list log_list_img">
+    <ul class="log_list_img">
         <?php
         if (!empty($logs)):
             foreach ($logs as $value):
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
-                    <a href="<?php echo $value['log_url']; ?>" class="img-link"
-                       style="background-image: url('<?php echo $imgsrc;?>')" title="<?php echo $value['log_title']; ?>">
-                        <h2 class="title"><?php echo $value['log_title']; ?> <span
-                                    style="float: right;font-size: 14px;">上传于: <?php echo gmdate('Y-n-j', $value['date']); ?></span>
-                        </h2>
+                    <a href="<?php echo $value['log_url']; ?>" class="img-link" title="<?php echo $value['log_title']; ?>">
+                        <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
                     </a>
+                    <h2 class="title"><?php echo $value['log_title']; ?>
+                        <span class="fr">上传于: <?php echo gmdate('Y-n-j', $value['date']); ?></span>
+                    </h2>
                 </li>
                 <?php
             endforeach;
