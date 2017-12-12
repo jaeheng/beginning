@@ -201,5 +201,17 @@
         album.fadeOut(100);
     });
 
-
+    // 滑动过 nav 之后， nav 贴到顶部
+    var body = $('body');
+    var nav = body.find('.nav');
+    if (!body.hasClass('headerFixed')) {
+        $(window).scroll(function (e) {
+            var top = $(this).scrollTop();
+            if (top > 200) {
+                body.addClass('headerFixed');
+            } else {
+                body.removeClass('headerFixed');
+            }
+        });
+    }
 })(window, jQuery);

@@ -1,6 +1,7 @@
 //菜单
+$menu-header: 50px;
 .menu {
-  line-height: 50px;
+  line-height: $menu-header;
 }
 .menu-item {
   float: left;
@@ -55,5 +56,17 @@
     display: block;
     content: '';
     clear: both;
+  }
+}
+
+/* nav粘贴效果 */
+.headerFixed {
+  padding-top: $menu-header;
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
   }
 }

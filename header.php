@@ -33,7 +33,7 @@ $blogName = $blogname;
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=<?php echo $version; ?>">
     <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
 </head>
-<body>
+<body <?php echo $config['showHeader'] ? '' : 'class="headerFixed"'; ?>>
 <!--[if lte IE 8]>
 <div id="browsehappy">
     您正在使用的浏览器版本过低，请<a href="https://browsehappy.com/" target="_blank">
@@ -44,6 +44,7 @@ $blogName = $blogname;
 <?php doAction('index_head'); ?>
 
 <!--头部区域-->
+<?php if ($config['showHeader']): ?>
 <header id="header" class="header">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="avatar">
@@ -52,7 +53,7 @@ $blogName = $blogname;
         </a>
         <h1 class="username">
             <?php echo $blogName; ?>
-            <a href="<?php echo $config['weibo_url']; ?>" target="_blank">
+            <a href="<?php echo $config['weibo']; ?>" target="_blank">
                 <img src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="weibo">
             </a>
         </h1>
@@ -73,6 +74,7 @@ $blogName = $blogname;
         </ul>
     </div>
 </header>
+<?php endif; ?>
 <!--头部区域 ／-->
 
 <!--导航-->

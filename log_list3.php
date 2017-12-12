@@ -23,14 +23,14 @@ doAction('index_loglist_top'); ?>
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
-                    <div class="tag fix"><?php blog_sort($value['logid']); ?></div>
                     <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
                     <h2 class="title"><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
 
                     <div class="info">
                         <?php blog_sort($value['logid']); ?>
                         <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
-                        <i class="iconfont icon-view"></i> <span class="views"><?php echo $value['views']; ?></span>
+                        <i class="iconfont icon-comment"></i> <span class="views"><?php echo $value['comnum']; ?></span>
+                        <i class="iconfont icon-tongji"></i> <span class="views"><?php echo $value['views']; ?></span>
                         <?php editflg($value['logid'],$value['author']); ?>
                     </div>
                     <p class="description">

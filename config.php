@@ -2,10 +2,10 @@
 if (!defined('EMLOG_ROOT')) exit('error!');
 
 $config = array(
-    /* footer中的微博链接 */
-    'weibo_url' => 'http://weibo.com/theheng',
+    /* 微博链接 */
+    'weibo' => 'http://weibo.com/theheng',
 
-    /* footer中的email */
+    /* email */
     'email' => 'jaeheng@126.com',
 
     /* 文章详情页面中的免责声明 */
@@ -14,7 +14,7 @@ $config = array(
     /* 右侧小工具中的二维码数据 */
     'qrcode' => array(
         array(
-            'url' => TEMPLATE_URL . 'images/qrcode.jpg',
+            'url' => TEMPLATE_URL . 'images/qrcode.jpg', // 这个表示 qrcode.jpg图片地址在beginning/images/qrcode.jpg
             'title' => '关注公众号'
         ),
         array(
@@ -29,8 +29,12 @@ $config = array(
     /* 右侧小工具中的礼物图标的链接 */
     'gift' => BLOG_URL,
 
+    /* 首页公告 */
     'notice' => array(
         array('title' => 'Welcome to my blog, thank you', 'url' => 'http://www.zhangziheng.com?post=1'),
         array('title' => '欢迎光临子恒博客', 'url' => 'http://www.zhangziheng.com?post=1')
-    )
+    ),
+
+	/* 是否显示头部（菜单以上部分）: true为显示  false为不显示 */
+	'showHeader' => true
 );

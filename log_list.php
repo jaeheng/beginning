@@ -29,14 +29,17 @@ doAction('index_loglist_top'); ?>
                                     <?php echo $value['log_title']; ?>
                                 </a>
                             </h2>
+                            <div class="description">
+                                <?php echo subString(strip_tags($value['log_description']),0,200);?>
+                            </div>
+
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
                                 <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
+                                <i class="iconfont icon-comment"></i> <span class="view"><?php echo $value['comnum']; ?></span>
                                 <i class="iconfont icon-tongji"></i> <span class="view"><?php echo $value['views']; ?></span>
+                                <a href="<?php echo $value['log_url']; ?>" class="fr">查看文章 <i class="iconfont icon-right"></i></a>
                                 <?php editflg($value['logid'],$value['author']); ?>
-                            </div>
-                            <div class="description">
-                                <?php echo subString(strip_tags($value['log_description']),0,200);?>
                             </div>
                         </li>
                         <?php

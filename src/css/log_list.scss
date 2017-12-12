@@ -4,7 +4,7 @@
   min-height: 150px;
   background-color: #fff;
   margin-bottom: 15px;
-  padding: 15px 15px 15px 250px;
+  padding: 15px 15px 55px 250px;
   box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
   border-radius: $border-radius;
   &:hover {
@@ -53,11 +53,26 @@
     }
   }
   .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
     font-size: 12px;
-    line-height: 3;
+    line-height: 40px;
+    border-top: 1px solid $extra-light-grey;
+    box-sizing: border-box;
+    background-color: $dark-white;
     .iconfont {
       font-size: 12px;
+    }
+    .icon-time, .icon-tongji, .icon-comment {
       margin-left: 20px;
+    }
+    .edit {
+      float: right;
+      color: #ccc;
+      margin-right: 10px;
     }
   }
 }
@@ -121,78 +136,58 @@
 }
 
 // 图片形式列表
-.log_list_img {
+.log_list_img, .log_list_mv {
   .log_list_item {
-    display: inline-block;
+    float: left;
+    width: 32.33%;
     box-sizing: border-box;
     padding: 15px;
-    margin-right: 15px;
-    width: 31%;
+    margin-right: 1.5%;
+    height: 280px;
     vertical-align: bottom;
-    .img-link {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      display: block;
-      img {
-        width: 100%;
-      }
-      &:hover {
-        transition: all .5s;
-        opacity: .8;
-      }
+    &:nth-of-type(3n) {
+      margin-right: 0;
     }
-    .title, .title span {
-      font-size: 14px;
-      font-weight: normal;
+  }
+  .img-link {
+    display: block;
+    position: relative;
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+    &:hover {
+      transition: all .5s;
+      opacity: .8;
     }
   }
 }
 
 // 视频形式列表
 .log_list_mv {
-  .log_list_item {
-    float: left;
-    width: 32.33%;
-    margin-right: 1.5%;
-    box-sizing: border-box;
-    padding-left: 15px;
-    height: 300px;
-    &:nth-of-type(3n) {
-      margin-right: 0;
+  .play {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    text-align: center;
+    transition: all .5s;
+    .iconfont {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -25px;
+      margin-left: -20px;
+      color: #fff;
+      font-size: 50px;
+      line-height: 1;
     }
-    .pic-link {
-      position: relative;
-      width: 100%;
-      margin-bottom: 15px;
-      left: 0;
-      top: 0;
-      height: 200px;
-      .play {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .5);
-        text-align: center;
-        .iconfont {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-top: -30px;
-          margin-left: -20px;
-          color: #fff;
-          font-size: 50px;
-        }
-      }
-      &:hover {
-        .play {
-          display: block;
-        }
-      }
-    }
+  }
+  .log_list_item:hover .play {
+    display: block;
   }
 }

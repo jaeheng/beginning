@@ -56,7 +56,7 @@ if (!defined('EMLOG_ROOT')) {
                         <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'dist/images/default_avatar.png'; ?>"
                              alt="<?php echo $the_author['name']; ?>" class="avatar">
                         <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                        <a href="<?php echo $config['weibo_url']; ?>"><img
+                        <a href="<?php echo $config['weibo']; ?>"><img
                                     src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="作者的微博"
                                     class="icon"></a>
                     </div>

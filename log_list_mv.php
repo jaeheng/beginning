@@ -22,14 +22,16 @@ doAction('index_loglist_top'); ?>
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
-                    <div class="tag fix"><i class="iconfont icon-view"></i> <?php echo $value['views']; ?></div>
-                    <a href="<?php echo $value['log_url']; ?>" class="pic-link">
+                    <a href="<?php echo $value['log_url']; ?>" class="img-link">
                         <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
                         <div class="play">
                             <i class="iconfont icon-play"></i>
                         </div>
                     </a>
-                    <h2 class="title"><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
+                    <h2 class="info">
+                        <a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
+                        <span class="fr"><i class="iconfont icon-tongji"></i><?php echo $value['views']; ?></span>
+                    </h2>
                 </li>
                 <?php
             endforeach;

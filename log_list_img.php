@@ -25,7 +25,7 @@ doAction('index_loglist_top'); ?>
                     <a href="<?php echo $value['log_url']; ?>" class="img-link" title="<?php echo $value['log_title']; ?>">
                         <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
                     </a>
-                    <h2 class="title"><?php echo $value['log_title']; ?>
+                    <h2 class="info"><?php echo $value['log_title']; ?>
                         <span class="fr">上传于: <?php echo gmdate('Y-n-j', $value['date']); ?></span>
                     </h2>
                 </li>
