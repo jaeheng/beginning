@@ -37,6 +37,20 @@ if (!defined('EMLOG_ROOT')) {
                         <div style="border-top: 1px solid #eee;padding-top: 10px;">
                             <?php doAction('log_related', $logData); ?>
                         </div>
+
+                        <!--打赏-->
+                        <?php if ($config['reward']): ?>
+                            <div class="reward-btn">
+                                <div class="i-reward">
+                                    <i class="iconfont icon-dashang"></i> 打赏作者
+                                </div>
+                            </div>
+                            <div class="reward-pic">
+                                <img src="<?php echo TEMPLATE_URL; ?>/images/alipay.jpg" class="reward" alt="打赏作者">
+                                <img src="<?php echo TEMPLATE_URL; ?>/images/wechatPay.jpg" class="reward" alt="打赏作者">
+                            </div>
+                        <?php endif;?>
+                        <!--/打赏-->
                     </div>
                 </div>
                 <div class="panel">

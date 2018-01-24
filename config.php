@@ -36,5 +36,8 @@ $config = array(
     ),
 
 	/* 是否显示头部（菜单以上部分）: true为显示  false为不显示 */
-	'showHeader' => true
+	'showHeader' => true,
+
+	/* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
+	'reward' => true
 );
