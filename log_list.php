@@ -30,7 +30,7 @@ doAction('index_loglist_top'); ?>
                                 </a>
                             </h2>
                             <div class="description">
-                                <?php echo subString(strip_tags($value['log_description']),0,200);?>
+                                <?php echo subString(strip_tags($value['log_description'], '<p><div><ul><li>'),0,200);?>
                             </div>
 
                             <div class="info">
