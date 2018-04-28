@@ -1,8 +1,11 @@
 /* 头部样式 Author: jaeheng */
 .header {
   height: 200px;
-  background: $light-black url("../images/snowberg.jpg") no-repeat center bottom;
-  color: $sliver;
+  background: $primary no-repeat center bottom;
+  background-image: url("../images/banner.jpg");
+  color: $dark-white;
+  border-bottom: 1px solid $light-primary;
+  text-shadow: 0 0 1px #000;
   .avatar {
     float: left;
     margin-top: 50px;
@@ -27,14 +30,13 @@
     }
     .gold-v {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: -5px;
+      right: -5px;
     }
   }
   .username {
     padding-top: 50px;
     font-size: 18px;
-    color: #fff;
     img {
       margin-left: 10px;
       width: 18px;

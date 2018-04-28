@@ -39,7 +39,7 @@ if (!defined('EMLOG_ROOT')) {
                         </div>
 
                         <!--打赏-->
-                        <?php if ($config['reward']): ?>
+                        <?php if (_g('reward')): ?>
                             <div class="reward-btn">
                                 <div class="i-reward">
                                     <i class="iconfont icon-dashang"></i> 打赏作者
@@ -51,11 +51,14 @@ if (!defined('EMLOG_ROOT')) {
                             </div>
                         <?php endif;?>
                         <!--/打赏-->
+
+                        <?php echo _g('relief'); ?>
                     </div>
                 </div>
+
                 <div class="panel">
-                    <div class="panel-body">
-                        <?php echo $config['relief']; ?>
+                    <div class="panel-body neighbor">
+                        <?php neighbor_log($neighborLog); ?>
                     </div>
                 </div>
 
@@ -70,15 +73,9 @@ if (!defined('EMLOG_ROOT')) {
                         <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'dist/images/default_avatar.png'; ?>"
                              alt="<?php echo $the_author['name']; ?>" class="avatar">
                         <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                        <a href="<?php echo $config['weibo']; ?>"><img
+                        <a href="<?php echo _g('weibo'); ?>"><img
                                     src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="作者的微博"
                                     class="icon"></a>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body neighbor">
-                        <?php neighbor_log($neighborLog); ?>
                     </div>
                 </div>
 

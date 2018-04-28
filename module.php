@@ -154,6 +154,19 @@ function widget_twitter($title)
         </ul>
     </div>
 <?php } ?>
+
+<?php
+// 最新碎语，用于首页的轮播提醒
+function getNotices()
+{
+    global $CACHE;
+    $newtws_cache = $CACHE->readCache('newtw');
+    $istwitter = Option::get('istwitter');
+    return array(
+        'list' => $newtws_cache,
+        'isTwitter' => $istwitter
+    );
+} ?>
 <?php
 //widget：最新评论
 function widget_newcomm($title)
@@ -607,7 +620,7 @@ function getSystemInfo()
 function getImgFromDesc($content)
 {
     preg_match_all("|<img[^>]+src=\"([^>\"]+)\"?[^>]*>|is", $content, $img);
-    return !empty($img[1]) ? $img[1][0] : TEMPLATE_URL . 'dist/images/article.jpg';
+    return !empty($img[1]) ? $img[1][0] : TEMPLATE_URL . 'dist/images/default.jpg';
 }
 
 /**
@@ -621,4 +634,47 @@ function getAuthorAvatar($uid = 1)
     $user_cache = $CACHE->readCache('user');
     $photo = $user_cache[$uid]['photo'];
     return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . 'admin/views/images/avatar.jpg';
+}
+
+/**
+ * 获取配置信息
+ * 有一些配置信息无法通过模版配置插件来实现故而仍采用配置文件的形式
+ * @param $key
+ * @return mixed
+ */
+function getconfig ($key) {
+    include(TEMPLATE_PATH . '/config.php');
+    return $config[$key];
+}
+
+if (!function_exists('_g')) {
+    function _g ($key) {
+        return getconfig($key);
+    }
+}
+
+/**
+ * 获取第一个上传的图片附件,没有则返回false
+ */
+function getFirstAtt ($blogid) {
+    $db = Database::getInstance();
+    $sql = 'select * from ' . DB_PREFIX . 'attachment where blogid = ' . $blogid . ' and mimetype like "image%"';
+    $query = $db->query($sql);
+    $res = $db->fetch_array($query);
+    if ($res) {
+        return BLOG_URL . $res['filepath'];
+    } else {
+        return false;
+    }
+}
+
+/**
+ * 根据分类id，获取该分类下的文章列表
+ * @param $sid
+ * @param int $perPageNum
+ * @return array
+ */
+function getArticleBySortID ($sid, $perPageNum = 20) {
+    $log = new Log_Model();
+    return $log->getLogsForHome('and sortid = "' . $sid . '"', 1, $perPageNum);
 }

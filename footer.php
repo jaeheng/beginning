@@ -18,8 +18,8 @@ if (blog_tool_ishome()) {
         <div class="widget">
             <h3>联系我们</h3>
             <div class="widget-inner">
-                <p>Email: <a href="mailto:<?php echo $config['email']; ?>"><?php echo $config['email']; ?></a></p>
-                <p>Weibo: <a href="<?php echo $config['weibo']; ?>"><?php echo $config['weibo']; ?></a></p>
+                <p>Email: <a href="mailto:<?php echo _g('email'); ?>"><?php echo _g('email'); ?></a></p>
+                <p>Weibo: <a href="<?php echo _g('weibo'); ?>"><?php echo _g('weibo'); ?></a></p>
                 <p><?php if (Option::get('rss_output_num')): ?>
                         <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅">RSS订阅</a>
                     <?php endif; ?>
@@ -43,8 +43,8 @@ if (blog_tool_ishome()) {
 
 <!--网站小工具-->
 <div class="site-tools">
-    <a href="<?php echo $config['gift'];?>" target="_blank" class="item"><i class="iconfont icon-gift"></i></a>
-    <?php foreach ($config['qrcode'] as $value) : ?>
+    <a href="<?php echo _g('gift');?>" target="_blank" class="item"><i class="iconfont icon-gift"></i></a>
+    <?php foreach (getconfig('qrcode') as $value) : ?>
     <a href="javascript:;" class="item">
         <i class="iconfont icon-qrcode"></i>
         <div class="popup">
@@ -53,7 +53,7 @@ if (blog_tool_ishome()) {
         </div>
     </a>
     <?php endforeach;?>
-    <a href="<?php echo $config['qq'];?>" class="item" target="_blank">
+    <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes';?>" class="item" target="_blank">
         <i class="iconfont icon-qq"></i>
     </a>
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>

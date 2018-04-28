@@ -34,7 +34,8 @@
      */
     $('#open-menu').on('click', function (e) {
         e.stopPropagation();
-        display(true, menu);
+
+        display(($(menu).css('display') !== 'block'), menu);
     });
 
     var gotoup = $('#gotoup');

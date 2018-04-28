@@ -116,4 +116,4 @@ gulp.task('deleteDist', function () {
 gulp.task('default', ['watch']);
 
 /* 打包 */
-gulp.task('build', ['deleteDist', 'script', 'script2', 'cssWithoutMap', 'images', 'vendor'])
+gulp.task('build', ['script', 'script2', 'cssWithoutMap', 'images', 'vendor'])

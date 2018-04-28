@@ -44,7 +44,7 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="panel-body author">
                         <img src="<?php echo $the_author['avatar'];?>" alt="<?php echo $the_author['name'];?>" class="avatar">
                         <p class="author-desc"><?php echo $the_author['des'];?></p>
-                        <a href="<?php echo $config['weibo'];?>"><img src="<?php echo TEMPLATE_URL;?>/dist/images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
+                        <a href="<?php echo _g('weibo');?>"><img src="<?php echo TEMPLATE_URL;?>/dist/images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
                     </div>
                 </div>
 

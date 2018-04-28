@@ -1,5 +1,5 @@
 //菜单
-$menu-header: 50px;
+$menu-header: 60px;
 .menu {
   line-height: $menu-header;
 }
@@ -13,8 +13,7 @@ $menu-header: 50px;
     white-space: nowrap;
   }
   &:hover, &.active {
-    color: #fff;
-    background-color: $light-black;
+    color: #ffd04b;
   }
   &:hover .sub-menu,
   a:focus + .sub-menu {
@@ -25,28 +24,35 @@ $menu-header: 50px;
   .sub-menu {
     position: absolute;
     z-index: 999;
-    background-color: $light-black;
+    background-color: $light-primary;
     display: none;
+    line-height: 40px;
+    color: #fff;
     a:hover {
-      background-color: $black;
+      background-color: $dark-primary;
     }
   }
 }
 
 /* 导航栏 */
 .nav {
-  background-color: $black;
-  color: $sliver;
+  background-color: $primary;
+  color: $dark-white;
   .input {
-    margin-top: 10px;
-    background-color: $black;
-    border-bottom-color: $light-black;
+    margin-top: 12px;
+    background-color: $dark-primary;
+    border-bottom-color: $dark-primary;
+    border-radius: 5px;
     width: 120px;
     &:focus {
       background-color: #fff;
       width: 150px;
+      color: $black;
       transition: all .5s;
     }
+  }
+  input::-webkit-input-placeholder {
+    color: #ccc;
   }
   .icon-menu {
     display: none;

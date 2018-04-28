@@ -20,7 +20,10 @@ doAction('index_loglist_top'); ?>
                 <?php
                 if (!empty($logs)):
                     foreach($logs as $value):
-                        $imgsrc = getImgFromDesc($value['content']);
+                        $imgsrc = getFirstAtt($value['logid']);
+                        if (!$imgsrc) {
+                            $imgsrc = getImgFromDesc($value['content']);
+                        }
                         ?>
                         <li class="log_list_item">
                             <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
@@ -30,7 +33,7 @@ doAction('index_loglist_top'); ?>
                                 </a>
                             </h2>
                             <div class="description">
-                                <?php echo subString(strip_tags($value['log_description'], '<p><div><ul><li>'),0,200);?>
+                                <?php echo $value['log_description'];?>
                             </div>
 
                             <div class="info">

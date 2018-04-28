@@ -24,7 +24,7 @@ a {
   color: inherit;
   text-decoration: none;
   &:hover {
-    color: $sliver;
+    color: $primary;
   }
 }
 
@@ -79,29 +79,18 @@ input, textarea {
 // 页头的统计信息
 .count {
   overflow: hidden;
-  position: relative;
-  left: -15px;
   .item {
     float: left;
     list-style-type: none;
-    padding: 0 15px 1.5em;
-    border-right: 1px solid $extra-light-black;
     color: inherit;
-    position: relative;
-    text-align: center;
-    .tit {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    &:last-of-type {
-      border-right: none;
-    }
+    margin-right: 15px;
   }
 }
 
 #browsehappy {
   text-align:center;
   background:#ff0;
+}
+.readmore {
+  display: none;
 }

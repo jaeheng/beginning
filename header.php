@@ -1,15 +1,14 @@
 <?php
 /*
-Template Name:beginning
-Description:简洁，多种布局，个人介绍，金v闪亮你的自媒体之路 <br /> 提交bug: http://zhangziheng.com/play/451.html
-Version:1.1
+Template Name:beginning pro
+Description:简洁，多种布局，金v闪亮你的自媒体之路 <br /> 提交bug: http://zhangziheng.com/play/451.html
+Version:1.5
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
 */
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
-require_once View::getView('config');
 $systemInfo = getSystemInfo();
 $version = 'v1.1';
 $siteKey = $site_key;
@@ -33,7 +32,7 @@ $blogName = $blogname;
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=<?php echo $version; ?>">
     <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
 </head>
-<body <?php echo $config['showHeader'] ? '' : 'class="headerFixed"'; ?>>
+<body <?php echo _g('showHeader') ? '' : 'class="headerFixed"'; ?>>
 <!--[if lte IE 8]>
 <div id="browsehappy">
     您正在使用的浏览器版本过低，请<a href="https://browsehappy.com/" target="_blank">
@@ -42,9 +41,8 @@ $blogName = $blogname;
 <![endif]-->
 
 <?php doAction('index_head'); ?>
-
 <!--头部区域-->
-<?php if ($config['showHeader']): ?>
+<?php if (_g('showHeader')): ?>
 <header id="header" class="header">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="avatar">
@@ -53,7 +51,7 @@ $blogName = $blogname;
         </a>
         <h1 class="username">
             <?php echo $blogName; ?>
-            <a href="<?php echo $config['weibo']; ?>" target="_blank">
+            <a href="<?php echo _g('weibo'); ?>" target="_blank">
                 <img src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="weibo">
             </a>
         </h1>
