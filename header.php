@@ -1,8 +1,8 @@
 <?php
 /*
-Template Name:beginning pro
+Template Name:beginning-pro
 Description:简洁，多种布局，金v闪亮你的自媒体之路 <br /> 提交bug: http://zhangziheng.com/play/451.html
-Version:1.5
+Version:2.0.1
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
