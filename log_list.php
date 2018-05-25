@@ -6,10 +6,15 @@ if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
 if (blog_tool_ishome()) {
-    require_once View::getView('notice');
+    require_once View::getView('components/notice');
+
+    if (_g('cms')) {
+        require_once View::getView('home');
+        die;
+    }
 } else {
     // <!--面包屑导航-->
-    require_once View::getView('bread');
+    require_once View::getView('components/bread');
 }
 doAction('index_loglist_top'); ?>
 

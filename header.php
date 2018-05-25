@@ -29,7 +29,7 @@ $blogName = $blogname;
     <title><?php echo $siteTitle; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_v0kbuphltovo0f6r.css">
-    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>dist/css/style.css?version=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo $version; ?>">
     <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
 </head>
 <body <?php echo _g('showHeader') ? '' : 'class="headerFixed"'; ?>>
@@ -52,7 +52,7 @@ $blogName = $blogname;
         <h1 class="username">
             <?php echo $blogName; ?>
             <a href="<?php echo _g('weibo'); ?>" target="_blank">
-                <img src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="weibo">
+                <img src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="weibo">
             </a>
         </h1>
         <div class="userdesc"><?php echo $bloginfo; ?></div>

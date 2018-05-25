@@ -1,36 +1,32 @@
 <?php
 /**
- * 视频模式列表
+ * 图片模式列表
  */
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
 if (blog_tool_ishome()) {
-    require_once View::getView('notice');
+    require_once View::getView('components/notice');
 } else {
     // <!--面包屑导航-->
-    require_once View::getView('bread');
+    require_once View::getView('components/bread');
 }
 doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
 <div class="main container">
-    <ul class="log_list log_list_mv">
+    <ul class="log_list_img">
         <?php
         if (!empty($logs)):
             foreach ($logs as $value):
                 $imgsrc = getImgFromDesc($value['content']);
                 ?>
                 <li class="log_list_item">
-                    <a href="<?php echo $value['log_url']; ?>" class="img-link">
+                    <a href="<?php echo $value['log_url']; ?>" class="img-link" title="<?php echo $value['log_title']; ?>">
                         <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
-                        <div class="play">
-                            <i class="iconfont icon-play"></i>
-                        </div>
                     </a>
-                    <h2 class="info">
-                        <a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
-                        <span class="fr"><i class="iconfont icon-tongji"></i><?php echo $value['views']; ?></span>
+                    <h2 class="info"><?php echo $value['log_title']; ?>
+                        <span class="fr">上传于: <?php echo gmdate('Y-n-j', $value['date']); ?></span>
                     </h2>
                 </li>
                 <?php

@@ -1,4 +1,6 @@
-@import "var";
+@import "size";
+@import "color";
+@import "mixin";
 @import "common";
 @import "form";
 @import "site-notice";
@@ -10,3 +12,5 @@
 @import "emlog";
 @import "album";
 @import "respone";
+@import "ad";
+@import "cms";

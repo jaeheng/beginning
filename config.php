@@ -32,12 +32,13 @@ $config = array(
     /* 右侧小工具中的二维码数据 */
     'qrcode' => array(
         array(
-            'url' => TEMPLATE_URL . 'images/qrcode.jpg', // 这个表示 qrcode.jpg图片地址在beginning/images/qrcode.jpg
+            'url' => TEMPLATE_URL . 'static/images/qrcode.jpg', // 这个表示 qrcode.jpg图片地址在beginning/images/qrcode.jpg
             'title' => '关注公众号'
         ),
         array(
-            'url' => TEMPLATE_URL . 'images/qrcode2.jpg',
+            'url' => TEMPLATE_URL . 'static/images/qrcode2.jpg',
             'title' => '访问小程序'
         )
-    )
+    ),
+    'cms' => true // 是否开启CMS类型首页
 );

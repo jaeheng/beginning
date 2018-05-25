@@ -46,8 +46,8 @@ if (!defined('EMLOG_ROOT')) {
                                 </div>
                             </div>
                             <div class="reward-pic">
-                                <img src="<?php echo TEMPLATE_URL; ?>/images/alipay.jpg" class="reward" alt="打赏作者">
-                                <img src="<?php echo TEMPLATE_URL; ?>/images/wechatPay.jpg" class="reward" alt="打赏作者">
+                                <img src="<?php echo TEMPLATE_URL; ?>/static/images/alipay.jpg" class="reward" alt="打赏作者">
+                                <img src="<?php echo TEMPLATE_URL; ?>/static/images/wechatPay.jpg" class="reward" alt="打赏作者">
                             </div>
                         <?php endif;?>
                         <!--/打赏-->
@@ -70,11 +70,11 @@ if (!defined('EMLOG_ROOT')) {
                               style="font-size: 12px;">本文最后编辑于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
                     </div>
                     <div class="panel-body author">
-                        <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'dist/images/default_avatar.png'; ?>"
+                        <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
                              alt="<?php echo $the_author['name']; ?>" class="avatar">
                         <p class="author-desc"><?php echo $the_author['des']; ?></p>
                         <a href="<?php echo _g('weibo'); ?>"><img
-                                    src="<?php echo TEMPLATE_URL; ?>/dist/images/weibo_48_48.png" alt="作者的微博"
+                                    src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
                                     class="icon"></a>
                     </div>
                 </div>

@@ -1,0 +1,24 @@
+.cms {
+}
+.cms-item {
+  min-height: 230px;
+  box-sizing: border-box;
+  border: 1px solid $light-grey;
+  background-color: #fff;
+  @include box-shadow-normal;
+  .title {
+    padding: 10px;
+    border-bottom: 1px solid $light-grey;
+  }
+  li {
+    padding: 5px 10px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+}
+.cms-log-list {
+  padding: 10px 0;
+}

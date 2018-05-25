@@ -47,5 +47,14 @@ $options = array(
             '0' => '不开启'
         ),
         'default' => $config['reward'],
+    ),
+    'cms' => array(
+        'type' => 'radio',
+        'name' => '聚合首页',
+        'values' => array(
+            '1' => '开启',
+            '0' => '不开启'
+        ),
+        'default' => $config['cms'],
     )
 );

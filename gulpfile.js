@@ -14,7 +14,7 @@ var mainscss = './src/css/style.scss'
 var images = './src/images/*'
 var vendor = './src/lib/*'
 
-var dest = './dist/'
+var dest = './static/'
 
 /* 检查代码 */
 gulp.task('lint', function() {

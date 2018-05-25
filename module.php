@@ -620,7 +620,7 @@ function getSystemInfo()
 function getImgFromDesc($content)
 {
     preg_match_all("|<img[^>]+src=\"([^>\"]+)\"?[^>]*>|is", $content, $img);
-    return !empty($img[1]) ? $img[1][0] : TEMPLATE_URL . 'dist/images/default.jpg';
+    return !empty($img[1]) ? $img[1][0] : TEMPLATE_URL . 'static/images/default.jpg';
 }
 
 /**
@@ -677,4 +677,21 @@ function getFirstAtt ($blogid) {
 function getArticleBySortID ($sid, $perPageNum = 20) {
     $log = new Log_Model();
     return $log->getLogsForHome('and sortid = "' . $sid . '"', 1, $perPageNum);
+}
+
+/**
+ * 获取分类列表
+ * @param $except array 要排除的分类id数组
+ * @return array
+ */
+function getSorts ($except = []) {
+    global $CACHE;
+    $sort_cache = $CACHE->readCache('sort');
+    $data = array();
+    foreach ($sort_cache as $key => $item) {
+        if (!in_array($key,$except)) {
+            $data[$key] = $item;
+        }
+    }
+    return $data;
 }
