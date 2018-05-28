@@ -106,6 +106,7 @@
   bottom: 50%;
   right: 30px;
   margin-bottom: -2 * $tools-item-width;
+  z-index: 999;
   @include box-shadow-normal;
   .item {
     display: block;

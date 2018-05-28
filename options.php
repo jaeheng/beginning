@@ -56,5 +56,19 @@ $options = array(
             '0' => '不开启'
         ),
         'default' => $config['cms'],
+    ),
+    'cmsAd' => array(
+        'type' => 'text',
+        'name' => '聚合首页广告链接',
+        'multi' => false,
+        'default' => $config['cmsAd'],
+        'description' => '为空则不显示该广告'
+    ),
+    'searchId' => array(
+        'type' => 'text',
+        'name' => '单独搜索页面',
+        'multi' => false,
+        'default' => $config['searchId'],
+        'description' => '填写应用了 log_list/search 分类模版的分类ID'
     )
 );

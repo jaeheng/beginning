@@ -148,6 +148,12 @@
     float: none;
     width: 100%;
   }
+  .search-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: $mini-header-height;
+  }
 }
 
 @media all and (min-width: 960px) {

@@ -115,8 +115,10 @@ input, textarea {
 .swiper-container {
   margin-top: 20px!important;
   margin-bottom: 20px!important;
-  height: 250px;
-  padding-bottom: 44px!important;
+  height: 280px;
+  background: #fff;
+  padding: 20px 20px 44px!important;
+  box-sizing: border-box;
   @include box-shadow-normal;
   .swiper-slide {
     box-sizing: border-box;
@@ -161,5 +163,39 @@ input, textarea {
     top: auto;
     bottom: 0;
     background-size: 15px;
+  }
+}
+
+// search-form
+.search-form {
+  padding: 100px 0;
+  text-align: center;
+  .input {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+  }
+  .input,.btn {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  .tag {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+}
+.search-icon {
+  display: block;
+  padding: 0 20px;
+  line-height: $menu-header;
+  &:hover {
+    color: #ffd04b;
   }
 }

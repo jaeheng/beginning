@@ -4,6 +4,7 @@
     display: block;
   }
   img {
+    @include box-shadow-normal;
     width: 100%;
   }
 }

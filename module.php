@@ -68,28 +68,12 @@ function widget_tag($title)
  */
 function widget_hot_tag($num = 10)
 {
-    global $CACHE;
-    $tag_cache = $CACHE->readCache('tags');
-    $sort = array(
-        'direction' => 'SORT_DESC', //排序顺序标志 SORT_DESC 降序；SORT_ASC 升序
-        'field' => 'usenum',       //排序字段
-    );
-    $arrSort = array();
-    foreach ($tag_cache AS $uniqid => $row) {
-        foreach ($row AS $key => $value) {
-            $arrSort[$key][$uniqid] = $value;
-        }
-    }
-    if (!empty($arrSort) && $sort['direction']) {
-        array_multisort($arrSort[$sort['field']], constant($sort['direction']), $tag_cache);
-    }
+    $tag_cache = getHotTag($num);
     ?>
     <div class="widget widget-topic">
         <h3>热门话题</h3>
         <div class="widget-inner">
-            <?php $i = 0;
-            foreach ($tag_cache as $value): $i++;
-                if ($i > $num) break; ?>
+            <?php foreach ($tag_cache as $value): ?>
                 <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章"
                    class="topic-item">#<?php echo $value['tagname']; ?>#</a>
             <?php endforeach; ?>
@@ -711,4 +695,47 @@ function getTopArticle ($sid = 0, $perPageNum = 20) {
         $map = 'and sortid = "' . $sid . '" and sortop = "y"';
     }
     return $log->getLogsForHome($map, 1, $perPageNum);
+}
+
+/**
+ * 获取到热门标签的数据
+ * @param int $num
+ * @return mixed
+ */
+function getHotTag ($num = 10) {
+    global $CACHE;
+    $tag_cache = $CACHE->readCache('tags');
+    $sort = array(
+        'direction' => 'SORT_DESC', //排序顺序标志 SORT_DESC 降序；SORT_ASC 升序
+        'field' => 'usenum',       //排序字段
+    );
+    $arrSort = array();
+    foreach ($tag_cache AS $uniqid => $row) {
+        foreach ($row AS $key => $value) {
+            $arrSort[$key][$uniqid] = $value;
+        }
+    }
+    if (!empty($arrSort) && $sort['direction']) {
+        array_multisort($arrSort[$sort['field']], constant($sort['direction']), $tag_cache);
+    }
+    return array_slice($tag_cache, 0, $num);
+}
+
+/**
+ * 获取随机的标签
+ * @param int $num
+ * @return array
+ */
+function getRandomTags ($num = 10) {
+    global $CACHE;
+    $tag_cache = $CACHE->readCache('tags');
+
+    $data = array();
+    for($i = 0; $i < $num; $i++) {
+        $len = count($tag_cache);
+        $index = rand(1, $len);
+        $data[] = $tag_cache[$index-1];
+        array_splice($tag_cache, $index-1, 1);
+    }
+    return $data;
 }

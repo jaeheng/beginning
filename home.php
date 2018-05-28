@@ -5,9 +5,17 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-$sorts = getSorts(array(63));
+// 将搜索分类忽略掉
+$searchId = _g('searchId');
+$exp = array();
+if (!empty($searchId)) {
+    $exp[] = $searchId;
+}
+$sorts = getSorts($exp);
 // TODO:横条广告，以后等可配置了再放开
- include View::getView('components/banner_ad');
+if (!empty(_g('cmsAd'))) {
+    include View::getView('components/banner_ad');
+}
 ?>
 <link rel="stylesheet" href="<?php echo TEMPLATE_URL;?>static/vendor/swiper-4.2.6.min.css">
 
@@ -25,7 +33,7 @@ $sorts = getSorts(array(63));
                     $img = $img ? $img : getImgFromDesc($log['content']);
             ?>
             <div class="swiper-slide">
-                <a href="<?php echo Url::log($log['gid']);?>">
+                <a href="<?php echo Url::log($log['gid']);?>" title="<?php echo $log['title'];?>">
                     <div class="log-img">
                         <img src="<?php echo $img;?>" alt="<?php echo $log['title'];?>">
                     </div>
