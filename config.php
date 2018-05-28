@@ -47,5 +47,5 @@ $config = array(
     ),
     'cms' => true, // 是否开启聚合首页
     'cmsAd' => 'https://item.taobao.com/item.htm?spm=a1z38n.10677092.0.0.594c1debCFxypa&id=568657856985', // 聚合首页banner广告
-    'searchId' => ''
+    'searchId' => '466'
 );

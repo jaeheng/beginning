@@ -88,7 +88,7 @@ $blogName = $blogname;
             blog_navi();
             if (!empty(_g('searchId'))):
         ?>
-        <a href="<?php echo Url::sort(_g('searchId'));?>" class="pull-right search-icon">
+        <a href="<?php echo Url::log(_g('searchId'));?>" class="pull-right search-icon">
             <i class="iconfont icon-search"></i>
         </a>
         <?php else:?>

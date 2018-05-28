@@ -5,14 +5,8 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-// 将搜索分类忽略掉
-$searchId = _g('searchId');
-$exp = array();
-if (!empty($searchId)) {
-    $exp[] = $searchId;
-}
-$sorts = getSorts($exp);
-// TODO:横条广告，以后等可配置了再放开
+$sorts = getSorts();
+// 横条广告
 if (!empty(_g('cmsAd'))) {
     include View::getView('components/banner_ad');
 }
