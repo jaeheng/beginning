@@ -33,9 +33,9 @@ doAction('index_loglist_top'); ?>
                         <i class="iconfont icon-tongji"></i> <span class="views"><?php echo $value['views']; ?></span>
                         <?php editflg($value['logid'],$value['author']); ?>
                     </div>
-                    <p class="description">
-                        <?php echo subString(strip_tags($value['log_description']),0,45);?>
-                    </p>
+                    <div class="description">
+                        <?php echo $value['log_description'];?>
+                    </div>
                 </li>
                 <?php
             endforeach;

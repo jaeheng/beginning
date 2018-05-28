@@ -20,6 +20,7 @@
   }
   .widget-inner {
     padding: 15px;
+    line-height: 1.8;
   }
   .more {
     text-align: right;
@@ -160,9 +161,6 @@
 
 // 侧边栏友链
 .widget-link {
-  .tag {
-    background-color: $extra-light-black;
-  }
 }
 
 // 侧边栏用户

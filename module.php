@@ -556,14 +556,16 @@ function blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allo
                             <label for="comment">评论内容</label>
                             <textarea name="comment" class="input" id="comment" rows="5" tabindex="4" placeholder="请文明评论"></textarea>
                         </div>
+                        <?php if (!empty($verifyCode)):?>
                         <div class="form-group">
                             <label for="comment">验证码</label>
                             <div class="verify-code">
                                 <?php echo $verifyCode; ?>
                             </div>
                         </div>
+                        <?php endif;?>
                         <div class="form-group">
-                            <input type="submit" id="comment_submit" value="发表评论" class="btn" />
+                            <button type="submit" id="comment_submit" class="btn">发表评论</button>
                         </div>
                         <input type="hidden" name="pid" id="comment-pid" value="0" size="22"/>
                     </form>
@@ -613,6 +615,21 @@ function getSystemInfo()
 }
 
 /**
+ * 获取第一个上传的图片附件,没有则返回false
+ */
+function getFirstAtt ($blogid) {
+    $db = Database::getInstance();
+    $sql = 'select * from ' . DB_PREFIX . 'attachment where blogid = ' . $blogid . ' and mimetype like "image%"';
+    $query = $db->query($sql);
+    $res = $db->fetch_array($query);
+    if ($res) {
+        return BLOG_URL . $res['filepath'];
+    } else {
+        return false;
+    }
+}
+
+/**
  * 获取一段html中的第一个图片
  * @param $content
  * @return string img
@@ -654,21 +671,6 @@ if (!function_exists('_g')) {
 }
 
 /**
- * 获取第一个上传的图片附件,没有则返回false
- */
-function getFirstAtt ($blogid) {
-    $db = Database::getInstance();
-    $sql = 'select * from ' . DB_PREFIX . 'attachment where blogid = ' . $blogid . ' and mimetype like "image%"';
-    $query = $db->query($sql);
-    $res = $db->fetch_array($query);
-    if ($res) {
-        return BLOG_URL . $res['filepath'];
-    } else {
-        return false;
-    }
-}
-
-/**
  * 根据分类id，获取该分类下的文章列表
  * @param $sid
  * @param int $perPageNum
@@ -676,7 +678,7 @@ function getFirstAtt ($blogid) {
  */
 function getArticleBySortID ($sid, $perPageNum = 20) {
     $log = new Log_Model();
-    return $log->getLogsForHome('and sortid = "' . $sid . '"', 1, $perPageNum);
+    return $log->getLogsForHome('and sortid = "' . $sid . '" order by sortop desc, gid desc', 1, $perPageNum);
 }
 
 /**
@@ -694,4 +696,19 @@ function getSorts ($except = []) {
         }
     }
     return $data;
+}
+
+/**
+ * 根据分类id，获取该分类下的置顶文章
+ * @param $sid
+ * @param int $perPageNum
+ * @return array
+ */
+function getTopArticle ($sid = 0, $perPageNum = 20) {
+    $log = new Log_Model();
+    $map = 'and top = "y"';
+    if ($sid) {
+        $map = 'and sortid = "' . $sid . '" and sortop = "y"';
+    }
+    return $log->getLogsForHome($map, 1, $perPageNum);
 }

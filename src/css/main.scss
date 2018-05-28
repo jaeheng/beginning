@@ -29,11 +29,15 @@
 
 // 标签
 .tag {
-  background-color: $extra-light-black;
+  background-color: $light-primary;
   padding: 5px 10px;
   margin-right: 5px;
   font-size: 12px;
   color: #fff;
+  &:hover {
+    color: #fff;
+    background-color: $dark-primary;
+  }
 }
 
 // 分页
@@ -102,7 +106,7 @@
   bottom: 50%;
   right: 30px;
   margin-bottom: -2 * $tools-item-width;
-  box-shadow: 0 2px 5px 0 rgba(146,146,146,.1);
+  @include box-shadow-normal;
   .item {
     display: block;
     background-color: #fff;
@@ -128,8 +132,10 @@
       background: $extra-light-grey;
       height: 0;
       overflow: hidden;
+      @include box-shadow-normal;
       img {
         float: left;
+        width: 260px;
       }
       .title {
         text-align: center;

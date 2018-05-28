@@ -23,21 +23,26 @@ $config = array(
         array('title' => '欢迎光临子恒博客', 'url' => 'http://www.zhangziheng.com?post=1')
     ),
 
-	/* 是否显示头部（菜单以上部分）: true为显示  false为不显示 */
-	'showHeader' => true,
+    /* 是否显示头部（菜单以上部分）: true为显示  false为不显示 */
+    'showHeader' => true,
 
-	/* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
-	'reward' => true,
+    /* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
+    'reward' => true,
 
-    /* 右侧小工具中的二维码数据 */
+    /**
+     * 右侧小工具中的二维码数据
+     * 可设置多个，复制第二层array即可
+     */
     'qrcode' => array(
         array(
-            'url' => TEMPLATE_URL . 'static/images/qrcode.jpg', // 这个表示 qrcode.jpg图片地址在beginning/images/qrcode.jpg
-            'title' => '关注公众号'
+            'url' => TEMPLATE_URL . 'static/images/wechatPay.png', // 这个表示 qrcode.png图片地址在beginning/images/qrcode.png
+            'title' => '赞赏作者 (微信)',
+            'icon' => 'icon-coffee' // 图标详情可见：TODO:图标库页面
         ),
         array(
-            'url' => TEMPLATE_URL . 'static/images/qrcode2.jpg',
-            'title' => '访问小程序'
+            'url' => TEMPLATE_URL . 'static/images/weixin.png', // 这个表示 weixin.png图片地址在beginning/images/weixin.png
+            'title' => '加我微信',
+            'icon' => 'icon-weixin'
         )
     ),
     'cms' => true // 是否开启CMS类型首页

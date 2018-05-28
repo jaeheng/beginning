@@ -47,7 +47,7 @@ if (!defined('EMLOG_ROOT')) {
                             </div>
                             <div class="reward-pic">
                                 <img src="<?php echo TEMPLATE_URL; ?>/static/images/alipay.jpg" class="reward" alt="打赏作者">
-                                <img src="<?php echo TEMPLATE_URL; ?>/static/images/wechatPay.jpg" class="reward" alt="打赏作者">
+                                <img src="<?php echo TEMPLATE_URL; ?>/static/images/wechatPay.png" class="reward" alt="微信打赏">
                             </div>
                         <?php endif;?>
                         <!--/打赏-->

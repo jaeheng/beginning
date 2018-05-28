@@ -48,8 +48,8 @@ if (!defined('EMLOG_ROOT')) {
                     </div>
                 </div>
 
-                <?php blog_comments($comments); ?>
                 <?php blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_remark); ?>
+                <?php blog_comments($comments); ?>
             </div>
         </div>
         <?php include View::getView('side');?>
