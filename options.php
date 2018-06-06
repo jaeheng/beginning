@@ -30,15 +30,6 @@ $options = array(
         'multi' => true,
         'default' => $config['relief'],
     ),
-    'showHeader' => array(
-        'type' => 'radio',
-        'name' => '显示头部',
-        'values' => array(
-            '1' => '显示',
-            '0' => '不显示'
-        ),
-        'default' => $config['showHeader'],
-    ),
     'reward' => array(
         'type' => 'radio',
         'name' => '开启打赏',

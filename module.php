@@ -12,7 +12,7 @@ function widget_blogger($title)
 {
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
-    $name = $user_cache[1]['mail'] != '' ? "<a href=\"mailto:" . $user_cache[1]['mail'] . "\">" . $user_cache[1]['name'] . "</a>" : $user_cache[1]['name']; ?>
+    ?>
     <div class="widget widget-user">
         <h3><?php echo $title; ?></h3>
         <ul id="bloggerinfo">
@@ -21,10 +21,14 @@ function widget_blogger($title)
                     <img src="<?php echo BLOG_URL . $user_cache[1]['photo']['src']; ?>"
                          width="<?php echo $user_cache[1]['photo']['width']; ?>"
                          height="<?php echo $user_cache[1]['photo']['height']; ?>" alt="blogger"/>
+                <?php else:?>
+                <div class="img-l">
+                    <?php echo $user_cache[1]['name'][0]; ?>
+                </div>
                 <?php endif; ?>
             </div>
-            <p><b><?php echo $name; ?></b>
-                <?php echo $user_cache[1]['des']; ?></p>
+            <span class="username"><?php echo $user_cache[1]['name']; ?></span>
+            <p><?php echo $user_cache[1]['des']; ?></p>
         </ul>
     </div>
 <?php } ?>
@@ -129,11 +133,11 @@ function widget_twitter($title)
         <h3><?php echo $title; ?></h3>
         <ul id="twitter">
             <?php foreach ($newtws_cache as $value): ?>
-                <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank">&nbsp;</a>'; ?>
+                <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank"> <img src="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" class="img"></a>'; ?>
                 <li><?php echo $value['t']; ?><?php echo $img; ?><p><?php echo smartDate($value['date']); ?></p></li>
             <?php endforeach; ?>
             <?php if ($istwitter == 'y') : ?>
-                <p><a href="<?php echo BLOG_URL . 't/'; ?>">更多&raquo;</a></p>
+                <p><a href="<?php echo BLOG_URL . 't/'; ?>" class="btn btn-block">- 更多<?php echo $title; ?> -</a></p>
             <?php endif; ?>
         </ul>
     </div>
@@ -738,4 +742,34 @@ function getRandomTags ($num = 10) {
         array_splice($tag_cache, $index-1, 1);
     }
     return $data;
+}
+
+/**
+ * 获取随机banner图片
+ * @return string
+ */
+function getRandomHeaderBg () {
+    $len = count(scandir(TEMPLATE_PATH . 'static' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'banner')) - 2;
+    $index = rand(1, $len);
+    return "background-image: url('" . TEMPLATE_URL . "static/images/banner/banner{$index}.jpg');";
+}
+
+/**
+ * 减少数字得显示
+ * @param int $num
+ * @return int|string
+ */
+function smartNum ($num = 0) {
+    $num = intval($num);
+    if ($num > 9999999) {
+        return round($num / 10000000, 2) . 'kw';
+    } elseif ($num > 999999) {
+        return round($num / 1000000, 2) . 'm';
+    } elseif ($num > 9999) {
+        return round($num / 10000, 2) . 'w';
+    } elseif ($num > 999) {
+        return round($num / 1000, 2) . 'k';
+    } else {
+        return $num;
+    }
 }

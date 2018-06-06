@@ -110,6 +110,10 @@
                     type: 'slider'
                 }
             ],
+            grid: {
+                left: '15%',
+                right: '15%'
+            },
             series: [
                 {
                     name: '文章数量',

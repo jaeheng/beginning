@@ -1,5 +1,6 @@
 #tw {
   background-color: #fff;
+  @include box-shadow-normal;
 }
 
 #tw .main_img {

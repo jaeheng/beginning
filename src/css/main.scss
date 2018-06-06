@@ -1,9 +1,15 @@
 /* 面包屑导航 */
 .breadthumb {
-  padding: 15px 0;
+  .title {
+    text-align: center;
+    font-size: 36px;
+    line-height: 220px;
+  }
   .bread-item {
     color: $light-black;
     margin-right: 5px;
+    padding: 15px 0;
+    display: inline-block;
     &:after {
       content: ' >';
       color: #b2b2b2;
@@ -98,7 +104,7 @@
   text-align: center;
   padding: 30px 0;
   background-color: $black;
-  color: $extra-light-black;
+  color: #9E9E9E;
 }
 
 .site-tools {
@@ -164,19 +170,19 @@
   border-bottom: 1px solid #eee;
 }
 .panel-body {
-  padding: 20px;
+  padding: 30px;
 }
 .content .panel {
   margin-bottom: 15px;
-  box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
+  @include box-shadow-normal;
 }
 
 //log
 .log-info {
   color: $sliver;
-  border-bottom: 1px solid $light-grey;
-  padding: 10px 0 15px;
-  text-align: center;
+  border-top: 1px solid $light-grey;
+  padding: 1em 0;
+  margin-top: 1em;
   a {
     color: $sliver;
   }
@@ -191,11 +197,11 @@
   color: $extra-light-black;
   font-size: 22px;
   font-weight: bold;
-  text-align: center;
 }
 .log-body {
   padding: 20px 0;
-  line-height: 2;
+  line-height: 28px;
+  font-size: 16px;
   p, strong {
     margin-bottom: 1em;
     font-size: 16px;
@@ -230,6 +236,9 @@
       display: inline;
     }
   }
+}
+.relief {
+  color: $extra-light-black;
 }
 .author {
   position: relative;

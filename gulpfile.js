@@ -11,7 +11,7 @@ var fs = require('fs');
 /* paths */
 var mainjs = './src/js/main.js';
 var mainscss = './src/css/style.scss'
-var images = './src/images/*'
+var images = ['./src/images/*/*', './src/images/*']
 var vendor = './src/lib/*'
 
 var dest = './static/'
@@ -72,6 +72,7 @@ gulp.task('cssWithoutMap', function () {
 
 /* move images */
 gulp.task('images', function () {
+
     return gulp.src(images)
         .pipe(gulp.dest(dest + 'images'));
 });

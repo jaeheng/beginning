@@ -1,14 +1,15 @@
 /* 头部样式 Author: jaeheng */
 .header {
-  height: 200px;
-  background: $primary no-repeat center bottom;
-  background-image: url("../images/banner.jpg");
-  color: $dark-white;
-  border-bottom: 1px solid $light-primary;
+  height: 220px;
+  background: $primary no-repeat center;
+  background-image: url("../images/banner/banner1.jpg");
+  background-size: cover;
   text-shadow: 0 0 1px #000;
+  color: $dark-white;
+  margin-bottom: 15px;
   .avatar {
     float: left;
-    margin-top: 50px;
+    margin-top: 70px;
     margin-right: 30px;
     width: 76px;
     height: 76px;
@@ -35,7 +36,7 @@
     }
   }
   .username {
-    padding-top: 50px;
+    padding-top: 70px;
     font-size: 18px;
     img {
       margin-left: 10px;

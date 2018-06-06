@@ -33,7 +33,7 @@ $blogName = $blogname;
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
     <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
 </head>
-<body <?php echo _g('showHeader') ? '' : 'class="headerFixed"'; ?>>
+<body class="headerFixed">
 <!--[if lte IE 8]>
 <div id="browsehappy">
     您正在使用的浏览器版本过低，请<a href="https://browsehappy.com/" target="_blank">
@@ -42,9 +42,34 @@ $blogName = $blogname;
 <![endif]-->
 
 <?php doAction('index_head'); ?>
+
+<!--导航-->
+<div class="nav">
+    <div class="container">
+        <a href="javascript:;" class="icon-menu" id="open-menu">
+            <i class="icon-menu-item"></i>
+            <i class="icon-menu-item"></i>
+            <i class="icon-menu-item"></i>
+        </a>
+        <?php
+        blog_navi();
+        if (!empty(_g('searchId'))):
+            ?>
+            <a href="<?php echo Url::log(_g('searchId'));?>" class="pull-right search-icon">
+                <i class="iconfont icon-search"></i>
+            </a>
+        <?php else:?>
+            <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
+                <input type="search" name="keyword" class="input" value="<?php echo $keyword; ?>" placeholder="search..."/>
+            </form>
+        <?php endif;?>
+    </div>
+</div>
+<!--导航 ／-->
+
 <!--头部区域-->
-<?php if (_g('showHeader')): ?>
-<header id="header" class="header">
+<?php if (blog_tool_ishome()): ?>
+<header id="header" class="header" style="<?php echo getRandomHeaderBg();?>">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="avatar">
             <div class="img"><img src="<?php echo getAuthorAvatar(); ?>" alt="<?php echo $blogName; ?>"></div>
@@ -75,27 +100,3 @@ $blogName = $blogname;
 </header>
 <?php endif; ?>
 <!--头部区域 ／-->
-
-<!--导航-->
-<div class="nav">
-    <div class="container">
-        <a href="javascript:;" class="icon-menu" id="open-menu">
-            <i class="icon-menu-item"></i>
-            <i class="icon-menu-item"></i>
-            <i class="icon-menu-item"></i>
-        </a>
-        <?php
-            blog_navi();
-            if (!empty(_g('searchId'))):
-        ?>
-        <a href="<?php echo Url::log(_g('searchId'));?>" class="pull-right search-icon">
-            <i class="iconfont icon-search"></i>
-        </a>
-        <?php else:?>
-        <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
-            <input type="search" name="keyword" class="input" value="<?php echo $keyword; ?>" placeholder="search..."/>
-        </form>
-        <?php endif;?>
-    </div>
-</div>
-<!--导航 ／-->

@@ -186,6 +186,10 @@ input, textarea {
     font-weight: bold;
     margin-bottom: 1em;
   }
+  .icon-search {
+    font-size: 30px;
+    margin-right: 10px;
+  }
   .tag {
     margin-bottom: 10px;
     display: inline-block;
@@ -197,5 +201,15 @@ input, textarea {
   line-height: $menu-header;
   &:hover {
     color: #ffd04b;
+  }
+}
+.quick-search {
+  padding: 0 15px;
+  margin: 50px auto 0;
+  .tag {
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

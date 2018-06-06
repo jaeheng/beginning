@@ -35,12 +35,12 @@
 
 /* 导航栏 */
 .nav {
-  background-color: $primary;
+  background-color: $black;
   color: $dark-white;
   .input {
     margin-top: 12px;
-    background-color: $dark-primary;
-    border-bottom-color: $dark-primary;
+    background-color: $black;
+    border-bottom-color: lighten($black, 10%);
     border-radius: 5px;
     width: 120px;
     &:focus {

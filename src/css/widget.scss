@@ -49,6 +49,13 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  .img {
+    width: 80%;
+    margin: 1em auto;
+    display: block;
+    border: 2px solid #e9eaeb;
+    @include box-shadow-normal;
+  }
 }
 
 // 侧边栏最新评论
@@ -166,10 +173,26 @@
 // 侧边栏用户
 #bloggerinfo {
   text-align: center;
+  .username {
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+  .img-l {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #eee;
+    border-radius: 50%;
+    margin: 15px auto;
+    font-size: 38px;
+  }
 }
 
 // 侧边栏日历
 #calendar {
+  min-height: 267px;
   .calendartop {
     width: 100%;
     text-align: center;
@@ -199,6 +222,10 @@
   }
   .calendar td.day {
     background-color: $extra-light-black;
+    color: #fff;
+  }
+  .day2 {
+    background: #03A9F4;
     color: #fff;
   }
 }

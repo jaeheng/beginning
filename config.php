@@ -23,9 +23,6 @@ $config = array(
         array('title' => '欢迎光临子恒博客', 'url' => 'http://www.zhangziheng.com?post=1')
     ),
 
-    /* 是否显示头部（菜单以上部分）: true为显示  false为不显示 */
-    'showHeader' => true,
-
     /* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
     'reward' => true,
 
@@ -45,7 +42,7 @@ $config = array(
             'icon' => 'icon-weixin'
         )
     ),
-    'cms' => true, // 是否开启聚合首页
+    'cms' => false, // 是否开启聚合首页
     'cmsAd' => 'https://item.taobao.com/item.htm?spm=a1z38n.10677092.0.0.594c1debCFxypa&id=568657856985', // 聚合首页banner广告
     'searchId' => '466'
 );

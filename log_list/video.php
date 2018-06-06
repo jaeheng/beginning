@@ -30,7 +30,7 @@ doAction('index_loglist_top'); ?>
                     </a>
                     <h2 class="info">
                         <a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
-                        <span class="fr"><i class="iconfont icon-tongji"></i><?php echo $value['views']; ?></span>
+                        <span class="fr"><i class="iconfont icon-tongji"></i><?php echo smartNum($value['views']); ?></span>
                     </h2>
                 </li>
                 <?php
