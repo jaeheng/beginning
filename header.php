@@ -53,7 +53,8 @@ $blogName = $blogname;
         </a>
         <?php
         blog_navi();
-        if (!empty(_g('searchId'))):
+        $searchId = _g('searchId');
+        if (!empty($searchId)):
             ?>
             <a href="<?php echo Url::log(_g('searchId'));?>" class="pull-right search-icon">
                 <i class="iconfont icon-search"></i>
