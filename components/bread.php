@@ -25,6 +25,8 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
             <div class="title">您查看的是 “ <?php echo $record; ?> ” 年月的文章</div><!-- 归档 -->
         <?php elseif (isset($log_title)):?>
             <div class="title"><?php echo $log_title; ?></div><!-- 归档 -->
+        <?php else: ?>
+            <div class="title"><?php echo $blogname; ?></div><!-- 默认 -->
         <?php endif;?>
     </div>
 </header>

@@ -59,6 +59,6 @@ if (blog_tool_ishome()) {
 </div>
 <!--网站小工具 ／-->
 <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
-<script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js"></script>
+<script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js?version=<?php echo $version;?>"></script>
 </body>
 </html>

@@ -7,7 +7,8 @@ if (!defined('EMLOG_ROOT')) {
 }
 $sorts = getSorts();
 // 横条广告
-if (!empty(_g('cmsAd'))) {
+$cmsAd = _g('cmsAd');
+if (!empty($cmsAd)) {
     include View::getView('components/banner_ad');
 }
 ?>
@@ -92,6 +93,7 @@ if (!empty(_g('cmsAd'))) {
     <script>
         var mySwiper = new Swiper ('.swiper-container', {
             loop: true,
+            autoplay: true,
 
             // 如果需要分页器
             pagination: {
