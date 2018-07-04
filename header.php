@@ -2,7 +2,7 @@
 /*
 Template Name:beginning
 Description:简洁，多种布局 <br /> <a href="http://zhangziheng.com/play/451.html" target="_blank">提交bug</a>
-Version:2.5
+Version:2.5.1
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
@@ -10,7 +10,7 @@ Sidebar Amount:1
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
 $systemInfo = getSystemInfo();
-$version = 'v2.5';
+$version = 'v2.5.1';
 $siteKey = $site_key;
 $siteDescription = $site_description;
 $siteTitle = $site_title;

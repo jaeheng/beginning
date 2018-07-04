@@ -154,6 +154,9 @@
     top: 0;
     line-height: $mini-header-height;
   }
+  .panel-body {
+    padding: 15px;
+  }
 }
 
 @media all and (min-width: 960px) {

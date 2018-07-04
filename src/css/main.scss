@@ -1,5 +1,6 @@
 /* 面包屑导航 */
 .breadthumb {
+  padding: 15px 0;
   .title {
     text-align: center;
     font-size: 36px;
@@ -8,8 +9,7 @@
   .bread-item {
     color: $light-black;
     margin-right: 5px;
-    padding: 15px 0;
-    display: inline-block;
+    padding: 0;
     &:after {
       content: ' >';
       color: #b2b2b2;
