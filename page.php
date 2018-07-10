@@ -29,7 +29,7 @@ if (!defined('EMLOG_ROOT')) {
                             <i class="iconfont icon-view"></i> <?php echo $views;?>
                             <?php editflg($logid,$author); ?>
                         </div>
-                        <div class="log-body">
+                        <div class="log-body" id="log-body">
                             <?php echo $log_content; ?>
                         </div>
                     </div>

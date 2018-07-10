@@ -34,7 +34,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
                 <span><?php echo $author; ?></span><br />
                 <?php echo $val['t'].'<br/>'.$img;?>
                 <div class="bttome">
-                    <p class="post"><a href="javascript:loadr('<?php echo DYNAMIC_BLOGURL; ?>?action=getr&tid=<?php echo $tid;?>','<?php echo $tid;?>');">回复(<span id="rn_<?php echo $tid;?>"><?php echo $val['replynum'];?></span>)</a></p>
+                    <p class="post"><a href="javascript:loadTwitterReply('<?php echo BLOG_URL . 't/'; ?>?action=getr&tid=<?php echo $tid;?>','<?php echo $tid;?>');">回复(<span id="rn_<?php echo $tid;?>"><?php echo $val['replynum'];?></span>)</a></p>
                     <p class="time"><?php echo $val['date'];?> </p>
                 </div>
                 <ul id="r_<?php echo $tid;?>" class="r"></ul>
@@ -48,7 +48,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
                             </div>
                             <div class="submit">
                             <?php echo $rcode; ?>
-                            <input class="btn" type="button" onclick="reply('<?php echo DYNAMIC_BLOGURL; ?>index.php?action=reply',<?php echo $tid;?>);" value="回复" />
+                            <input class="btn" type="button" onclick="replyTwitter('<?php echo BLOG_URL . 't/'; ?>index.php?action=reply',<?php echo $tid;?>);" value="回复" />
                             </div>
                             <div class="msg"><span id="rmsg_<?php echo $tid; ?>" style="color:#FF0000"></span></div>
                         </div>
