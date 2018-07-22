@@ -5,7 +5,7 @@
 if(!defined('EMLOG_ROOT')) {exit('error!');}
 ?>
 <!--面包屑导航-->
-<header id="header" class="header" style="background: #3e3f40;">
+<header id="header" class="header bread-header" style="background: <?php echo getRandomDarkColor();?>;">
     <div class="container">
         <?php if (isset($tag)):?>
             <div class="title">包含“ <?php echo $tag; ?> ”话题的文章</div><!-- 标签 -->

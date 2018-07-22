@@ -31,9 +31,8 @@ if (!defined('EMLOG_ROOT')) {
                     </div>
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
-
-                        <p class="tags"><?php blog_tag($logid); ?></p>
                     </div>
+                    <p class="tags"><?php blog_tag($logid); ?></p>
                     <div style="border-top: 1px solid #eee;padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>

@@ -773,3 +773,14 @@ function smartNum ($num = 0) {
         return $num;
     }
 }
+
+/**
+ * 获取随机的一个深颜色
+ * @return mixed
+ */
+function getRandomDarkColor () {
+    $colors = array('#5d6e75', '#3870a8', '#4ba2ff', '#4f5356', '#e0a64c', '#177cb0', '#2e4e7e', '#057748', '#f05654', '#725e82');
+    $len = count($colors);
+    $index = rand(0, $len);
+    return $colors[$index];
+}
