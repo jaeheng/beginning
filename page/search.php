@@ -17,10 +17,10 @@ $sorts = getSorts();
         <div class="quick-search">
             <?php foreach ($hotTags as $value): ?>
                 <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章"
-                   class="tag"># <?php echo $value['tagname']; ?> #</a>
+                   class="log-tag"># <?php echo $value['tagname']; ?> #</a>
             <?php endforeach;?>
             <?php foreach ($sorts as $value):?>
-                <a href="<?php echo Url::sort($value['sid']);?>" class="tag"><?php echo $value['sortname'];?></a>
+                <a href="<?php echo Url::sort($value['sid']);?>" class="log-tag"><?php echo $value['sortname'];?></a>
             <?php endforeach;?>
         </div>
     </form>

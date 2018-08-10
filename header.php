@@ -73,7 +73,9 @@ $blogName = $blogname;
 <header id="header" class="header" style="<?php echo getRandomHeaderBg();?>">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="avatar">
-            <div class="img"><img src="<?php echo getAuthorAvatar(); ?>" alt="<?php echo $blogName; ?>"></div>
+            <div class="img">
+                <img src="<?php echo getAuthorAvatar(); ?>" alt="<?php echo $blogName; ?>">
+            </div>
             <i class="gold-v"></i>
         </a>
         <h1 class="username">

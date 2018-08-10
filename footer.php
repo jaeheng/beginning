@@ -59,6 +59,9 @@ if (blog_tool_ishome()) {
 </div>
 <!--网站小工具 ／-->
 <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.js" type="text/javascript"></script>
+<link href="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo TEMPLATE_URL; ?>/static/vendor/jquery-ias.min.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js?version=<?php echo $version;?>"></script>
 </body>
 </html>

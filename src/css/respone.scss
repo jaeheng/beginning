@@ -1,5 +1,5 @@
 @media all and (max-width: 960px) {
-  body {
+  .headerFixed {
     padding-top: $mini-header-height;
   }
   .header {
@@ -156,6 +156,10 @@
   }
   .panel-body {
     padding: 15px;
+  }
+  .log-body h2 {
+    padding: 5px 15px 5px 12px;
+    left: -15px;
   }
 }
 

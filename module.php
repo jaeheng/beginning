@@ -5,8 +5,18 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-?>
-<?php
+/**
+ * 获取Gravatar头像
+ * @param $email
+ * @param int $s
+ * @param string $d
+ * @param string $g
+ * @return string
+ */
+function _getGravatar($email, $s = 40, $d = 'mm', $g = 'g') {
+    $hash = md5($email);
+    return "//cn.gravatar.com/avatar/$hash?s=$s&d=$d&r=$g";
+}
 //widget：blogger
 function widget_blogger($title)
 {
@@ -173,7 +183,7 @@ function widget_newcomm($title)
                 ?>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="<?php echo getGravatar($value['mail']); ?>">
+                        <img class="avatar" src="<?php echo _getGravatar($value['mail']); ?>">
                         <i class="username"><?php echo $value['name']; ?></i>
                         <span class="time"><?php echo $time; ?></span>
                         <p class="comment-content"><?php echo $value['content']; ?></p>
@@ -313,7 +323,7 @@ function widget_link($title)
             <?php
             foreach ($link_cache as $value):
                 ?>
-                <a class="tag" href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>"
+                <a class="log-tag" href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>"
                    target="_blank"><?php echo $value['link']; ?></a>
             <?php endforeach; ?>
         </div>
@@ -462,7 +472,7 @@ function blog_comments($comments)
             <div class="comment" id="comment-<?php echo $comment['cid']; ?>">
                 <a name="<?php echo $comment['cid']; ?>"></a>
                 <?php if ($isGravatar == 'y'): ?>
-                    <div class="avatar"><img src="<?php echo getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
+                    <div class="avatar"><img src="<?php echo _getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
                 <div class="comment-info">
                     <div class="poster"><?php echo $comment['poster']; ?> </div>
                     <span class="comment-time"><?php echo
@@ -493,7 +503,7 @@ function blog_comments_children($comments, $children)
         <div class="comment comment-children" id="comment-<?php echo $comment['cid']; ?>">
             <a name="<?php echo $comment['cid']; ?>"></a>
             <?php if ($isGravatar == 'y'): ?>
-                <div class="avatar"><img src="<?php echo getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
+                <div class="avatar"><img src="<?php echo _getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
             <div class="comment-info">
                 <b><?php echo $comment['poster']; ?> </b><br/><span
                         class="comment-time"><?php echo $comment['date']; ?></span>

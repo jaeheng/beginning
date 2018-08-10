@@ -219,4 +219,21 @@
             }
         });
     }
+    prettyPrint();
+
+    var ias = jQuery.ias({
+        container:  '#log_list',
+        item:       '.log_list_item',
+        pagination: '#pagenavi',
+        next:       '#pagenavi .next'
+    });
+    ias.extension(new IASTriggerExtension({
+        html: '<button class="btn btn-primary btn-block">加载更多</button>', // optionally
+    }));
+    ias.extension(new IASSpinnerExtension({
+        html: '<div class="log-loading">Loading...</div>', // optionally
+    }));
+    ias.extension(new IASNoneLeftExtension({
+        text: '<div class="log-loading">加载完毕!</div>', // optionally
+    }));
 })(window, jQuery);

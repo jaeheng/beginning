@@ -50,10 +50,21 @@
   cursor: pointer;
   box-sizing: border-box;
 }
+.btn-primary {
+  background: $primary;
+}
+.btn-danger {
+  background: $red;
+}
+.btn-blue {
+  background: $blue;
+}
 .btn:hover {
-  background-color: $light-black;
   color: #fff;
+  transition: opacity .3s;
+  opacity: .8;
 }
 .btn-block {
   display: block;
+  width: 100%;
 }

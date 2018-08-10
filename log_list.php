@@ -21,7 +21,7 @@ doAction('index_loglist_top'); ?>
 <div class="main container">
     <div class="content-wrap">
         <div class="content" id="content">
-            <ul class="log_list" style="min-height: 400px;">
+            <ul class="log_list" id="log_list" style="min-height: 400px;">
                 <?php
                 if (!empty($logs)):
                     foreach($logs as $value):
@@ -60,6 +60,9 @@ doAction('index_loglist_top'); ?>
             <!--分页-->
             <div class="pagination" id="pagenavi">
                 <?php echo $page_url;?>
+                <?php if ($total_pages > $page):?>
+                    <a class="next" href="<?php echo $pageurl . ($page + 1);?>">下一页</a>
+                <?php endif;?>
             </div>
             <!--分页 ／-->
         </div>

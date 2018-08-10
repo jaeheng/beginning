@@ -1,0 +1,41 @@
+pre.prettyprint {
+    border: 0px solid #888;
+    font-family: Consolas , "Courier New" , Courier , monospace;
+    font-size: 12px;
+    overflow: auto;
+    margin: 5px 0px;
+	padding: 0px;
+    line-height: 12pt;
+}
+.code{
+    width: 90%;
+    border: 1px solid #888;
+}
+.pln { color: #eee }
+@media screen {
+  .str { color: #080 }
+  .kwd { color: #e8be6a;font-weight: bold;}
+  .com { color: #800 }
+  .typ { color: #606 }
+  .lit { color: #066 }
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }
+  .atn { color: #606 }
+  .atv { color: #080 }
+  .dec, .var { color: #606 }
+  .fun { color: red }
+}
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #e8be6a;font-weight: bold }
+  .com { color: #600;font-style: italic }
+  .typ { color: #404;font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006;font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+ol.linenums { margin-top: 0;margin-bottom: 0;background: #292929;  } /* IE indents via margin-left */
+ol.linenums li { list-style-type: decimal;color: #eee;padding-left: 10px;}
+/*ol.linenums li:nth-of-type(2n-1) { list-style-type: decimal;background: #eee; }*/

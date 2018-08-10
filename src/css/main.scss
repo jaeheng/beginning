@@ -29,7 +29,7 @@
 }
 
 // 标签
-.tag {
+.log-tag {
   background-color: $light-primary;
   padding: 5px 10px;
   margin-right: 5px;
@@ -62,6 +62,9 @@
   span, a:hover {
     background-color: $light-grey;
   }
+}
+.ias-noneleft {
+  clear: both;
 }
 
 .sidebar {
@@ -176,9 +179,10 @@
 
 //log
 .log-info {
+  padding: 0 0 1em;
   color: $sliver;
-  border-top: 1px solid $light-grey;
-  padding: 1em 0;
+  border-bottom: 1px solid $light-grey;
+  text-align: center;
   margin-top: 1em;
   a {
     color: $sliver;
@@ -191,24 +195,43 @@
   }
 }
 .log-title {
+  text-align: center;
   color: $extra-light-black;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 .log-body {
   padding: 20px 0;
-  line-height: 28px;
+  line-height: 2.2;
   font-size: 16px;
   p, strong {
     margin-bottom: 1em;
     font-size: 16px;
   }
-  h3, h4, h5, h6 {
-    margin-bottom: 2em;
-    font-size: 18px;
+  h1, h2, h3, h4, h5, h6 {
     word-break: break-all;
   }
-  strong, h3, h4, h5, h6 {
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+  h2, h3, h4, h5, h6 {
+    width: 100%;
+    padding: 0.2em 15px;
+    background: #f3f4f6;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+
+  }
+  h4, h5, h6 {
+    font-size: 14px;
+    border-left: 2px solid $blue;
+  }
+  h2, h3 {
+    border-left: 4px solid $blue;
+    font-size: 18px;
+  }
+  strong {
     font-weight: bold;
   }
   img {
@@ -218,20 +241,36 @@
   pre {
     white-space: pre-wrap;
   }
-  .code {
-    background-color: $dark-white;
-    padding: 20px;
+  .code, code {
+    background-color: $extra-light-grey;
+    padding: 3px 6px;
+    margin: 0 5px;
     border-radius: 4px;
   }
   ol, ul {
-    padding-left: 20px;
+    margin-bottom: 1em;
   }
   li {
-    list-style: decimal;
-    margin-bottom: 1em;
+    list-style-position: inside;
+    list-style-type: circle;
+    line-height: 2;
     p {
       display: inline;
     }
+  }
+  .text-block {
+    background-color:#f3f4f6;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 1em 0;
+  }
+  blockquote {
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: .9375rem;
+    color: #819198;
+    border-left: .375rem solid #dce6f0;
+    background: #f2f7fb;
   }
 }
 .relief {
@@ -239,7 +278,7 @@
 }
 .author {
   position: relative;
-  padding-left: 70px;
+  padding-left: 70px!important;
   .avatar {
     position: absolute;
     left: 15px;
@@ -275,6 +314,8 @@
   .prev, .next {
     width: 50%;
     float: left;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 }
 
