@@ -48,6 +48,9 @@ doAction('index_loglist_top'); ?>
     <!--分页-->
     <div class="pagination" id="pagenavi">
         <?php echo $page_url;?>
+        <?php if ($total_pages > $page):?>
+            <a class="next" href="<?php echo $pageurl . ($page + 1);?>">下一页</a>
+        <?php endif;?>
     </div>
     <!--分页 ／-->
 </div>

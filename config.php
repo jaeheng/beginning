@@ -17,12 +17,6 @@ $config = array(
     /* 右侧小工具中的礼物图标的链接 */
     'gift' => BLOG_URL,
 
-    /* 首页公告:TODO改为读取碎语 */
-    'notice' => array(
-        array('title' => 'Welcome to my blog, thank you', 'url' => 'http://www.zhangziheng.com?post=1'),
-        array('title' => '欢迎光临子恒博客', 'url' => 'http://www.zhangziheng.com?post=1')
-    ),
-
     /* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
     'reward' => true,
 

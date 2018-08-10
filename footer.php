@@ -43,6 +43,9 @@ if (blog_tool_ishome()) {
 
 <!--网站小工具-->
 <div class="site-tools">
+    <a href="<?php echo _g('gift');?>" class="item" target="_blank">
+        <i class="iconfont icon-gift"></i>
+    </a>
     <?php foreach (getconfig('qrcode') as $value) : ?>
     <a href="javascript:;" class="item">
         <i class="iconfont <?php echo $value['icon'];?>"></i>
