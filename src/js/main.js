@@ -236,4 +236,21 @@
     ias.extension(new IASNoneLeftExtension({
         text: '<div class="log-loading">加载完毕!</div>', // optionally
     }));
+
+    //弹出一个页面层
+    $('.i-reward').on('click', function(){
+        var url = $(this).data('url');
+        // //tab层
+        layer.tab({
+            area: ['323px', '320px'],
+            shadeClose: true,
+            tab: [{
+                title: '微信',
+                content: '<img src="' + url + '/static/images/wechatPay.png" style="display: block;margin: 0 auto;" height="256" alt="微信打赏">'
+            }, {
+                title: '支付宝',
+                content: '<img src="' + url + '/static/images/alipay.jpg" style="display: block;margin: 0 auto;" height="256" alt="打赏作者">'
+            }]
+        });
+    });
 })(window, jQuery);

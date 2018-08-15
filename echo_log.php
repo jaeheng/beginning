@@ -45,13 +45,9 @@ if (!defined('EMLOG_ROOT')) {
                 <!--打赏-->
                 <?php if (_g('reward')): ?>
                     <div class="reward-btn">
-                        <div class="i-reward">
+                        <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
                             <i class="iconfont icon-dashang"></i> 赞赏作者
-                        </div>
-                    </div>
-                    <div class="reward-pic">
-                        <img src="<?php echo TEMPLATE_URL; ?>/static/images/alipay.jpg" class="reward" alt="打赏作者">
-                        <img src="<?php echo TEMPLATE_URL; ?>/static/images/wechatPay.png" class="reward" alt="微信打赏">
+                        </button>
                     </div>
                 <?php endif;?>
                 <!--/打赏-->

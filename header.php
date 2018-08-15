@@ -2,7 +2,7 @@
 /*
 Template Name:beginning
 Description:简洁，多种布局 <br /> <a href="http://zhangziheng.com/play/451.html" target="_blank">提交bug</a>
-Version:2.5.3
+Version:2.5.4
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
@@ -10,7 +10,7 @@ Sidebar Amount:1
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
 $systemInfo = getSystemInfo();
-$version = 'v2.5.3';
+$beginningVersion = 'v2.5.4';
 $siteKey = $site_key;
 $siteDescription = $site_description;
 $siteTitle = $site_title;
@@ -29,7 +29,7 @@ $blogName = $blogname;
     <title><?php echo $siteTitle; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_hkajt7m1o6j62yb9.css">
-    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo $beginningVersion; ?>">
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js" type="text/javascript"></script>
 </head>

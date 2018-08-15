@@ -33,10 +33,11 @@ if (blog_tool_ishome()) {
 
 <!--版权信息-->
 <div class="copyright">
-    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>
-    <a href="http://zhangziheng.com" target="_blank" style="display: none;">theme by jaeheng</a> |
-    <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a> <?php echo $footer_info; ?> | Powered
-    by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>
+    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a> |
+    <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a> | Powered
+    by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a> |
+    Theme by <a href="http://zhangziheng.com" target="_blank">beginning <?php echo $beginningVersion;?></a>
+    <?php echo $footer_info; ?>
     <?php doAction('index_footer'); ?>
 </div>
 <!--版权信息 ／-->
@@ -65,6 +66,7 @@ if (blog_tool_ishome()) {
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.js" type="text/javascript"></script>
 <link href="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.css" rel="stylesheet" type="text/css" />
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/jquery-ias.min.js" type="text/javascript"></script>
-<script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js?version=<?php echo $version;?>"></script>
+<script src="<?php echo TEMPLATE_URL; ?>/static/vendor/layer/layer.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js?version=<?php echo $beginningVersion;?>"></script>
 </body>
 </html>

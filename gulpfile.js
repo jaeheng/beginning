@@ -11,8 +11,8 @@ var fs = require('fs');
 /* paths */
 var mainjs = './src/js/main.js';
 var mainscss = './src/css/style.scss'
-var images = ['./src/images/*/*', './src/images/*']
-var vendor = './src/lib/*'
+var images = ['./src/images/**']
+var vendor = ['./src/lib/**']
 
 var dest = './static/'
 
