@@ -31,7 +31,9 @@ doAction('index_loglist_top'); ?>
                         }
                         ?>
                         <li class="log_list_item">
-                            <a href="<?php echo $value['log_url']; ?>" class="pic-link"><img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>"></a>
+                            <a href="<?php echo $value['log_url']; ?>" class="pic-link">
+                                <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
+                            </a>
                             <h2 class="title">
                                 <a href="<?php echo $value['log_url']; ?>" title="<?php echo $value['log_title']; ?>">
                                     <?php echo $value['log_title']; ?>

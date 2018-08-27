@@ -236,6 +236,9 @@
     ias.extension(new IASNoneLeftExtension({
         text: '<div class="log-loading">加载完毕!</div>', // optionally
     }));
+    ias.on('rendered', function (items) {
+        $(items).find('img.lazyload').lazyload()
+    });
 
     //弹出一个页面层
     $('.i-reward').on('click', function(){
@@ -253,4 +256,7 @@
             }]
         });
     });
+
+    // 图片lazyload
+    lazyload();
 })(window, jQuery);

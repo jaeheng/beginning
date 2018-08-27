@@ -253,4 +253,7 @@
             }]
         });
     });
-})(window, jQuery);
+
+    // 图片lazyload
+    lazyload();
+})(window, jQuery, lazyload);

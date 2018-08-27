@@ -60,6 +60,6 @@ $options = array(
         'name' => '单独搜索页面',
         'multi' => false,
         'default' => $config['searchId'],
-        'description' => '填写应用了 log_list/search 分类模版的分类ID'
+        'description' => '填写应用了 page/search 页面模版的页面ID'
     )
 );

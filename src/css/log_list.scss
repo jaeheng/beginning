@@ -18,8 +18,12 @@
     height: 150px;
     overflow: hidden;
     img {
-      width: 100%;
+      //width: 100%;
       transition: all 1s;
+
+      height: 100%;
+      margin: 0 auto;
+      display: block;
     }
     &:hover {
       img {

@@ -23,7 +23,7 @@ doAction('index_loglist_top'); ?>
                 ?>
                 <li class="log_list_item">
                     <a href="<?php echo $value['log_url']; ?>" class="img-link">
-                        <img src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
+                        <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
                         <div class="play">
                             <i class="iconfont icon-play"></i>
                         </div>

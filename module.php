@@ -143,7 +143,7 @@ function widget_twitter($title)
         <h3><?php echo $title; ?></h3>
         <ul id="twitter">
             <?php foreach ($newtws_cache as $value): ?>
-                <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank"> <img src="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" class="img"></a>'; ?>
+                <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank"> <img src="' . TEMPLATE_URL . 'static/images/dna.svg" data-src="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" class="img lazyload"></a>'; ?>
                 <li><?php echo $value['t']; ?><?php echo $img; ?><p><?php echo smartDate($value['date']); ?></p></li>
             <?php endforeach; ?>
             <?php if ($istwitter == 'y') : ?>
@@ -183,7 +183,7 @@ function widget_newcomm($title)
                 ?>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar" src="<?php echo _getGravatar($value['mail']); ?>">
+                        <img class="avatar lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo _getGravatar($value['mail']); ?>">
                         <i class="username"><?php echo $value['name']; ?></i>
                         <span class="time"><?php echo $time; ?></span>
                         <p class="comment-content"><?php echo $value['content']; ?></p>
@@ -227,7 +227,7 @@ function widget_hotlog($title)
             <?php foreach ($hotlogs as $value): ?>
                 <li>
                     <a href="<?php echo Url::log($value['gid']); ?>">
-                        <img src="<?php echo getImgFromDesc($value['content']); ?>"
+                        <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo getImgFromDesc($value['content']); ?>"
                              alt="<?php echo $value['title']; ?>">
                         <h4>
                             <?php echo $value['title']; ?>
