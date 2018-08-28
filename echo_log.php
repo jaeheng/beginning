@@ -41,16 +41,6 @@ if (!defined('EMLOG_ROOT')) {
                         <?php echo _g('relief'); ?>
                     </div>
                 </div>
-
-                <!--打赏-->
-                <?php if (_g('reward')): ?>
-                    <div class="reward-btn">
-                        <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
-                            <i class="iconfont icon-dashang"></i> 赞赏作者
-                        </button>
-                    </div>
-                <?php endif;?>
-                <!--/打赏-->
             </div>
 
             <div class="panel">
@@ -58,7 +48,7 @@ if (!defined('EMLOG_ROOT')) {
                     <?php $the_author = get_author_by_uid($author); ?>
                     作者: <?php blog_author($author); ?>
                     <span class="pull-right"
-                          style="font-size: 12px;">本文最后编辑于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
+                          style="font-size: 12px;">本文发布于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
                 </div>
                 <div class="panel-body author">
                     <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
@@ -67,6 +57,13 @@ if (!defined('EMLOG_ROOT')) {
                     <a href="<?php echo _g('weibo'); ?>"><img
                                 src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
                                 class="icon"></a>
+                    <!--打赏-->
+                    <?php if (_g('reward')): ?>
+                        <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
+                            <i class="iconfont icon-dashang"></i> 赞赏作者
+                        </button>
+                    <?php endif;?>
+                    <!--/打赏-->
                 </div>
             </div>
 

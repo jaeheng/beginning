@@ -22,24 +22,25 @@ function widget_blogger($title)
 {
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
+    if (blog_tool_ishome()) return; # 侧边栏的用户卡片在首页可不显示
     ?>
-    <div class="widget widget-user">
-        <h3><?php echo $title; ?></h3>
-        <ul id="bloggerinfo">
-            <div id="bloggerinfoimg">
-                <?php if (!empty($user_cache[1]['photo']['src'])): ?>
-                    <img src="<?php echo BLOG_URL . $user_cache[1]['photo']['src']; ?>"
-                         width="<?php echo $user_cache[1]['photo']['width']; ?>"
-                         height="<?php echo $user_cache[1]['photo']['height']; ?>" alt="blogger"/>
-                <?php else:?>
+    <div class="widget widget-user" id="bloggerinfo">
+        <a href="<?php echo BLOG_URL;?>admin" target="_blank">
+            <?php if (!empty($user_cache[1]['photo']['src'])): ?>
+                <img src="<?php echo BLOG_URL . $user_cache[1]['photo']['src']; ?>"
+                     width="<?php echo $user_cache[1]['photo']['width']; ?>"
+                     height="<?php echo $user_cache[1]['photo']['height']; ?>" alt="blogger" class="img-l"/>
+            <?php else:?>
                 <div class="img-l">
                     <?php echo $user_cache[1]['name'][0]; ?>
                 </div>
-                <?php endif; ?>
-            </div>
-            <span class="username"><?php echo $user_cache[1]['name']; ?></span>
+            <?php endif; ?>
+        </a>
+
+        <div class="desc">
+            <div class="username"><?php echo $user_cache[1]['name']; ?></div>
             <p><?php echo $user_cache[1]['des']; ?></p>
-        </ul>
+        </div>
     </div>
 <?php } ?>
 <?php
@@ -140,15 +141,16 @@ function widget_twitter($title)
     $istwitter = Option::get('istwitter');
     ?>
     <div class="widget widget_twitter">
-        <h3><?php echo $title; ?></h3>
+        <h3><?php echo $title; ?>
+            <?php if ($istwitter == 'y') : ?>
+                <a href="<?php echo BLOG_URL . 't/'; ?>" class="more">更多<?php echo $title; ?></a>
+            <?php endif; ?>
+        </h3>
         <ul id="twitter">
             <?php foreach ($newtws_cache as $value): ?>
                 <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank"> <img src="' . TEMPLATE_URL . 'static/images/dna.svg" data-src="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" class="img lazyload"></a>'; ?>
                 <li><?php echo $value['t']; ?><?php echo $img; ?><p><?php echo smartDate($value['date']); ?></p></li>
             <?php endforeach; ?>
-            <?php if ($istwitter == 'y') : ?>
-                <p><a href="<?php echo BLOG_URL . 't/'; ?>" class="btn btn-block">- 更多<?php echo $title; ?> -</a></p>
-            <?php endif; ?>
         </ul>
     </div>
 <?php } ?>

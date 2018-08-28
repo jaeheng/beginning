@@ -23,16 +23,14 @@
     line-height: 1.8;
   }
   .more {
-    text-align: right;
-    padding: 0 15px 15px;
+    font-size: 12px;
+    font-weight: normal;
+    float: right;
   }
 }
 
 // 侧边栏微语
 .widget_twitter {
-  ul {
-    margin-top: 15px;
-  }
   li {
     overflow: hidden;
     margin-bottom: 15px;
@@ -140,11 +138,12 @@
       text-align: center;
       padding-top: 5px;
       padding-bottom: 5px;
-      background-color: #E5E9F2;
       border-bottom: 1px solid #E5E9F2;
+      background-color: #fff;
     }
     &.active a,
     a:hover {
+      transition: all .3s;
       background-color: $extra-light-black;
       color: #fff;
     }
@@ -172,29 +171,45 @@
 .widget-link {
 }
 
+$avatarWidth: 86px;
 // 侧边栏用户
-#bloggerinfo {
+.widget-user {
+  background: url("../images/shan.png") no-repeat;
+  background-size: 100% 130px;
   text-align: center;
+  position: relative;
   .username {
     font-size: 18px;
     display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+  }
+  .desc {
+    padding: 180px 1em 1em;
   }
   .img-l {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
+    position: absolute;
+    top: 130px - $avatarWidth / 2;
+    left: 0;
+    right: 0;
+    width: $avatarWidth;
+    height: $avatarWidth;
+    line-height: $avatarWidth;
     text-align: center;
     background-color: #eee;
     border-radius: 50%;
-    margin: 15px auto;
     font-size: 38px;
+    margin: 0 auto;
   }
 }
 
 // 侧边栏日历
+.widget-calendar {
+  h3 {
+    background-color: $black;
+    color: #fff;
+  }
+}
 #calendar {
-  min-height: 267px;
   .calendartop {
     width: 100%;
     text-align: center;
@@ -202,12 +217,12 @@
 
   .calendartop td {
     width: 50%;
-    padding: 10px 0;
+    padding: 16px 0;
   }
 
   .calendar {
     width: 100%;
-    padding: 20px;
+    padding: 0 20px 20px;
   }
 
   .calendar td {

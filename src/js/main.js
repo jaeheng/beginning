@@ -237,7 +237,7 @@
         text: '<div class="log-loading">加载完毕!</div>', // optionally
     }));
     ias.on('rendered', function (items) {
-        $(items).find('img.lazyload').lazyload()
+        $(items).find('img.lazyload').lazyload();
     });
 
     //弹出一个页面层

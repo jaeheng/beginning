@@ -293,10 +293,13 @@
 }
 .relief {
   color: $extra-light-black;
+  background-color: #f2f7fb;
+  padding: 15px;
 }
 .author {
   position: relative;
   padding-left: 70px!important;
+  padding-right: 150px!important;
   .avatar {
     position: absolute;
     left: 15px;
@@ -329,11 +332,15 @@
     display: block;
     clear: both;
   }
+  .prev {
+    border-right: 1px solid #e5e9f2;
+  }
   .prev, .next {
     width: 50%;
     float: left;
     padding: 0 10px;
     box-sizing: border-box;
+    text-align: center;
   }
 }
 
@@ -384,10 +391,8 @@
 }
 
 // 打赏图片
-.reward-btn {
-  text-align: center;
-  padding: 20px 0;
-  border-top: 1px solid #e5e9f2;
-}
 .i-reward {
+  position: absolute;
+  right: 15px;
+  top: 30px;
 }
