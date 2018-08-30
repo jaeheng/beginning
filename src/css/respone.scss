@@ -78,7 +78,8 @@
       margin: 10px 0;
     }
     .pic-link {
-      width: 100%;
+      width: 100% !important;
+      height: auto;
       position: initial;
     }
   }

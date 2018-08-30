@@ -438,20 +438,24 @@ function get_author_by_uid($uid)
 function neighbor_log($neighborLog)
 {
     extract($neighborLog); ?>
-    <?php if ($prevLog): ?>
-    <div class="prev">
-        <i class="iconfont icon-left"></i>
-        上一篇
-        <h3><a href="<?php echo Url::log($prevLog['gid']) ?>"><?php echo $prevLog['title']; ?></a></h3>
-    </div>
-<?php endif; ?>
-    <?php if ($nextLog): ?>
-    <div class="next">
-        下一篇
-        <i class="iconfont icon-right"></i>
-        <h3><a href="<?php echo Url::log($nextLog['gid']) ?>"><?php echo $nextLog['title']; ?></a></h3>
-    </div>
-<?php endif; ?>
+        <div class="prev">
+            <i class="iconfont icon-left"></i>
+            上一篇
+            <?php if ($prevLog): ?>
+            <h3><a href="<?php echo Url::log($prevLog['gid']) ?>"><?php echo $prevLog['title']; ?></a></h3>
+            <?php else: ?>
+            <h3>往前没有了~</h3>
+            <?php endif; ?>
+        </div>
+        <div class="next">
+            下一篇
+            <i class="iconfont icon-right"></i>
+            <?php if ($nextLog): ?>
+            <h3><a href="<?php echo Url::log($nextLog['gid']) ?>"><?php echo $nextLog['title']; ?></a></h3>
+            <?php else: ?>
+            <h3>往后没有了~</h3>
+            <?php endif; ?>
+        </div>
 <?php } ?>
 <?php
 //blog：评论列表

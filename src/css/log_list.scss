@@ -18,12 +18,8 @@
     height: 150px;
     overflow: hidden;
     img {
-      //width: 100%;
+      width: 100%;
       transition: all 1s;
-
-      height: 100%;
-      margin: 0 auto;
-      display: block;
     }
     &:hover {
       img {
@@ -154,10 +150,9 @@
     display: block;
     position: relative;
     height: 100%;
+    overflow: hidden;
     img {
       width: 100%;
-      height: 100%;
-      max-height: 100%;
     }
     &:hover {
       transition: all .5s;
@@ -212,13 +207,38 @@
 }
 
 .bread-header {
-  height: 110px;
+  height: 120px;
   .title {
-    line-height: 110px;
+    line-height: 1;
     font-size: 24px;
+    padding-top: 36px;
+    animation: slideDown 0.5s;
+  }
+  .desc {
+    text-align: center;
+    margin-top: 0.5em;
+    animation: slideUp 0.7s;
   }
 }
 .log-loading {
   text-align: center;
   padding: 15px 0;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

@@ -17,6 +17,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
             <?php else:?>
                 <div class="title"><?php echo $sort_cache[$sortid]['sortname']; ?></div><!-- 分类 -->
             <?php endif;?>
+            <p class="desc"><?php print_r($sort_cache[$sortid]['description']);?></p>
         <?php elseif (isset($author)): ?>
             <div class="title">作者：<?php echo blog_author($author); ?> 的文章</div><!-- 作者 -->
         <?php elseif (isset($keyword)):?>
