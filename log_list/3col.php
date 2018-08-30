@@ -16,7 +16,7 @@ doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
 <div class="main container">
-    <ul class="log_list log_list_three">
+    <ul class="log_list log_list_three" id="log_list">
         <?php
         if (!empty($logs)):
             foreach($logs as $value):

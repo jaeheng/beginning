@@ -15,7 +15,7 @@ doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
 <div class="main container">
-    <ul class="log_list_img">
+    <ul class="log_list_img" id="log_list">
         <?php
         if (!empty($logs)):
             foreach ($logs as $value):
