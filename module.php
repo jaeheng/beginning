@@ -226,15 +226,23 @@ function widget_hotlog($title)
     <div class="widget widget-hot">
         <h3><?php echo $title; ?></h3>
         <ul id="hotlog">
-            <?php foreach ($hotlogs as $value): ?>
+            <?php foreach ($hotlogs as $value):
+                $imgsrc = getFirstAtt($value['logid']);
+                if (!$imgsrc) {
+                  $imgsrc = getImgFromDesc($value['content']);
+                }
+                ?>
                 <li>
                     <a href="<?php echo Url::log($value['gid']); ?>">
-                        <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo getImgFromDesc($value['content']); ?>"
+                        <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc; ?>"
                              alt="<?php echo $value['title']; ?>">
                         <h4>
                             <?php echo $value['title']; ?>
-                            <span class="fr"><i class="iconfont icon-tongji"></i> <?php echo $value['views']; ?></span>
                         </h4>
+                        <p class="info">
+                            <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
+                            <i class="iconfont icon-tongji"></i> <span class="view"><?php echo $value['views']; ?></span>
+                        </p>
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -405,7 +413,7 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='tag'>#" . $value['tagname'] . '#</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='log-tag'>#" . $value['tagname'] . '#</a>';
         }
         echo $tag;
     }
@@ -749,8 +757,11 @@ function getHotTag ($num = 10) {
 function getRandomTags ($num = 10) {
     global $CACHE;
     $tag_cache = $CACHE->readCache('tags');
-
+    
     $data = array();
+    $len = count($tag_cache);
+    $num = $num > $len ? $len : $num;
+
     for($i = 0; $i < $num; $i++) {
         $len = count($tag_cache);
         $index = rand(1, $len);

@@ -3,6 +3,11 @@
  * 首页轮播消息
  */
 if(!defined('EMLOG_ROOT')) {exit('error!');}
+
+// 版本差异：5.3.1 以上的将微语去掉了，这里比较下版本去掉“网站公告”
+if (version_compare(Option::EMLOG_VERSION, '5.3.1')) {
+    return false;
+}
 $notice = getNotices();
 ?>
 <!--动态轮播提醒-->
