@@ -11,7 +11,7 @@ if (!defined('EMLOG_ROOT')) {
         <div class="container">
             <h2 class="title">Beginning模版 for Emlog</h2>
             <p class="slogan">简洁大方，多种布局可供选择,非常适合个人博客</p>
-            <a href="https://pan.baidu.com/s/13CMLBAkm7TrGI5vuR2Z-Kg" target="_blank" class="btn btn-blue">立即下载</a>
+            <a href="https://pan.baidu.com/s/1PqWEtfc_JejSLA4YQ-g7hA" target="_blank" class="btn btn-blue">立即下载</a>
             <span class="version">当前版本v2.5.4</span>
             <img src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo TEMPLATE_URL?>static/images/preview.png" class="preview lazyload" style="background: #fff;">
         </div>
