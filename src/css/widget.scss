@@ -109,14 +109,25 @@
 
 // 侧边栏最热博文
 .widget-hot {
+  li {
+    overflow: hidden;
+  }
+  a {
+    display: block;
+  }
   img {
-    width: 100%;
+    width: 100px;
+    float: left;
+    margin-right: 10px;
     &:hover {
       opacity: .8;
     }
   }
   h4 {
     overflow: hidden;
+  }
+  .info {
+    margin-top: 0.5em;
   }
 }
 
@@ -203,12 +214,6 @@ $avatarWidth: 86px;
 }
 
 // 侧边栏日历
-.widget-calendar {
-  h3 {
-    background-color: $black;
-    color: #fff;
-  }
-}
 #calendar {
   .calendartop {
     width: 100%;

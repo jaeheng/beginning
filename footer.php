@@ -36,7 +36,7 @@ if (blog_tool_ishome()) {
     Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a> |
     <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a> | Powered
     by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a> |
-    Theme by <a href="http://zhangziheng.com" target="_blank">beginning <?php echo $beginningVersion;?></a>
+    Theme by <a href="https://blog.zhangziheng.com" target="_blank">beginning <?php echo $beginningVersion;?></a>
     <?php echo $footer_info; ?>
     <?php doAction('index_footer'); ?>
 </div>
