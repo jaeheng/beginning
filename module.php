@@ -690,7 +690,7 @@ function getArticleBySortID ($sid, $perPageNum = 20) {
  * @param $except array 要排除的分类id数组
  * @return array
  */
-function getSorts ($except = []) {
+function getSorts ($except = array()) {
     global $CACHE;
     $sort_cache = $CACHE->readCache('sort');
     $data = array();

@@ -26,7 +26,6 @@ if (!defined('EMLOG_ROOT')) {
                             <?php blog_author($author); ?>
                             <i class="iconfont icon-time"></i> <?php echo gmdate('Y-n-j', $date); ?>
                             <i class="iconfont icon-comment"></i> <a href="#comments"><?php echo $comnum;?></a>
-                            <i class="iconfont icon-view"></i> <?php echo $views;?>
                             <?php editflg($logid,$author); ?>
                         </div>
                         <div class="log-body" id="log-body">
