@@ -405,7 +405,7 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='tag'>#" . $value['tagname'] . '#</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='log-tag'>#" . $value['tagname'] . '#</a>';
         }
         echo $tag;
     }
