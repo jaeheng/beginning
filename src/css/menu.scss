@@ -10,9 +10,10 @@
     padding: 0 20px;
     color: inherit;
     white-space: nowrap;
+    font-size: 1rem;
   }
   &:hover, &.active {
-    color: #ffd04b;
+    color: #a6cff9;
   }
   &:hover .sub-menu,
   a:focus + .sub-menu {
@@ -35,8 +36,8 @@
 
 /* 导航栏 */
 .nav {
-  background-color: $black;
-  color: $dark-white;
+  background-color: $primary;
+  color: #fff;
   .input {
     margin-top: 12px;
     background-color: $black;
@@ -62,6 +63,16 @@
     content: '';
     clear: both;
   }
+  .logo {
+    height: 42px;
+    float: left;
+    display: block;
+    margin-top: 10px;
+    margin-right: 2rem;
+    img {
+      height: 100%;
+    }
+  }
 }
 
 /* nav粘贴效果 */
@@ -74,4 +85,10 @@
     width: 100%;
     z-index: 999;
   }
+}
+
+.search-icon {
+  display: block;
+  padding: 0 20px;
+  line-height: $menu-header;
 }

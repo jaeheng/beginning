@@ -17,12 +17,22 @@ function _getGravatar($email, $s = 40, $d = 'mm', $g = 'g') {
     $hash = md5($email);
     return "//cn.gravatar.com/avatar/$hash?s=$s&d=$d&r=$g";
 }
+
+/**
+ * 判断是否为作者页面
+ * @return bool
+ */
+function _isAuthorPage () {
+    $url = $_SERVER['REQUEST_URI'];
+    return strpos($url, 'author') !== false;
+}
+
 //widget：blogger
 function widget_blogger($title)
 {
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
-    if (blog_tool_ishome()) return; # 侧边栏的用户卡片在首页可不显示
+    if (_isAuthorPage()) return; # 作者页面可不显示
     ?>
     <div class="widget widget-user" id="bloggerinfo">
         <a href="<?php echo BLOG_URL;?>admin" target="_blank">
@@ -606,24 +616,32 @@ function getOneLogByGid($gid)
 
 /**
  * 获取系统信息，包括文章数，阅读量，留言数
- * @author jaeheng <jaeheng@126.com>
- * @return array [article, viewNum, commentsNum]
+ * @param $uid
+ * @return array
  */
-function getSystemInfo()
+function getSystemInfo($uid)
 {
-    $articleNumSql = "select count(*) as article from " . DB_PREFIX . "blog where hide = 'n' and checked = 'y' and type = 'blog'";
-    $viewNumSql = "SELECT sum(views) as views FROM  " . DB_PREFIX . "blog where type = 'blog' and hide = 'n' and checked = 'y'";
-    $commentsNumSql = "SELECT count(*) as comments FROM " . DB_PREFIX . "comment";
-
     $db = Database::getInstance();
+    $blogMap = "hide = 'n' and checked = 'y' and type = 'blog'";
+    if ($uid) {
+        $blogMap .= ' and author = ' . $uid;
+    }
+    $articleNumSql = "select count(*) as article from " . DB_PREFIX . "blog where " . $blogMap;
+    $viewNumSql = "SELECT sum(views) as views FROM  " . DB_PREFIX . "blog where " . $blogMap;
+    $data = array();
+    if (!$uid) {
+        $commentsNumSql = "SELECT count(*) as comments FROM " . DB_PREFIX . "comment";
+        $commentsNum = $db->fetch_array($db->query($commentsNumSql));
+        $data['commentsNum'] = $commentsNum['comments'];
+    }
+
     $articleNum = $db->fetch_array($db->query($articleNumSql));
     $viewNum = $db->fetch_array($db->query($viewNumSql));
-    $commentsNum = $db->fetch_array($db->query($commentsNumSql));
-    return array(
-        'articelNum' => $articleNum['article'],
-        'viewNum' => $viewNum['views'] ? $viewNum['views'] : 0,
-        'commentsNum' => $commentsNum['comments']
-    );
+
+    $data['articelNum'] = $articleNum['article'];
+    $data['viewNum'] = $viewNum['views'] ? $viewNum['views'] : 0;
+
+    return $data;
 }
 
 /**
@@ -810,4 +828,16 @@ function getRandomDarkColor () {
     $len = count($colors);
     $index = rand(0, $len);
     return $colors[$index];
+}
+
+
+function bloggerInfo($uid)
+{
+    global $CACHE;
+    $user_cache = $CACHE->readCache('user');
+    $author = $user_cache[$uid];
+    if (empty($author['avatar'])) {
+        $author['avatar'] = TEMPLATE_URL . 'static/images/default_avatar.png';
+    }
+    return $author;
 }

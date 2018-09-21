@@ -3,7 +3,15 @@
     padding-top: $mini-header-height;
   }
   .header {
-    display: none;
+    height: auto;
+    padding: 20px;
+    .avatar {
+      margin-top: 0;
+      margin-right: 20px;
+    }
+    .username {
+      padding-top: 0;
+    }
   }
   .nav {
     position: fixed;
@@ -24,7 +32,7 @@
       right: 0;
       top: 50px;
       width: 50%;
-      background-color: $light-primary;
+      background-color: $dark-white;
       z-index: 999;
       line-height: 40px;
       li {

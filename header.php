@@ -9,7 +9,6 @@ Sidebar Amount:1
 */
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
-$systemInfo = getSystemInfo();
 $beginningVersion = 'v2.5.4';
 $siteKey = $site_key;
 $siteDescription = $site_description;
@@ -51,6 +50,9 @@ $blogName = $blogname;
             <i class="icon-menu-item"></i>
             <i class="icon-menu-item"></i>
         </a>
+        <a href="<?php echo BLOG_URL; ?>" class="logo">
+            <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.jpg" alt="<?php echo $blogname; ?>">
+        </a>
         <?php
         blog_navi();
         $searchId = _g('searchId');
@@ -67,39 +69,3 @@ $blogName = $blogname;
     </div>
 </div>
 <!--导航 ／-->
-
-<!--头部区域-->
-<?php if (blog_tool_ishome()): ?>
-<header id="header" class="header" style="<?php echo getRandomHeaderBg();?>">
-    <div class="container">
-        <a href="<?php echo BLOG_URL; ?>" class="avatar">
-            <div class="img">
-                <img src="<?php echo getAuthorAvatar(); ?>" alt="<?php echo $blogName; ?>">
-            </div>
-            <i class="gold-v"></i>
-        </a>
-        <h1 class="username">
-            <?php echo $blogName; ?>
-            <a href="<?php echo _g('weibo'); ?>" target="_blank">
-                <img src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="weibo">
-            </a>
-        </h1>
-        <div class="userdesc"><?php echo $bloginfo; ?></div>
-        <ul class="count">
-            <li class="item">
-                <span class="tit">文章</span>
-                <span class="num"><?php echo $systemInfo['articelNum']; ?></span>
-            </li>
-            <li class="item">
-                <span class="tit">留言</span>
-                <span class="num"><?php echo $systemInfo['commentsNum']; ?></span>
-            </li>
-            <li class="item">
-                <span class="tit">阅读</span>
-                <span class="num"><?php echo $systemInfo['viewNum']; ?></span>
-            </li>
-        </ul>
-    </div>
-</header>
-<?php endif; ?>
-<!--头部区域 ／-->

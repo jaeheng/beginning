@@ -16,6 +16,10 @@ if (blog_tool_ishome()) {
     // <!--面包屑导航-->
     require_once View::getView('components/bread');
 }
+// 作者页面
+if (isset($author)) {
+    require_once View::getView('page/author');
+}
 doAction('index_loglist_top'); ?>
 
 <div class="main container">

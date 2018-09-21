@@ -1,15 +1,17 @@
 /* 头部样式 Author: jaeheng */
 .header {
-  height: 220px;
+  height: 180px;
   background: $primary no-repeat center;
   background-image: url("../images/banner/banner1.jpg");
   background-size: cover;
   text-shadow: 0 0 1px #000;
   color: $dark-white;
   margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 0 3rem;
   .avatar {
     float: left;
-    margin-top: 70px;
+    margin-top: 50px;
     margin-right: 30px;
     width: 76px;
     height: 76px;
@@ -36,7 +38,7 @@
     }
   }
   .username {
-    padding-top: 70px;
+    padding-top: 50px;
     font-size: 18px;
     img {
       margin-left: 10px;
@@ -45,7 +47,7 @@
     }
   }
   .count {
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .title {
     text-align: center;

@@ -4,7 +4,10 @@ html, body, h1, h2, h3, h4, h5, h6, p, img, ul, li, ol {
 }
 
 body {
-  font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, sans, 'Arial';
+  //font: 14px/1.5 Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, sans, 'Arial';
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: -apple-system,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: $dark-white;
   color: $light-black;
@@ -180,14 +183,6 @@ input, textarea {
   .log-tag {
     margin-bottom: 10px;
     display: inline-block;
-  }
-}
-.search-icon {
-  display: block;
-  padding: 0 20px;
-  line-height: $menu-header;
-  &:hover {
-    color: #ffd04b;
   }
 }
 .quick-search {
