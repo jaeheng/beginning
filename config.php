@@ -38,5 +38,6 @@ $config = array(
     ),
     'cms' => false, // 是否开启聚合首页
     'cmsAd' => '', // 聚合首页banner广告链接
-    'searchId' => '466' // 独立搜索页面的id
+    'searchId' => '466', // 独立搜索页面的id
+    'logo' => false
 );

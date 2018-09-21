@@ -825,7 +825,7 @@ function smartNum ($num = 0) {
  */
 function getRandomDarkColor () {
     $colors = array('#5d6e75', '#3870a8', '#4ba2ff', '#4f5356', '#e0a64c', '#177cb0', '#2e4e7e', '#057748', '#f05654', '#725e82');
-    $len = count($colors);
+    $len = count($colors) - 1;
     $index = rand(0, $len);
     return $colors[$index];
 }

@@ -206,17 +206,22 @@
 }
 
 .bread-header {
-  height: 120px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #000000;
+  padding: 36px 0;
+  box-sizing: border-box;
   .title {
     line-height: 1;
     font-size: 24px;
-    padding-top: 36px;
     animation: slideDown 0.5s;
   }
   .desc {
     text-align: center;
     margin-top: 0.5em;
     animation: slideUp 0.7s;
+    line-height: 1.5;
   }
 }
 .log-loading {

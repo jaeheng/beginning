@@ -51,7 +51,10 @@ $blogName = $blogname;
             <i class="icon-menu-item"></i>
         </a>
         <a href="<?php echo BLOG_URL; ?>" class="logo">
-            <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.jpg" alt="<?php echo $blogname; ?>">
+            <?php if (_g('logo')):?>
+            <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.png" alt="<?php echo $blogname; ?>">
+            <?php else: echo $blogname; ?>
+            <?php endif;?>
         </a>
         <?php
         blog_navi();

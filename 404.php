@@ -25,14 +25,18 @@ html, body, .main {
     font-family: sans-serif;
     letter-spacing: 20px;
     animation: notfound 2s infinite;
+    margin-bottom: 50px;
 }
 .notfound {
     height: 100%;
-    background-color: #369;
+    background-color: #2196F3;
     color: #fff;
     text-align: center;
     padding-top: 200px;
     box-sizing: border-box;
+}
+a {
+    text-decoration: none;
 }
 .el-button {
     display: inline-block;
@@ -46,7 +50,6 @@ html, body, .main {
     text-align: center;
     box-sizing: border-box;
     outline: none;
-    margin: 0;
     transition: .1s;
     font-weight: 500;
     -moz-user-select: none;
@@ -55,6 +58,7 @@ html, body, .main {
     padding: 12px 20px;
     font-size: 14px;
     border-radius: 4px;
+    margin: 0 10px;
 }
 .el-button:hover {
     color: #263570;
@@ -67,12 +71,16 @@ html, body, .main {
 <div class="main">
     <div class="notfound">
         <div class="t404">
-            404
+            <img src="<?php echo TEMPLATE_URL;?>static/images/404.png" alt="">
         </div>
-        <p>找不到网页 Page Not Found</p>
         <a href="javascript:history.back(-1);">
             <button type="button" class="el-button el-button--default">
-                <span>返回上一页</span>
+                <span>上一页</span>
+            </button>
+        </a>
+        <a href="<?php echo BLOG_URL;?>">
+            <button type="button" class="el-button el-button--default">
+                <span>回首页</span>
             </button>
         </a>
     </div>

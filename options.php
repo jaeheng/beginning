@@ -61,5 +61,14 @@ $options = array(
         'multi' => false,
         'default' => $config['searchId'],
         'description' => '填写应用了 page/search 页面模版的页面ID'
+    ),
+    'logo' => array(
+        'type' => 'radio',
+        'name' => '开启Logo',
+        'default' => $config['logo'],
+        'values' => array(
+            '1' => '开启',
+            '0' => '不开启'
+        ),
     )
 );

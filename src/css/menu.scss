@@ -13,7 +13,7 @@
     font-size: 1rem;
   }
   &:hover, &.active {
-    color: #a6cff9;
+    color: #a2a4a7;
   }
   &:hover .sub-menu,
   a:focus + .sub-menu {
@@ -36,7 +36,7 @@
 
 /* 导航栏 */
 .nav {
-  background-color: $primary;
+  background-color: $dark-black;
   color: #fff;
   .input {
     margin-top: 12px;
@@ -69,6 +69,8 @@
     display: block;
     margin-top: 10px;
     margin-right: 2rem;
+    line-height: 42px;
+    font-size: 21px;
     img {
       height: 100%;
     }
@@ -91,4 +93,7 @@
   display: block;
   padding: 0 20px;
   line-height: $menu-header;
+  &:hover {
+    color: #a2a4a7;
+  }
 }
