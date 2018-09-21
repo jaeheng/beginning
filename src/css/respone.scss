@@ -99,6 +99,12 @@
       height: auto;
       position: initial;
     }
+    .info {
+      text-align: center;
+      .fr, .edit {
+        display: none;
+      }
+    }
   }
   .sidebar {
     display: none;
@@ -139,7 +145,6 @@
       display: none;
     }
   }
-
   .log_list_mv .log_list_item,
   .log_list_img .log_list_item,
   .log_list_2 .log_list_item,
