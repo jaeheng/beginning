@@ -2,6 +2,9 @@
   .headerFixed {
     padding-top: $mini-header-height;
   }
+  .edit {
+    display: none;
+  }
   .header {
     height: auto;
     padding: 20px;
@@ -101,7 +104,7 @@
     }
     .info {
       text-align: center;
-      .fr, .edit {
+      .fr {
         display: none;
       }
     }
@@ -151,6 +154,12 @@
   .log_list_three .log_list_item {
     width: 100%;
     height: auto;
+    .info {
+      text-align: left;
+      .fr {
+        display: inline-block;
+      }
+    }
   }
   .log_list_mv .log_list_item .pic-link .play {
     display: block;
@@ -163,6 +172,9 @@
     text-align: left;
     font-size: 12px;
     padding: 3px 0;
+    span {
+      margin-right: 10px;
+    }
   }
   .form-group .btn {
     width: 100%;

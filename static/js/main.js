@@ -228,7 +228,7 @@
         next:       '#pagenavi .next'
     });
     ias.extension(new IASTriggerExtension({
-        html: '<button class="btn btn-primary btn-block">加载更多</button>', // optionally
+        html: '<div style="padding: 0 15px;"><button class="btn btn-primary btn-block">加载更多</button></div>', // optionally
     }));
     ias.extension(new IASSpinnerExtension({
         html: '<div class="log-loading">Loading...</div>', // optionally
