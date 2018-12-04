@@ -26,13 +26,13 @@ if (!defined('EMLOG_ROOT')) {
                         <span><i class="iconfont icon-user"></i><?php blog_author($author); ?></span>
                         <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-n-j', $date); ?></span>
                         <span><i class="iconfont icon-comment"></i><a href="#comments"><?php echo $comnum; ?></a></span>
-                        <span><i class="iconfont icon-tongji"></i><?php echo $views; ?></span>
+                        <span><i class="iconfont icon-view"></i><?php echo $views; ?></span>
                         <?php editflg($logid, $author); ?>
                     </div>
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
                     </div>
-                    <p class="tags"><?php blog_tag($logid); ?></p>
+                    <p class="tags">Tags: <?php blog_tag($logid); ?></p>
                     <div style="border-top: 1px solid #eee;padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>

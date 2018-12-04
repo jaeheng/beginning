@@ -42,7 +42,7 @@ input, textarea {
 }
 .container {
   display: block;
-  width: 1166px;
+  width: 1090px;
   padding: 0 15px;
   box-sizing: border-box;
   max-width: 100%;
@@ -153,45 +153,5 @@ input, textarea {
     top: auto;
     bottom: 0;
     background-size: 15px;
-  }
-}
-
-// search-form
-.search-form {
-  padding: 100px 0;
-  text-align: center;
-  .input {
-    width: 600px;
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid #ccc;
-  }
-  .input,.btn {
-    display: inline-block;
-    margin-top: 20px;
-  }
-  h2 {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
-  .icon-search {
-    font-size: 30px;
-    margin-right: 10px;
-  }
-  .log-tag {
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-}
-.quick-search {
-  padding: 0 15px;
-  margin: 50px auto 0;
-  .log-tag {
-    width: 80px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }

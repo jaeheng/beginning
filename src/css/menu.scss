@@ -7,13 +7,14 @@
   position: relative;
   a {
     display: block;
-    padding: 0 20px;
-    color: inherit;
+    padding: 0 15px;
+    color: rgba(255,255,255,.6);
     white-space: nowrap;
-    font-size: 1rem;
+    font-size: 12px;
   }
   &:hover, &.active {
-    color: #a2a4a7;
+    color: #fff;
+    background: rgba(255,255,255,.1);
   }
   &:hover .sub-menu,
   a:focus + .sub-menu {
@@ -63,17 +64,8 @@
     content: '';
     clear: both;
   }
-  .logo {
-    height: 42px;
-    float: left;
-    display: block;
-    margin-top: 10px;
-    margin-right: 2rem;
-    line-height: 42px;
-    font-size: 21px;
-    img {
-      height: 100%;
-    }
+  .pull-right {
+    line-height: $menu-header;
   }
 }
 
@@ -86,14 +78,5 @@
     left: 0;
     width: 100%;
     z-index: 999;
-  }
-}
-
-.search-icon {
-  display: block;
-  padding: 0 20px;
-  line-height: $menu-header;
-  &:hover {
-    color: #a2a4a7;
   }
 }

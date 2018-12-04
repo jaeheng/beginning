@@ -2,6 +2,7 @@
 /**
  * 侧边栏组件、页面模块
  */
+
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
@@ -397,21 +398,32 @@ function editflg($logid, $author)
     echo $editflg;
 }
 
-?>
-<?php
+/**
+ * 获取分类颜色
+ * @param $sortid
+ * @return mixed|string
+ */
+function blog_sort_color ($sortid) {
+    $colors = array('#5d6e75', '#3870a8', '#4ba2ff', '#4f5356', '#e0a64c', '#177cb0', '#2e4e7e', '#057748', '#f05654', '#725e82');
+    $color = $colors[intval($sortid % count($colors))];
+    return $color ? $color : '#5d6e75';
+}
 //blog：分类
 function blog_sort($blogid)
 {
     global $CACHE;
     $log_cache_sort = $CACHE->readCache('logsort');
+
     if (!empty($log_cache_sort[$blogid])) {
+        $sortid = $log_cache_sort[$blogid]['id'];
+        $color = blog_sort_color($sortid);
         echo '<a href="';
-        echo Url::sort($log_cache_sort[$blogid]['id']);
-        echo '">';
+        echo Url::sort($sortid);
+        echo '" class="log-tag" style="background-color: ' . $color . '">';
         echo $log_cache_sort[$blogid]['name'];
         echo "</a>";
     } else {
-        echo '未分类';
+        echo '<span class="log-tag" style="background-color: #54a8ff">未分类</span>';
     }
 }
 
@@ -423,7 +435,7 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='log-tag'>#" . $value['tagname'] . '#</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' style='margin-left:1em;'>" . $value['tagname'] . '</a>';
         }
         echo $tag;
     }
@@ -840,4 +852,13 @@ function bloggerInfo($uid)
         $author['avatar'] = TEMPLATE_URL . 'static/images/default_avatar.png';
     }
     return $author;
+}
+
+/**
+ * 999+
+ * @param $num
+ * @return int|string
+ */
+function nineplus ($num) {
+    return $num > 999 ? '999+' : $num;
 }

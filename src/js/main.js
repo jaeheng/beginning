@@ -227,14 +227,11 @@
         pagination: '#pagenavi',
         next:       '#pagenavi .next'
     });
-    ias.extension(new IASTriggerExtension({
-        html: '<div style="padding: 0 15px;"><button class="btn btn-primary btn-block">加载更多</button></div>', // optionally
-    }));
     ias.extension(new IASSpinnerExtension({
-        html: '<div class="log-loading">Loading...</div>', // optionally
+        html: '<div class="log-loading">Loading...</div>',
     }));
     ias.extension(new IASNoneLeftExtension({
-        text: '<div class="log-loading">加载完毕!</div>', // optionally
+        text: '<div class="log-loading">加载完毕!</div>',
     }));
     ias.on('rendered', function (items) {
         $(items).find('img.lazyload').lazyload();
@@ -259,4 +256,13 @@
 
     // 图片lazyload
     lazyload();
+
+    var searchInput = $('.search-input');
+    var searchForm = $('#search-form');
+    searchInput.focus(function () {
+        searchForm.addClass('active');
+    });
+    searchInput.blur(function () {
+        searchForm.removeClass('active');
+    });
 })(window, jQuery);

@@ -2,7 +2,7 @@
 /*
 Template Name:beginning
 Description:简洁，多种布局 <br /> <a href="http://zhangziheng.com/play/451.html" target="_blank">提交bug</a>
-Version:2.5.4
+Version:2.5.6
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
@@ -27,7 +27,7 @@ $blogName = $blogname;
     <meta name="generator" content="emlog"/>
     <title><?php echo $siteTitle; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_hkajt7m1o6j62yb9.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_6v4cf620dm.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo $beginningVersion; ?>">
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js" type="text/javascript"></script>
@@ -50,25 +50,36 @@ $blogName = $blogname;
             <i class="icon-menu-item"></i>
             <i class="icon-menu-item"></i>
         </a>
+        <?php blog_navi(); ?>
+        <div class="pull-right login-entry">
+            <?php if (ISLOGIN):
+                global $CACHE;
+                $user_cache = $CACHE->readCache('user');
+                $name = $user_cache[UID]['name'];
+            ?>
+                <a href="<?php echo BLOG_URL;?>/admin/"><?php echo $name;?> 已登录</a>
+            <?php else: ?>
+                <a href="<?php echo BLOG_URL;?>/admin/">登录</a>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<!--导航 /-->
+<!--搜索栏-->
+<div class="search-bar">
+    <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="logo">
             <?php if (_g('logo')):?>
-            <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.png" alt="<?php echo $blogname; ?>">
+                <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.png" alt="<?php echo $blogname; ?>">
+                <?php echo $blogname; ?>
             <?php else: echo $blogname; ?>
             <?php endif;?>
         </a>
-        <?php
-        blog_navi();
-        $searchId = _g('searchId');
-        if (!empty($searchId)):
-            ?>
-            <a href="<?php echo Url::log(_g('searchId'));?>" class="pull-right search-icon">
-                <i class="iconfont icon-search"></i>
-            </a>
-        <?php else:?>
-            <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
-                <input type="search" name="keyword" class="input" value="<?php echo $keyword; ?>" placeholder="search..."/>
-            </form>
-        <?php endif;?>
+
+        <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
+            <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="search..."/>
+            <i class="iconfont icon-search"></i>
+        </form>
     </div>
 </div>
-<!--导航 ／-->
+<!--搜索栏 /-->

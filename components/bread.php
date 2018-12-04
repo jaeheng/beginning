@@ -12,7 +12,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
     </div>
 </header>
 <?php elseif (isset($sortid)): ?>
-<header class="bread-header" style="background: <?php echo getRandomDarkColor();?>;">
+<header class="bread-header" style="background: <?php echo blog_sort_color($sortid);?>;">
     <div class="container">
     <?php global $CACHE; $sort_cache = $CACHE->readCache('sort'); ?>
     <?php  $pid = $sort_cache[$sortid]['pid'];?>

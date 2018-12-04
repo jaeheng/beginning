@@ -29,6 +29,7 @@ doAction('index_loglist_top'); ?>
                 <?php
                 if (!empty($logs)):
                     foreach($logs as $value):
+                        $isLock = !empty($value['password']);
                         $imgsrc = getFirstAtt($value['logid']);
                         if (!$imgsrc) {
                             $imgsrc = getImgFromDesc($value['content']);
@@ -40,20 +41,20 @@ doAction('index_loglist_top'); ?>
                             </a>
                             <h2 class="title">
                                 <a href="<?php echo $value['log_url']; ?>" title="<?php echo $value['log_title']; ?>">
-                                    <?php echo $value['log_title']; ?>
+                                    <?php if ($isLock):?>
+                                        <i class="iconfont icon-lock"></i>
+                                    <?php
+                                        endif;
+                                        echo $value['log_title'];
+                                    ?>
                                 </a>
                             </h2>
-                            <div class="description">
-                                <?php echo $value['log_description'];?>
-                            </div>
 
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
-                                <i class="iconfont icon-time"></i> <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
-                                <i class="iconfont icon-comment"></i> <span class="view"><?php echo $value['comnum']; ?></span>
-                                <i class="iconfont icon-tongji"></i> <span class="view"><?php echo $value['views']; ?></span>
-                                <a href="<?php echo $value['log_url']; ?>" class="fr">查看文章 <i class="iconfont icon-right"></i></a>
-                                <?php editflg($value['logid'],$value['author']); ?>
+                                <i class="iconfont icon-view"></i> <span class="view"><?php echo $value['views']; ?></span>
+                                <span class="pull-right"><?php echo gmdate('n.j', $value['date']); ?></span>
+                                <?php blog_tag($value['logid']);?>
                             </div>
                         </li>
                         <?php

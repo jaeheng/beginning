@@ -55,13 +55,6 @@ $options = array(
         'default' => $config['cmsAd'],
         'description' => '为空则不显示该广告'
     ),
-    'searchId' => array(
-        'type' => 'text',
-        'name' => '单独搜索页面',
-        'multi' => false,
-        'default' => $config['searchId'],
-        'description' => '填写应用了 page/search 页面模版的页面ID'
-    ),
     'logo' => array(
         'type' => 'radio',
         'name' => '开启Logo',
