@@ -9,7 +9,7 @@ Sidebar Amount:1
 */
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
-$beginningVersion = 'v2.5.4';
+$beginningVersion = 'v2.5.6';
 $siteKey = $site_key;
 $siteDescription = $site_description;
 $siteTitle = $site_title;
