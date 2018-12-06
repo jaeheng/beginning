@@ -221,22 +221,6 @@
     }
     prettyPrint();
 
-    var ias = jQuery.ias({
-        container:  '#log_list',
-        item:       '.log_list_item',
-        pagination: '#pagenavi',
-        next:       '#pagenavi .next'
-    });
-    ias.extension(new IASSpinnerExtension({
-        html: '<div class="log-loading">Loading...</div>',
-    }));
-    ias.extension(new IASNoneLeftExtension({
-        text: '<div class="log-loading">加载完毕!</div>',
-    }));
-    ias.on('rendered', function (items) {
-        $(items).find('img.lazyload').lazyload();
-    });
-
     //弹出一个页面层
     $('.i-reward').on('click', function(){
         var url = $(this).data('url');

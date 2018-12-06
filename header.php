@@ -51,17 +51,19 @@ $blogName = $blogname;
             <i class="icon-menu-item"></i>
         </a>
         <?php blog_navi(); ?>
-        <div class="pull-right login-entry">
-            <?php if (ISLOGIN):
-                global $CACHE;
-                $user_cache = $CACHE->readCache('user');
-                $name = $user_cache[UID]['name'];
-            ?>
-                <a href="<?php echo BLOG_URL;?>/admin/"><?php echo $name;?> 已登录</a>
-            <?php else: ?>
-                <a href="<?php echo BLOG_URL;?>/admin/">登录</a>
-            <?php endif; ?>
-        </div>
+        <?php if(_g('displayLoginBtn')):?>
+            <div class="pull-right login-entry">
+                <?php if (ISLOGIN):
+                    global $CACHE;
+                    $user_cache = $CACHE->readCache('user');
+                    $name = $user_cache[UID]['name'];
+                ?>
+                    <a href="<?php echo BLOG_URL;?>/admin/"><?php echo $name;?> 已登录</a>
+                <?php else: ?>
+                    <a href="<?php echo BLOG_URL;?>/admin/">登录</a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 <!--导航 /-->
@@ -78,7 +80,7 @@ $blogName = $blogname;
 
         <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
             <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="search..."/>
-            <i class="iconfont icon-search"></i>
+            <i class="iconfont icon-search" onclick="document.getElementById('search-form').submit()"></i>
         </form>
     </div>
 </div>

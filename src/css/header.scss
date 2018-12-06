@@ -92,6 +92,7 @@
       width: 40px;
       line-height: $menu-header;
       text-align: center;
+      cursor: pointer;
     }
     &.active {
       box-shadow: 5px 5px 6px #e6e6e6;

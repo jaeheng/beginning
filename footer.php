@@ -65,10 +65,32 @@ if (blog_tool_ishome()) {
 <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.js" type="text/javascript"></script>
 <link href="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.css" rel="stylesheet" type="text/css" />
-<script src="<?php echo TEMPLATE_URL; ?>/static/vendor/jquery-ias.min.js" type="text/javascript"></script>
+
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/layer/layer.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/lazyload.min.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/effect.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL;?>/static/js/main.min.js?version=<?php echo $beginningVersion;?>"></script>
+<?php if(_g('iasEnable')): ?>
+<script src="<?php echo TEMPLATE_URL; ?>/static/vendor/jquery-ias.min.js" type="text/javascript"></script>
+<script>
+  $(function () {
+    var ias = $.ias({
+      container:  '#log_list',
+      item:       '.log_list_item',
+      pagination: '#pagenavi',
+      next:       '#pagenavi .next'
+    });
+    ias.extension(new IASSpinnerExtension({
+      html: '<div class="log-loading">Loading...</div>',
+    }));
+    ias.extension(new IASNoneLeftExtension({
+      text: '<div class="log-loading">加载完毕!</div>',
+    }));
+    ias.on('rendered', function (items) {
+      $(items).find('img.lazyload').lazyload();
+    });
+  })
+</script>
+<?php endif;?>
 </body>
 </html>

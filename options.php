@@ -63,5 +63,23 @@ $options = array(
             '1' => '开启',
             '0' => '不开启'
         ),
+    ),
+    'iasEnable' => array(
+        'type' => 'radio',
+        'name' => '无限滚动加载数据',
+        'default' => $config['iasEnable'],
+        'values' => array(
+            '1' => '开启',
+            '0' => '不开启'
+        ),
+    ),
+    'displayLoginBtn' => array(
+        'type' => 'radio',
+        'name' => '是否显示登录入口',
+        'default' => $config['displayLoginBtn'],
+        'values' => array(
+            '1' => '显示',
+            '0' => '不显示'
+        ),
     )
 );

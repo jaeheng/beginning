@@ -50,15 +50,16 @@
   margin: 25px auto 0;
   text-align: center;
   a, span {
-    box-shadow: 0 2px 5px 0 rgba(146,146,146,.1);
+    @include box-shadow-normal;
     background-color: #fff;
     font-size: 14px;
     display: inline-block;
-    margin: 0 2px;
     height: 30px;
     line-height: 30px;
     min-width: 30px;
     text-decoration: none;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
   span, a:hover {
     background-color: $light-grey;

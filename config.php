@@ -38,5 +38,7 @@ $config = array(
     ),
     'cms' => false, // 是否开启聚合首页
     'cmsAd' => '', // 聚合首页banner广告链接
-    'logo' => false
+    'logo' => false,
+    'iasEnable' => true,
+    'displayLoginBtn' => true
 );
