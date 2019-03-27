@@ -77,66 +77,6 @@
         }, 5000);
     }
 
-    // 存档折线图
-    var archiveChart = document.getElementById('archive-chart');
-    if (archiveChart) {
-        var data = $(archiveChart).data('value');
-        var myChart = window.echarts.init(archiveChart);
-        myChart.showLoading();
-        var option = {
-            calculable: true,
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: data.x.reverse()
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    scale: true,
-                    name: '已发布'
-                }
-            ],
-            dataZoom: [
-                {
-                    show: true,
-                    type: 'slider'
-                }
-            ],
-            grid: {
-                left: '15%',
-                right: '15%'
-            },
-            series: [
-                {
-                    name: '文章数量',
-                    type: 'line',
-                    itemStyle: {
-                        normal: {
-                            color: '#333',
-                            lineStyle: {
-                                color: '#666'
-                            }
-                        }
-                    },
-                    data: data.y.reverse()
-                }
-            ]
-        };
-        myChart.setOption(option);
-        myChart.hideLoading();
-        myChart.on('click', function (e) {
-            window.location.href = '/?record=' + e.name;
-        });
-    }
-
     // 图片相册
     var album = $('#album');
 
@@ -238,9 +178,6 @@
         });
     });
 
-    // 图片lazyload
-    lazyload();
-
     var searchInput = $('.search-input');
     var searchForm = $('#search-form');
     searchInput.focus(function () {
@@ -249,4 +186,6 @@
     searchInput.blur(function () {
         searchForm.removeClass('active');
     });
+
+    lazyload();
 })(window, jQuery);

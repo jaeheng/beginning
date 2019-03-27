@@ -402,3 +402,24 @@
 .echo_log .tags {
   padding: 10px 0;
 }
+
+.relation-log {
+  h3 {
+    padding: 15px 0 8px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  ul {
+    font-size: 0;
+  }
+  li {
+    width: 50%;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+}

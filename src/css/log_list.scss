@@ -1,11 +1,10 @@
 // 普通列表
 .log_list_item {
   position: relative;
-  min-height: 100px;
   background-color: #fff;
-  padding: 16px 16px 0 116px;
-  @include box-shadow-normal;
+  padding: 16px 16px 16px 116px;
   overflow: hidden;
+  border-bottom: 1px solid $extra-light-grey;
   .pic-link {
     position: absolute;
     left: 15px;
@@ -52,7 +51,6 @@
   .info {
     font-size: 12px;
     line-height: 40px;
-    border-bottom: 1px solid $extra-light-grey;
     box-sizing: border-box;
     .iconfont {
       font-size: 12px;

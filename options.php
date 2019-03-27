@@ -81,5 +81,14 @@ $options = array(
             '1' => '显示',
             '0' => '不显示'
         ),
+    ),
+    'relationLog' => array(
+        'type' => 'radio',
+        'name' => '是否显示相关文章',
+        'default' => $config['relationLog'],
+        'values' => array(
+            '1' => '显示',
+            '0' => '不显示'
+        ),
     )
 );

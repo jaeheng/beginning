@@ -62,7 +62,6 @@ if (blog_tool_ishome()) {
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->
-<script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.js" type="text/javascript"></script>
 <link href="<?php echo TEMPLATE_URL; ?>/static/vendor/prettify.css" rel="stylesheet" type="text/css" />
 
@@ -87,7 +86,7 @@ if (blog_tool_ishome()) {
       text: '<div class="log-loading">加载完毕!</div>',
     }));
     ias.on('rendered', function (items) {
-      $(items).find('img.lazyload').lazyload();
+      lazyload()
     });
   })
 </script>

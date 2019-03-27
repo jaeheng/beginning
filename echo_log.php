@@ -40,6 +40,23 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="relief">
                         <?php echo _g('relief'); ?>
                     </div>
+
+                     <!--相关文章-->
+                    <?php
+                        if (_g('relationLog')):
+
+                            $relationLogs = getRelationLogs($sortid);
+                        ?>
+                        <div class="relation-log">
+                            <h3>您可能对以下文章感兴趣:</h3>
+                            <ul>
+                                <?php foreach($relationLogs as $value):?>
+                                    <li><a href="<?php echo $value['url'];?>" target="_blank"><?php echo $value['title'];?></a></li>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                    <?php endif;?>
+                    <!--/相关文章-->
                 </div>
             </div>
 

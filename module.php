@@ -316,6 +316,70 @@ function widget_archive($title)
                 }
             ?>
             <div id="archive-chart" style="height: 250px;width: 100%;" data-value='<?php echo json_encode($myChartData);?>'></div>
+            <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                   // 存档折线图
+                    var archiveChart = document.getElementById('archive-chart');
+                    if (archiveChart) {
+                        var data = $(archiveChart).data('value');
+                        var myChart = window.echarts.init(archiveChart);
+                        myChart.showLoading();
+                        var option = {
+                            calculable: true,
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    data: data.x.reverse()
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value',
+                                    scale: true,
+                                    name: '已发布'
+                                }
+                            ],
+                            dataZoom: [
+                                {
+                                    show: true,
+                                    type: 'slider'
+                                }
+                            ],
+                            grid: {
+                                left: '15%',
+                                right: '15%'
+                            },
+                            series: [
+                                {
+                                    name: '文章数量',
+                                    type: 'line',
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#333',
+                                            lineStyle: {
+                                                color: '#666'
+                                            }
+                                        }
+                                    },
+                                    data: data.y.reverse()
+                                }
+                            ]
+                        };
+                        myChart.setOption(option);
+                        myChart.hideLoading();
+                        myChart.on('click', function (e) {
+                            window.location.href = '/?record=' + e.name;
+                        });
+                    }
+                });
+            </script>
         <?php endif; ?>
     </div>
 <?php } ?>
@@ -435,7 +499,7 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' style='margin-left:1em;'>" . $value['tagname'] . '</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='b-tag'>" . $value['tagname'] . '</a>';
         }
         echo $tag;
     }
@@ -861,4 +925,24 @@ function bloggerInfo($uid)
  */
 function nineplus ($num) {
     return $num > 999 ? '999+' : $num;
+}
+
+
+function getRelationLogs($sortid, $num = 10)
+{
+    global $CACHE;
+    $sort_cache = $CACHE->readCache('sort');
+    $lognum = $sort_cache[$sortid]['lognum'];
+    $db = Database::getInstance();
+    $start = $lognum > $num ? mt_rand(0, $lognum - $num): 0;
+    $sql = "SELECT gid,title FROM " . DB_PREFIX . "blog WHERE hide='n' and checked='y' and type='blog' and sortid={$sortid} LIMIT $start, $num";
+    $res = $db->query($sql);
+    $logs = array();
+    while ($row = $db->fetch_array($res)) {
+        $row['gid'] = intval($row['gid']);
+        $row['title'] = htmlspecialchars($row['title']);
+        $row['url'] = Url::log($row['gid']);
+        $logs[] = $row;
+    }
+    return $logs;
 }

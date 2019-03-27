@@ -40,5 +40,6 @@ $config = array(
     'cmsAd' => '', // 聚合首页banner广告链接
     'logo' => false,
     'iasEnable' => true,
-    'displayLoginBtn' => true
+    'displayLoginBtn' => true,
+    'relationLog' => true
 );
