@@ -28,8 +28,8 @@ if (!defined('EMLOG_ROOT')) {
                         <span><i class="iconfont icon-comment"></i><a href="#comments" class="comments"><?php echo $comnum; ?></a></span>
                         <span><i class="iconfont icon-view"></i><i class="view"><?php echo $views; ?></i></span>
                         <?php editflg($logid, $author); ?>
+                        <div class="tags"><div class="b-tag"> <i class="iconfont icon-tag"></i>标签: <?php blog_tag($logid); ?></div></div>
                     </div>
-                    <p class="tags"> <i class="iconfont icon-tag"></i> 标签: <?php blog_tag($logid); ?></p>
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
                     </div>

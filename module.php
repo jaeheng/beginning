@@ -503,8 +503,9 @@ function blog_tag($blogid)
     if (!empty($log_cache_tags[$blogid])) {
         $tag = '';
         foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "' class='b-tag'>" . $value['tagname'] . '</a>';
+            $tag .= "<a href='" . Url::tag($value['tagurl']) . "'>" . $value['tagname'] . '</a>·';
         }
+        $tag = rtrim($tag, "·");
         echo $tag;
     }
 }

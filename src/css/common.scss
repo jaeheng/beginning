@@ -157,17 +157,18 @@ input, textarea {
 }
 
 .b-tag {
-  margin-left: 1em;
-  color: #00a2ff; 
+  display: inline-block;
+  a {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #00a2ff;
+  }
 }
 .log-info {
   i {
     font-style: normal;
   }
-  .user,
-  .date,
-  .comments,
-  .view {
+  .b-tag a {
     color: #00a2ff;
   }
 }
