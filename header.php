@@ -2,14 +2,14 @@
 /*
 Template Name:beginning
 Description:简洁，多种布局 <br /> <a href="http://zhangziheng.com/play/451.html" target="_blank">提交bug</a>
-Version:2.5.6
+Version:2.5.7
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
 */
 if (!defined('EMLOG_ROOT')) exit('error!');
 require_once View::getView('module');
-$beginningVersion = 'v2.5.6';
+$beginningVersion = 'v2.5.7';
 $siteKey = $site_key;
 $siteDescription = $site_description;
 $siteTitle = $site_title;
@@ -79,8 +79,8 @@ $blogName = $blogname;
         </a>
 
         <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
-            <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="search..."/>
-            <i class="iconfont icon-search" onclick="document.getElementById('search-form').submit()"></i>
+            <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="search..." id="keyword" required/>
+            <i class="iconfont icon-search" id="submit-btn"></i>
         </form>
     </div>
 </div>

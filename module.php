@@ -721,18 +721,26 @@ function getSystemInfo($uid)
 }
 
 /**
- * 获取第一个上传的图片附件,没有则返回false
+ * 获取第一个上传的图片附件,没有则返回默认图片
  */
 function getFirstAtt ($blogid) {
     $db = Database::getInstance();
     $sql = 'select * from ' . DB_PREFIX . 'attachment where blogid = ' . $blogid . ' and mimetype like "image%"';
     $query = $db->query($sql);
-    $res = $db->fetch_array($query);
-    if ($res) {
-        return BLOG_URL . $res['filepath'];
-    } else {
+    $filepath = '';
+    while($res = $db->fetch_array($query)) {
+        if ($res['thumfor'] > 0) {
+            $filepath = $res['filepath'];
+            break;
+        }
+        if (empty($filepath)) {
+            $filepath = $res['filepath'];
+        }
+    }
+    if (empty($filepath)) {
         return false;
     }
+    return $filepath;
 }
 
 /**

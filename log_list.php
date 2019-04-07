@@ -5,7 +5,7 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-if (blog_tool_ishome()) {
+if (blog_tool_ishome() || (isset($_GET['keyword']) && empty($_GET['keyword']))) {
     require_once View::getView('components/notice');
 
     if (_g('cms')) {

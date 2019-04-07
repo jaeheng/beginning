@@ -188,4 +188,18 @@
     });
 
     lazyload();
+
+    /**
+     * 搜索时判断关键字是否为空
+     */
+    $('#submit-btn').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var keyword = $('#keyword').val();
+        if (keyword === '') {
+            layer.msg('关键字不可为空');
+        } else {
+            $('#search-form').submit();
+        }
+    });
 })(window, jQuery);
