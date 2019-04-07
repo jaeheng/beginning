@@ -53,7 +53,7 @@ doAction('index_loglist_top'); ?>
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
                                 <i class="iconfont icon-view"></i> <span class="view"><?php echo $value['views']; ?></span>
-                                <span class="pull-right"><?php echo gmdate('n.j', $value['date']); ?></span>
+                                <span class="pull-right"><?php echo gmdate('Y-m-d', $value['date']); ?></span>
                                 <?php blog_tag($value['logid']);?>
                             </div>
                         </li>

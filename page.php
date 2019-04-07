@@ -22,11 +22,10 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="panel-body">
                         <h3 class="log-title"><?php echo $log_title; ?></h3>
                         <div class="log-info">
-                            <i class="iconfont icon-user"></i>
-                            <?php blog_author($author); ?>
-                            <i class="iconfont icon-time"></i> <?php echo gmdate('Y-n-j', $date); ?>
-                            <i class="iconfont icon-comment"></i> <a href="#comments"><?php echo $comnum;?></a>
-                            <?php editflg($logid,$author); ?>
+                            <span><i class="iconfont icon-user"></i><?php blog_author($author); ?></span>
+                            <span><i class="iconfont icon-time"></i><i class="date"><?php echo gmdate('Y-n-j', $date); ?></i></span>
+                            <span><i class="iconfont icon-comment"></i><a href="#comments" class="comments"><?php echo $comnum; ?></a></span>
+                            <?php editflg($logid, $author); ?>
                         </div>
                         <div class="log-body" id="log-body">
                             <?php echo $log_content; ?>

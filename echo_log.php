@@ -24,15 +24,15 @@ if (!defined('EMLOG_ROOT')) {
                     <h2 class="log-title"><?php echo $log_title; ?></h2>
                     <div class="log-info">
                         <span><i class="iconfont icon-user"></i><?php blog_author($author); ?></span>
-                        <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-n-j', $date); ?></span>
-                        <span><i class="iconfont icon-comment"></i><a href="#comments"><?php echo $comnum; ?></a></span>
-                        <span><i class="iconfont icon-view"></i><?php echo $views; ?></span>
+                        <span><i class="iconfont icon-time"></i><i class="date"><?php echo gmdate('Y-n-j', $date); ?></i></span>
+                        <span><i class="iconfont icon-comment"></i><a href="#comments" class="comments"><?php echo $comnum; ?></a></span>
+                        <span><i class="iconfont icon-view"></i><i class="view"><?php echo $views; ?></i></span>
                         <?php editflg($logid, $author); ?>
                     </div>
+                    <p class="tags"> <i class="iconfont icon-tag"></i> 标签: <?php blog_tag($logid); ?></p>
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
                     </div>
-                    <p class="tags">Tags: <?php blog_tag($logid); ?></p>
                     <div style="border-top: 1px solid #eee;padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>
@@ -60,6 +60,8 @@ if (!defined('EMLOG_ROOT')) {
                 </div>
             </div>
 
+            <!--作者信息-->
+            <?php if (_g('showAuthor')): ?>
             <div class="panel">
                 <div class="panel-heading">
                     <?php $the_author = get_author_by_uid($author); ?>
@@ -71,7 +73,7 @@ if (!defined('EMLOG_ROOT')) {
                     <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
                          alt="<?php echo $the_author['name']; ?>" class="avatar">
                     <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                    <a href="<?php echo _g('weibo'); ?>"><img
+                    <a href="<?php echo _g('weibo'); ?>" target="_blank"><img
                                 src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
                                 class="icon"></a>
                     <!--打赏-->
@@ -83,6 +85,7 @@ if (!defined('EMLOG_ROOT')) {
                     <!--/打赏-->
                 </div>
             </div>
+            <?php endif;?>
 
             <div class="panel">
                 <div class="panel-body neighbor">

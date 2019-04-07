@@ -90,5 +90,14 @@ $options = array(
             '1' => '显示',
             '0' => '不显示'
         ),
+    ),
+    'showAuthor' => array(
+        'type' => 'radio',
+        'name' => '是否显示作者信息',
+        'default' => $config['showAuthor'],
+        'values' => array(
+            '1' => '显示',
+            '0' => '不显示'
+        ),
     )
 );

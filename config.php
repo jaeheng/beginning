@@ -41,5 +41,6 @@ $config = array(
     'logo' => false,
     'iasEnable' => true,
     'displayLoginBtn' => true,
-    'relationLog' => true
+    'relationLog' => true,
+    'showAuthor' => true
 );

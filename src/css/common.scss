@@ -158,4 +158,16 @@ input, textarea {
 
 .b-tag {
   margin-left: 1em;
+  color: #00a2ff; 
+}
+.log-info {
+  i {
+    font-style: normal;
+  }
+  .user,
+  .date,
+  .comments,
+  .view {
+    color: #00a2ff;
+  }
 }
