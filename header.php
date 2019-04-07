@@ -58,9 +58,9 @@ $blogName = $blogname;
                     $user_cache = $CACHE->readCache('user');
                     $name = $user_cache[UID]['name'];
                 ?>
-                    <a href="<?php echo BLOG_URL;?>/admin/"><?php echo $name;?> 已登录</a>
+                    <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/"><?php echo $name;?> 已登录</a>
                 <?php else: ?>
-                    <a href="<?php echo BLOG_URL;?>/admin/">登录</a>
+                    <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">登录</a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

@@ -6,6 +6,10 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
+
+// 后台文件夹名称
+define('DASHBOARD_DIR', 'admin');
+
 /**
  * 获取Gravatar头像
  * @param $email
@@ -36,7 +40,7 @@ function widget_blogger($title)
     if (_isAuthorPage()) return; # 作者页面可不显示
     ?>
     <div class="widget widget-user" id="bloggerinfo">
-        <a href="<?php echo BLOG_URL;?>admin" target="_blank">
+        <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>" target="_blank">
             <?php if (!empty($user_cache[1]['photo']['src'])): ?>
                 <img src="<?php echo BLOG_URL . $user_cache[1]['photo']['src']; ?>"
                      width="<?php echo $user_cache[1]['photo']['width']; ?>"
@@ -458,7 +462,7 @@ function blog_navi()
 //blog：编辑
 function editflg($logid, $author)
 {
-    $editflg = ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . 'admin/write_log.php?action=edit&gid=' . $logid . '" target="_blank" class="edit">编辑</a>' : '';
+    $editflg = ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . DASHBOARD_DIR . '/write_log.php?action=edit&gid=' . $logid . '" target="_blank" class="edit">编辑</a>' : '';
     echo $editflg;
 }
 
@@ -764,7 +768,7 @@ function getAuthorAvatar($uid = 1)
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
     $photo = $user_cache[$uid]['photo'];
-    return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . 'admin/views/images/avatar.jpg';
+    return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . DASHBOARD_DIR . '/views/images/avatar.jpg';
 }
 
 /**
