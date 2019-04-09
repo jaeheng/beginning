@@ -16,7 +16,7 @@ $notice = getNotices();
         <ul>
             <?php foreach ($notice['list'] as $value) : ?>
             <li>
-                <a href="<?php echo $notice['isTwitter'] ? BLOG_URL . '/t' : '#';?>">
+                <a href="<?php echo $notice['isTwitter'] ? BLOG_URL . 't' : '#';?>">
                     <i class="iconfont icon-notice"></i> <?php echo subString(strip_tags($value['t']), 0, 50);?>
                 </a>
             </li>

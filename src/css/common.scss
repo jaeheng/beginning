@@ -172,3 +172,13 @@ input, textarea {
     color: #00a2ff;
   }
 }
+
+.copyright-notice {
+  margin-bottom: 1em;
+  color: #000;
+  background: #f2f7fb;
+  padding: 10px;
+  a {
+    text-decoration: underline;
+  }
+}

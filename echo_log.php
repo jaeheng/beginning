@@ -33,6 +33,12 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
                     </div>
+
+                    <p class="copyright-notice"><i class="iconfont icon-zhuanfa"></i> 转载请注明出处:
+                        <a href="<?php echo BLOG_URL;?>" target="_blank"><?php echo $blogname;?></a>
+                        本文链接地址：
+                        <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a>
+                    </p>
                     <div style="border-top: 1px solid #eee;padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>
@@ -40,28 +46,16 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="relief">
                         <?php echo _g('relief'); ?>
                     </div>
+                </div>
+            </div>
 
-                     <!--相关文章-->
-                    <?php
-                        if (_g('relationLog')):
-
-                            $relationLogs = getRelationLogs($sortid);
-                        ?>
-                        <div class="relation-log">
-                            <h3>您可能对以下文章感兴趣:</h3>
-                            <ul>
-                                <?php foreach($relationLogs as $value):?>
-                                    <li><a href="<?php echo $value['url'];?>" target="_blank"><?php echo $value['title'];?></a></li>
-                                <?php endforeach;?>
-                            </ul>
-                        </div>
-                    <?php endif;?>
-                    <!--/相关文章-->
+            <div class="panel">
+                <div class="panel-body neighbor">
+                    <?php neighbor_log($neighborLog); ?>
                 </div>
             </div>
 
             <!--作者信息-->
-            <?php if (_g('showAuthor')): ?>
             <div class="panel">
                 <div class="panel-heading">
                     <?php $the_author = get_author_by_uid($author); ?>
@@ -69,6 +63,7 @@ if (!defined('EMLOG_ROOT')) {
                     <span class="pull-right"
                           style="font-size: 12px;">本文发布于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
                 </div>
+                <?php if (_g('showAuthor')): ?>
                 <div class="panel-body author">
                     <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
                          alt="<?php echo $the_author['name']; ?>" class="avatar">
@@ -84,14 +79,31 @@ if (!defined('EMLOG_ROOT')) {
                     <?php endif;?>
                     <!--/打赏-->
                 </div>
+                <?php endif;?>
             </div>
-            <?php endif;?>
 
+            <!--相关文章-->
             <div class="panel">
-                <div class="panel-body neighbor">
-                    <?php neighbor_log($neighborLog); ?>
+                <div class="panel-heading">
+                    您可能对以下文章感兴趣
+                </div>
+                <div class="panel-body">
+                <?php
+                    if (_g('relationLog')):
+
+                        $relationLogs = getRelationLogs($sortid);
+                    ?>
+                    <div class="relation-log">
+                        <ul>
+                            <?php foreach($relationLogs as $value):?>
+                                <li><a href="<?php echo $value['url'];?>" target="_blank"><?php echo $value['title'];?></a></li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                <?php endif;?>
                 </div>
             </div>
+            <!--/相关文章-->
 
             <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
             <?php blog_comments($comments); ?>
