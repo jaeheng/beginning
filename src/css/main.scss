@@ -302,14 +302,13 @@
   position: relative;
   padding-left: 70px!important;
   padding-right: 150px!important;
+  padding-top: 15px;
+  padding-bottom: 15px;
   .avatar {
     position: absolute;
     left: 15px;
     width: 40px;
     height: 40px;
-  }
-  .author-desc {
-    margin-bottom: 10px;
   }
   .icon {
     width: 20px;
@@ -396,7 +395,7 @@
 .i-reward {
   position: absolute;
   right: 15px;
-  top: 30px;
+  top: 15px;
 }
 
 .relation-log {

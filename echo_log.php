@@ -39,7 +39,36 @@ if (!defined('EMLOG_ROOT')) {
                         本文链接地址：
                         <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a>
                     </p>
-                    <div style="border-top: 1px solid #eee;padding-top: 10px;">
+
+                    <!--作者信息-->
+                    <div class="panel" style="box-shadow: none;margin-bottom: 0;">
+                        <div class="panel-heading">
+                            <?php $the_author = get_author_by_uid($author); ?>
+                            作者: <?php blog_author($author); ?>
+                            <span class="pull-right"
+                                  style="font-size: 12px;">本文发布于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
+                        </div>
+                        <?php if (_g('showAuthor')): ?>
+                        <div class="panel-body author">
+                            <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
+                                 alt="<?php echo $the_author['name']; ?>" class="avatar">
+                            <p class="author-desc"><?php echo $the_author['des']; ?></p>
+                            <a href="<?php echo _g('weibo'); ?>" target="_blank"><img
+                                        src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
+                                        class="icon"></a>
+                            <!--打赏-->
+                            <?php if (_g('reward')): ?>
+                                <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
+                                    <i class="iconfont icon-dashang"></i> 赞赏作者
+                                </button>
+                            <?php endif;?>
+                            <!--/打赏-->
+                        </div>
+                        <?php endif;?>
+                    </div>
+                    <!--/作者信息-->
+
+                    <div style="padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>
 
@@ -53,33 +82,6 @@ if (!defined('EMLOG_ROOT')) {
                 <div class="panel-body neighbor">
                     <?php neighbor_log($neighborLog); ?>
                 </div>
-            </div>
-
-            <!--作者信息-->
-            <div class="panel">
-                <div class="panel-heading">
-                    <?php $the_author = get_author_by_uid($author); ?>
-                    作者: <?php blog_author($author); ?>
-                    <span class="pull-right"
-                          style="font-size: 12px;">本文发布于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
-                </div>
-                <?php if (_g('showAuthor')): ?>
-                <div class="panel-body author">
-                    <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
-                         alt="<?php echo $the_author['name']; ?>" class="avatar">
-                    <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                    <a href="<?php echo _g('weibo'); ?>" target="_blank"><img
-                                src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
-                                class="icon"></a>
-                    <!--打赏-->
-                    <?php if (_g('reward')): ?>
-                        <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
-                            <i class="iconfont icon-dashang"></i> 赞赏作者
-                        </button>
-                    <?php endif;?>
-                    <!--/打赏-->
-                </div>
-                <?php endif;?>
             </div>
 
             <!--相关文章-->
