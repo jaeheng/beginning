@@ -42,5 +42,6 @@ $config = array(
     'iasEnable' => true,
     'displayLoginBtn' => true,
     'relationLog' => true,
-    'showAuthor' => true
+    'showAuthor' => true,
+    'showRep' => true
 );

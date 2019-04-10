@@ -99,5 +99,14 @@ $options = array(
             '1' => '显示',
             '0' => '不显示'
         ),
+    ),
+    'showRep' => array(
+        'type' => 'radio',
+        'name' => '是否显示转载说明',
+        'default' => $config['showRep'],
+        'values' => array(
+            '1' => '显示',
+            '0' => '不显示'
+        ),
     )
 );
