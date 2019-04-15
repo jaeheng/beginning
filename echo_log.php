@@ -11,7 +11,7 @@ if (!defined('EMLOG_ROOT')) {
 <div class="breadthumb">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="bread-item">首页</a>
-        <a href="" class="bread-item"><?php echo $log_title; ?></a>
+        <a class="bread-item"><?php echo $log_title; ?></a>
     </div>
 </div>
 <!--面包屑导航-->
