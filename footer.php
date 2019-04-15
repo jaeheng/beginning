@@ -44,10 +44,14 @@ if (blog_tool_ishome()) {
 
 <!--网站小工具-->
 <div class="site-tools">
+    <?php if (!empty(_g('gift'))):?>
     <a href="<?php echo _g('gift');?>" class="item" target="_blank">
         <i class="iconfont icon-gift"></i>
     </a>
-    <?php foreach (getconfig('qrcode') as $value) : ?>
+    <?php endif; ?>
+    <?php 
+    if (!_g('reward')):
+    foreach (getconfig('qrcode') as $value) : ?>
     <a href="javascript:;" class="item">
         <i class="iconfont <?php echo $value['icon'];?>"></i>
         <div class="popup">
@@ -55,10 +59,15 @@ if (blog_tool_ishome()) {
             <h3 class="title"><?php echo $value['title']; ?></h3>
         </div>
     </a>
-    <?php endforeach;?>
+    <?php
+    endforeach;
+    endif;
+    ?>
+    <?php if (!empty( _g('qq'))):?>
     <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes';?>" class="item" target="_blank">
         <i class="iconfont icon-qq"></i>
     </a>
+    <?php endif; ?>
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->

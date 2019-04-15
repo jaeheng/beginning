@@ -21,7 +21,7 @@ $options = array(
     ),
     'gift' => array(
         'type' => 'text',
-        'name' => '侧边栏礼物图标',
+        'name' => '侧边栏礼物图标链接',
         'default' => $config['gift'],
     ),
     'relief' => array(

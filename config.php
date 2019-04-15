@@ -6,13 +6,13 @@ $config = array(
     'weibo' => 'http://weibo.com/theheng',
 
     /* email */
-    'email' => 'jaeheng@126.com',
+    'email' => 'demo@test.com',
 
     /* 文章详情页面中的免责声明 */
     'relief' => '免责声明：本文仅代表作者个人观点，与本网站无关。其原创性以及文中陈述文字和内容未经本站证实，对本文以及其中全部或者部分内容、文字的真实性、完整性、及时性本站不作任何保证或承诺，请读者仅作参考，并请自行核实相关内容。',
 
     /* 右侧小工具中的qq临时会话链接  */
-    'qq' => '459269125',
+    'qq' => 'qqhao',
 
     /* 右侧小工具中的礼物图标的链接 */
     'gift' => BLOG_URL,
@@ -29,11 +29,6 @@ $config = array(
             'url' => TEMPLATE_URL . 'static/images/wechatPay.png', // 这个表示 qrcode.png图片地址在beginning/images/qrcode.png
             'title' => '赞赏作者 (微信)',
             'icon' => 'icon-coffee' // 图标详情可见：TODO:图标库页面
-        ),
-        array(
-            'url' => TEMPLATE_URL . 'static/images/weixin.png', // 这个表示 weixin.png图片地址在beginning/images/weixin.png
-            'title' => '加我微信',
-            'icon' => 'icon-weixin'
         )
     ),
     'cms' => false, // 是否开启聚合首页
