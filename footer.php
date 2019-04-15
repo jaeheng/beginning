@@ -18,12 +18,30 @@ if (blog_tool_ishome()) {
         <div class="widget">
             <h3>联系我们</h3>
             <div class="widget-inner">
-                <p>Email: <a href="mailto:<?php echo _g('email'); ?>" class="fr"><?php echo _g('email'); ?></a></p>
-                <p>Weibo: <a href="<?php echo _g('weibo'); ?>" class="fr"><?php echo _g('weibo'); ?></a></p>
-                <p><?php if (Option::get('rss_output_num')): ?>
-                        <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅">RSS订阅</a>
-                    <?php endif; ?>
-                </p>
+                <?php if (!empty(_g('email'))): ?>
+                    <p>
+                        <i class="iconfont icon-email"></i>
+                        <a href="mailto:<?php echo _g('email'); ?>" title="Email" target="_blank"><?php echo _g('email'); ?></a>
+                    </p>
+                <?php endif; ?>
+                <?php if (!empty(_g('weibo'))): ?>
+                    <p>
+                        <i class="iconfont icon-weibo"></i>
+                        <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>" target="_blank"><?php echo _g('weibo'); ?></a>
+                    </p>
+                <?php endif; ?>
+                <?php if (Option::get('rss_output_num')): ?>
+                    <p>
+                        <i class="iconfont icon-rss"></i>
+                        <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅" target="_blank">RSS订阅</a>
+                    </p>
+                <?php endif; ?>
+                <?php if (!empty( _g('qq'))):?>
+                    <p>
+                        <i class="iconfont icon-qq"></i>
+                        <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes';?>" target="_blank"><?php echo _g('qq');?></a>
+                    </p>
+                <?php endif; ?>
             </div>
         </div>
         <?php widget_link('友情链接'); ?>
@@ -50,24 +68,13 @@ if (blog_tool_ishome()) {
     </a>
     <?php endif; ?>
     <?php 
-    if (!_g('reward')):
-    foreach (getconfig('qrcode') as $value) : ?>
-    <a href="javascript:;" class="item">
-        <i class="iconfont <?php echo $value['icon'];?>"></i>
-        <div class="popup">
-            <img src="<?php echo $value['url']; ?>" alt="<?php echo $value['title']; ?>">
-            <h3 class="title"><?php echo $value['title']; ?></h3>
-        </div>
+    if (_g('reward')): ?>
+    <a href="javascript:;" class="item layer-reward" data-url="<?php echo TEMPLATE_URL; ?>">
+        <i class="iconfont icon-coffee"></i>
     </a>
     <?php
-    endforeach;
     endif;
     ?>
-    <?php if (!empty( _g('qq'))):?>
-    <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes';?>" class="item" target="_blank">
-        <i class="iconfont icon-qq"></i>
-    </a>
-    <?php endif; ?>
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->

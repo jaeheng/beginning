@@ -27,7 +27,7 @@ $blogName = $blogname;
     <meta name="generator" content="emlog"/>
     <title><?php echo $siteTitle; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_oie8rokka3.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_zi98lp3efe.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo $beginningVersion; ?>">
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js" type="text/javascript"></script>

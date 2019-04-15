@@ -19,18 +19,6 @@ $config = array(
 
     /* 是否开启打赏功能: 注意，开启打赏功能之前需将打赏二维码替换成自己的， 路径为 beginning/images/reward.jpg */
     'reward' => true,
-
-    /**
-     * 右侧小工具中的二维码数据
-     * 可设置多个，复制第二层array即可
-     */
-    'qrcode' => array(
-        array(
-            'url' => TEMPLATE_URL . 'static/images/wechatPay.png', // 这个表示 qrcode.png图片地址在beginning/images/qrcode.png
-            'title' => '赞赏作者 (微信)',
-            'icon' => 'icon-coffee' // 图标详情可见：TODO:图标库页面
-        )
-    ),
     'cms' => false, // 是否开启聚合首页
     'cmsAd' => '', // 聚合首页banner广告链接
     'logo' => false,

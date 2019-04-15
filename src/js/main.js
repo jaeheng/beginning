@@ -162,7 +162,7 @@
     prettyPrint();
 
     //弹出一个页面层
-    $('.i-reward').on('click', function(){
+    $('.layer-reward').on('click', function(){
         var url = $(this).data('url');
         // //tab层
         layer.tab({

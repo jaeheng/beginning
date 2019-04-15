@@ -9,22 +9,22 @@ $desc = '';
 $background = getRandomDarkColor();
 
 if (isset($tag)) {
-    $breadTitle = "包含“ $tag ”话题的文章";
+    $breadTitle = "<a class='bread-item'>包含“ $tag ”话题的文章</a>";
 } elseif (isset($sortid)) {
     $background = blog_sort_color($sortid);
     global $CACHE;
     $sort_cache = $CACHE->readCache('sort');
     $pid = $sort_cache[$sortid]['pid'];
     if($pid != 0) {
-        $breadTitle = $sort_cache[$pid]['sortname'] . ' / ' . $sort_cache[$sortid]['sortname'];
+        $breadTitle = '<a href="' . Url::sort($pid) .  '" class="bread-item">' . $sort_cache[$pid]['sortname'] . '</a> / ' . $sort_cache[$sortid]['sortname'];
     } else {
-        $breadTitle = $sort_cache[$sortid]['sortname'];
+        $breadTitle = "<a class='bread-item'>" . $sort_cache[$sortid]['sortname'] . "</a>";
     }
     $desc = '<p class="desc">' . $sort_cache[$sortid]['description'] . '</p>';
 } elseif (isset($keyword)) {
-    $breadTitle = "包含搜索词 “ $keyword ” 的文章";
+    $breadTitle = "<a class='bread-item'>包含搜索词 “ $keyword ” 的文章</a>";
 } elseif (isset($record)) {
-    $breadTitle = "您查看的是 “ $record ” 年月的文章";
+    $breadTitle = "<a class='bread-item'>您查看的是 “ $record ” 年月的文章</a>";
 } elseif (isset($log_title)) {
     $breadTitle = $log_title;
 }
@@ -33,7 +33,7 @@ if (isset($tag)) {
 
 <header class="bread-header" style="background: <?php echo $background;?>;">
     <div class="container">
-        <div class="title"><?php echo $breadTitle; ?></div>
+        <div class="title"><?php echo strip_tags($breadTitle); ?></div>
         <?php echo $desc;?>
     </div>
 </header>
@@ -43,7 +43,7 @@ if (isset($tag)) {
 <div class="breadthumb">
     <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="bread-item">首页</a>
-        <a class="bread-item"><?php echo $breadTitle; ?></a>
+        <?php echo $breadTitle; ?>
     </div>
 </div>
 <!--面包屑导航-->

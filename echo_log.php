@@ -61,12 +61,9 @@ if (!defined('EMLOG_ROOT')) {
                     <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
                          alt="<?php echo $the_author['name']; ?>" class="avatar">
                     <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                    <a href="<?php echo _g('weibo'); ?>" target="_blank"><img
-                                src="<?php echo TEMPLATE_URL; ?>/static/images/weibo_48_48.png" alt="作者的微博"
-                                class="icon"></a>
                     <!--打赏-->
                     <?php if (_g('reward')): ?>
-                        <button class="btn btn-danger i-reward" data-url="<?php echo TEMPLATE_URL; ?>">
+                        <button class="btn btn-danger i-reward layer-reward" data-url="<?php echo TEMPLATE_URL; ?>">
                             <i class="iconfont icon-dashang"></i> 赞赏作者
                         </button>
                     <?php endif;?>
