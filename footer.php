@@ -82,7 +82,7 @@ if (blog_tool_ishome()) {
 <link href="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.css" rel="stylesheet" type="text/css" />
 
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/layer/layer.js" type="text/javascript"></script>
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/lazyload.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/lazyload.min.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/effect.js" type="text/javascript"></script>
 <script src="<?php echo TEMPLATE_URL;?>static/js/main.min.js?version=<?php echo $beginningVersion;?>"></script>
 <?php if(_g('iasEnable')): ?>

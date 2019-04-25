@@ -13,8 +13,7 @@ var mainjs = './src/js/main.js';
 var mainscss = './src/css/style.scss'
 var images = ['./src/images/**']
 var vendor = [
-    './src/lib/**',
-    './node_modules/lazyload/lazyload.min.js'
+    './src/lib/**'
 ]
 
 var dest = './static/'
