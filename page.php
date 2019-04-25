@@ -40,11 +40,12 @@ if (!defined('EMLOG_ROOT')) {
                         作者: <?php blog_author($author); ?>
                         <span class="pull-right">本文最后编辑于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
                     </div>
+                    <?php if (_g('showAuthor')): ?>
                     <div class="panel-body author">
                         <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>" alt="<?php echo $the_author['name'];?>" class="avatar">
                         <p class="author-desc"><?php echo $the_author['des'];?></p>
-                        <a href="<?php echo _g('weibo');?>"><img src="<?php echo TEMPLATE_URL;?>/static/images/weibo_48_48.png" alt="作者的微博" class="icon"></a>
                     </div>
+                    <?php endif;?>
                 </div>
 
                 <?php blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_remark); ?>
