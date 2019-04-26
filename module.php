@@ -751,7 +751,7 @@ function getFirstAtt ($blogid) {
     if (empty($filepath)) {
         return false;
     }
-    return $filepath;
+    return BLOG_URL . $filepath;
 }
 
 /**

@@ -5,6 +5,7 @@
 if (!defined('EMLOG_ROOT')) exit('error!');
 $authorInfo = bloggerInfo($author);
 $systemInfo = getSystemInfo($author);
+$authorInfo['avatar'] = BLOG_URL . $authorInfo['avatar'];
 ?>
 <!--作者头部区域-->
 <div class="container">
