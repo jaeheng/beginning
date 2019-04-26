@@ -8,7 +8,7 @@ if (!defined('EMLOG_ROOT')) {
 }
 
 // 后台文件夹名称
-define('DASHBOARD_DIR', 'admin');
+define('DASHBOARD_DIR', 'a006');
 
 /**
  * 获取Gravatar头像
@@ -379,7 +379,9 @@ function widget_archive($title)
                         myChart.setOption(option);
                         myChart.hideLoading();
                         myChart.on('click', function (e) {
-                            window.location.href = '/?record=' + e.name;
+                            var url = '<?php echo Url::record('666666');?>';
+                            url = url.replace('666666', e.name);
+                            window.location.href = url;
                         });
                     }
                 });
@@ -946,22 +948,19 @@ function nineplus ($num) {
     return $num > 999 ? '999+' : $num;
 }
 
-
-function getRelationLogs($sortid, $num = 10)
+/**
+ * 获取相关文章（分类中的热门文章）
+ */
+function getRelationLogs($sid, $num = 10)
 {
-    global $CACHE;
-    $sort_cache = $CACHE->readCache('sort');
-    $lognum = $sort_cache[$sortid]['lognum'];
-    $db = Database::getInstance();
-    $start = $lognum > $num ? mt_rand(0, $lognum - $num): 0;
-    $sql = "SELECT gid,title FROM " . DB_PREFIX . "blog WHERE hide='n' and checked='y' and type='blog' and sortid={$sortid} LIMIT $start, $num";
-    $res = $db->query($sql);
-    $logs = array();
-    while ($row = $db->fetch_array($res)) {
+    $log = new Log_Model();
+    $logs = $log->getLogsForHome('and sortid = "' . $sid . '" order by views desc', 1, $num);
+    $data = array();
+    foreach ($logs as $row) {
         $row['gid'] = intval($row['gid']);
         $row['title'] = htmlspecialchars($row['title']);
         $row['url'] = Url::log($row['gid']);
-        $logs[] = $row;
+        $data[] = $row;
     }
-    return $logs;
+    return $data;
 }
