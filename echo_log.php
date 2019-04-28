@@ -86,16 +86,15 @@ if (!defined('EMLOG_ROOT')) {
             </div>
 
             <!--相关文章-->
+            <?php
+                if (_g('relationLog')):
+                    $relationLogs = getRelationLogs($sortid);
+            ?>
             <div class="panel">
                 <div class="panel-heading">
                     您可能对以下文章感兴趣
                 </div>
                 <div class="panel-body">
-                <?php
-                    if (_g('relationLog')):
-
-                        $relationLogs = getRelationLogs($sortid);
-                    ?>
                     <div class="relation-log">
                         <ul>
                             <?php foreach($relationLogs as $value):?>
@@ -103,9 +102,9 @@ if (!defined('EMLOG_ROOT')) {
                             <?php endforeach;?>
                         </ul>
                     </div>
-                <?php endif;?>
                 </div>
             </div>
+            <?php endif;?>
             <!--/相关文章-->
 
             <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
