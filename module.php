@@ -7,8 +7,30 @@ if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
 
-// 后台文件夹名称
-define('DASHBOARD_DIR', 'a006');
+/**
+ * 获取配置信息
+ * 如果安装了模板设置插件(tpl_options: http://www.emlog.net/plugin/144)
+ * 则_g函数会存在，此时会从该插件中读取配置项
+ * 如果未安装模板设置插件，则会从config.php中读取
+ */
+if (!function_exists('_g')) {
+    function _g ($key) {
+        $config = include(TEMPLATE_PATH . '/config.php');
+        return isset($config[$key]) ? $config[$key] : false;
+    }
+}
+
+/**
+ * 后台文件夹名称
+ * 从配置文件或者模板设置插件中读取，默认admin,一般不用修改
+ */
+define('DASHBOARD_DIR', _g('dashboardDir'));
+
+/**
+ * 模板的版本
+ * @Date 2019年08月02日
+ */
+define('TPL_VERSION', 'v2.5.8');
 
 /**
  * 获取Gravatar头像
@@ -61,7 +83,7 @@ function widget_blogger($title)
 <?php
 //widget：日历
 function widget_calendar($title)
-{ ?>
+{?>
     <div class="widget widget-calendar">
         <h3><?php echo $title; ?></h3>
         <div id="calendar">
@@ -778,23 +800,6 @@ function getAuthorAvatar($uid = 1)
     $user_cache = $CACHE->readCache('user');
     $photo = $user_cache[$uid]['photo'];
     return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . DASHBOARD_DIR . '/views/images/avatar.jpg';
-}
-
-/**
- * 获取配置信息
- * 有一些配置信息无法通过模版配置插件来实现故而仍采用配置文件的形式
- * @param $key
- * @return mixed
- */
-function getconfig ($key) {
-    include(TEMPLATE_PATH . '/config.php');
-    return $config[$key];
-}
-
-if (!function_exists('_g')) {
-    function _g ($key) {
-        return getconfig($key);
-    }
 }
 
 /**

@@ -1,7 +1,7 @@
 <?php
 /*@support tpl_options*/
 !defined('EMLOG_ROOT') && exit('access deined!');
-include('config.php');
+$config = include('config.php');
 
 $options = array(
     'weibo' => array(
@@ -54,6 +54,20 @@ $options = array(
         'multi' => false,
         'default' => $config['cmsAd'],
         'description' => '为空则不显示该广告'
+    ),
+    'homeNotice' => array(
+        'type' => 'text',
+        'name' => 'EM6首页欢迎语',
+        'multi' => false,
+        'default' => $config['homeNotice'],
+        'description' => 'emlog6.0.0没有微语，用这句话代替'
+    ),
+    'dashboardDir' => array(
+        'type' => 'text',
+        'name' => '后台文件夹',
+        'multi' => false,
+        'default' => $config['dashboardDir'],
+        'description' => '如果你修改了后台文件夹名称，需要修改此项'
     ),
     'logo' => array(
         'type' => 'radio',

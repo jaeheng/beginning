@@ -6,6 +6,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 
 // 版本差异：5.3.1 以上的将微语去掉了，这里比较下版本去掉“网站公告”
 if (version_compare(Option::EMLOG_VERSION, '5.3.1')) {
+    echo '<div class="container"><div class="site-notice">' . _g('homeNotice') . '</div></div>';
     return false;
 }
 $notice = getNotices();
