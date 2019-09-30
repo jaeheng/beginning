@@ -61,7 +61,6 @@
   background-color: #fff;
   width: 100%;
   height: 60px;
-  box-shadow: 0 8px 16px 0 rgba(28,31,33,.1);
   .logo {
     height: 42px;
     float: left;
@@ -95,7 +94,7 @@
       cursor: pointer;
     }
     &.active {
-      box-shadow: 5px 5px 6px #e6e6e6;
+      box-shadow: 1px 1px 2px #ccc;
     }
   }
   .search-input {

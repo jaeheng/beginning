@@ -22,10 +22,8 @@ return array(
     'cms' => false,
     /* 聚合首页banner广告链接 */
     'cmsAd' => '',
-    /* 开启Logo: true开启 false不开启 */
-    'logo' => false,
-    /* 是否无限滚动加载数据 */
-    'iasEnable' => true,
+    /* Logo模式: 1仅logo 2logo+网站名称 3 仅网站名称 */
+    'logo' => 2,
     /* 是否显示登录入口 */
     'displayLoginBtn' => true,
     /* 是否显示相关文章 */
@@ -34,8 +32,8 @@ return array(
     'showAuthor' => true,
     /* 是否显示转载说明 */
     'showRep' => true,
-    /* 首页欢迎语 */
-    'homeNotice' => '首页欢迎语,emlog6.0.0没有微语，用这句话代替,可配置',
-    /* 后台文件夹：如果你修改了后台文件夹名称，需要修改此项 */
+    /* 是否显示彩带背景 */
+    'showEffect' => true,
+    /* 后台文件夹：如果你修改了后台文件夹名称，需要修改此项(此配置项并不会帮你修改后台文件夹) */
     'dashboardDir' => 'admin'
 );

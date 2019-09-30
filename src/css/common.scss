@@ -40,6 +40,12 @@ input, textarea {
   appearance: none;
   font-size: inherit;
 }
+.bold {
+  font-weight: bold;
+}
+.separation {
+  height: $separation;
+}
 .container {
   display: block;
   width: 1090px;
@@ -158,10 +164,12 @@ input, textarea {
 
 .b-tag {
   display: inline-block;
+  line-height: 2;
   a {
     margin-left: 5px;
     margin-right: 5px;
     color: #00a2ff;
+    display: inline-block;
   }
 }
 .log-info {

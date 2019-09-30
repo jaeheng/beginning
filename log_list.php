@@ -5,7 +5,15 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-if (blog_tool_ishome() || (isset($_GET['keyword']) && empty($_GET['keyword']))) {
+/**
+ * 搜索页面
+ */
+if (isset($_GET['keyword'])) {
+    require_once View::getView('components/search');
+    return false;
+}
+
+if (blog_tool_ishome()) {
     require_once View::getView('components/notice');
 
     if (_g('cms')) {

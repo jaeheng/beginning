@@ -1,8 +1,13 @@
 // 侧边栏通用
+.sidebar {
+  width: $side-bar-width;
+  float: left;
+  margin-left: -$side-bar-width;
+}
+
 .widget {
-  margin-bottom: 15px;
+  margin-bottom: $separation;
   background-color: #fff;
-  box-shadow: 0 8px 25px 0 rgba(146,146,146,0.21);
   li {
     padding: 10px 0;
     border-bottom: 1px solid $extra-light-grey;

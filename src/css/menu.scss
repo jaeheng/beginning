@@ -25,12 +25,15 @@
   .sub-menu {
     position: absolute;
     z-index: 999;
-    background-color: $light-primary;
+    background-color: $dark-black;
     display: none;
     line-height: 40px;
     color: #fff;
     a:hover {
-      background-color: $dark-primary;
+      background-color: rgba(255,255,255,.1);
+    }
+    li {
+      border-bottom: 1px solid rgba(255,255,255,.1);
     }
   }
 }

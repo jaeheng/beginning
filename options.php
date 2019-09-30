@@ -55,36 +55,21 @@ $options = array(
         'default' => $config['cmsAd'],
         'description' => '为空则不显示该广告'
     ),
-    'homeNotice' => array(
-        'type' => 'text',
-        'name' => 'EM6首页欢迎语',
-        'multi' => false,
-        'default' => $config['homeNotice'],
-        'description' => 'emlog6.0.0没有微语，用这句话代替'
-    ),
     'dashboardDir' => array(
         'type' => 'text',
         'name' => '后台文件夹',
         'multi' => false,
         'default' => $config['dashboardDir'],
-        'description' => '如果你修改了后台文件夹名称，需要修改此项'
+        'description' => '如果你修改了后台文件夹名称，需要修改此项(此配置项并不会帮你修改后台文件夹) '
     ),
     'logo' => array(
         'type' => 'radio',
-        'name' => '开启Logo',
+        'name' => 'Logo模式',
         'default' => $config['logo'],
         'values' => array(
-            '1' => '开启',
-            '0' => '不开启'
-        ),
-    ),
-    'iasEnable' => array(
-        'type' => 'radio',
-        'name' => '无限滚动加载数据',
-        'default' => $config['iasEnable'],
-        'values' => array(
-            '1' => '开启',
-            '0' => '不开启'
+            '1' => '仅logo',
+            '2' => 'logo+网站名称',
+            '3' => '仅网站名称'
         ),
     ),
     'displayLoginBtn' => array(
@@ -118,6 +103,15 @@ $options = array(
         'type' => 'radio',
         'name' => '是否显示转载说明',
         'default' => $config['showRep'],
+        'values' => array(
+            '1' => '显示',
+            '0' => '不显示'
+        ),
+    ),
+    'showEffect' => array(
+        'type' => 'radio',
+        'name' => '是否显示彩带背景',
+        'default' => $config['showEffect'],
         'values' => array(
             '1' => '显示',
             '0' => '不显示'

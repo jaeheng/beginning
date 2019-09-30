@@ -202,4 +202,8 @@
             $('#search-form').submit();
         }
     });
+
+    $('body').css({
+        paddingTop: $('#nav').height()
+    });
 })(window, jQuery);
