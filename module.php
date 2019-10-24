@@ -522,15 +522,15 @@ function blog_sort($blogid)
 //blog：文章标签
 function blog_tag($blogid, $btag = false)
 {
-    global $CACHE;
-    $log_cache_tags = $CACHE->readCache('logtags');
-    if (!empty($log_cache_tags[$blogid])) {
+    $tagModel = new Tag_Model();
+    $log_cache_tags = $tagModel->getTag($blogid);
+    if (!empty($log_cache_tags)) {
         $tag = '';
         if ($btag) {
             $tag = '<div class="b-tag"> <i class="iconfont icon-tag"></i>标签: ';
         }
-        foreach ($log_cache_tags[$blogid] as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagurl']) . "'>" . $value['tagname'] . '</a>·';
+        foreach ($log_cache_tags as $value) {
+            $tag .= "<a href='" . Url::tag($value['tagname']) . "'>" . $value['tagname'] . '</a>·';
         }
         $tag = rtrim($tag, "·");
         if ($btag) {
