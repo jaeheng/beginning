@@ -8,9 +8,9 @@
   a {
     display: block;
     padding: 0 15px;
-    color: rgba(255,255,255,.6);
+    color: rgba(255,255,255,.8);
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 13px;
   }
   &:hover, &.active {
     color: #fff;
@@ -27,8 +27,9 @@
     z-index: 999;
     background-color: $dark-black;
     display: none;
-    line-height: 40px;
+    line-height: 36px;
     color: #fff;
+    box-shadow: 4px 5px 6px #ccc;
     a:hover {
       background-color: rgba(255,255,255,.1);
     }
@@ -69,6 +70,18 @@
   }
   .pull-right {
     line-height: $menu-header;
+  }
+  .logo {
+    float: left;
+    line-height: $menu-header;
+    margin-right: 10px;
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    &:hover {
+      color: #fff;
+    }
   }
 }
 

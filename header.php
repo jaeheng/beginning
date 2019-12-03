@@ -1,8 +1,8 @@
 <?php
 /*
 Template Name:beginning
-Description:简洁，多种布局 <br /> <a href="https://blog.zhangziheng.com/481.html" target="_blank">模板介绍页</a>
-Version:2.5.8
+Description:简洁,时尚,科技,实用 <br /> <a href="https://blog.zhangziheng.com/481.html" target="_blank">模板介绍页</a>
+Version:3.0.0
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
@@ -38,6 +38,12 @@ require_once View::getView('module');
 
 <?php doAction('index_head'); ?>
 
+<!--搜索栏-->
+<form action="<?php echo BLOG_URL; ?>index.php" method="get" class="search" id="search-form">
+    <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="请输入关键字搜索" id="keyword" required/>
+</form>
+<!--搜索栏 /-->
+
 <!--导航-->
 <div class="nav" id="nav">
     <div class="container">
@@ -46,38 +52,8 @@ require_once View::getView('module');
             <i class="icon-menu-item"></i>
             <i class="icon-menu-item"></i>
         </a>
-        <?php blog_navi(); ?>
-        <?php if(_g('displayLoginBtn')):?>
-            <div class="pull-right login-entry">
-                <?php if (ISLOGIN):
-                    global $CACHE;
-                    $user_cache = $CACHE->readCache('user');
-                    $name = $user_cache[UID]['name'];
-                ?>
-                <ul class="menu" id="menu">
-                    <li class="menu-item bold"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/write_log.php"><i class="iconfont icon-write"></i> 写文章</a></li>
-                    <li class="menu-item">
-                        <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/"><?php echo $name;?></a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/comment.php">管理评论</a></li>
-                            <li class="divider"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">后台管理</a></li>
-                            <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/?action=logout">退出登录</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <?php else: ?>
-                    <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">登录</a>
-                <?php endif; ?>
-            </div>
-        <?php endif; ?>
-    </div>
-</div>
-<!--导航 /-->
-<!--搜索栏-->
-<div class="search-bar">
-    <div class="container">
         <a href="<?php echo BLOG_URL; ?>" class="logo">
-<!--            //    Logo模式: 1仅logo 2logo+网站名称 3 仅网站名称-->
+            <!--            //    Logo模式: 1仅logo 2logo+网站名称 3 仅网站名称-->
             <?php
             $logoMode = _g('logo');
             if ($logoMode == 1):?>
@@ -90,10 +66,30 @@ require_once View::getView('module');
             <?php endif;?>
         </a>
 
-        <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="pull-right search" id="search-form">
-            <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="search..." id="keyword" required/>
-            <i class="iconfont icon-search" id="submit-btn"></i>
-        </form>
+        <?php blog_navi(); ?>
+        <?php if(_g('displayLoginBtn')):?>
+            <div class="pull-right login-entry">
+                <?php if (ISLOGIN):
+                    global $CACHE;
+                    $user_cache = $CACHE->readCache('user');
+                    $name = $user_cache[UID]['name'];
+                    ?>
+                    <ul class="menu" id="menu">
+                        <li class="menu-item bold"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/write_log.php"><i class="iconfont icon-write"></i> 写文章</a></li>
+                        <li class="menu-item">
+                            <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/"><?php echo $name;?></a>
+                            <ul class="sub-menu">
+                                <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/comment.php">管理评论</a></li>
+                                <li class="divider"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">后台管理</a></li>
+                                <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/?action=logout">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                <?php else: ?>
+                    <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">登录</a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
-<!--搜索栏 /-->
+<!--导航 /-->

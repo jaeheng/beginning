@@ -199,11 +199,23 @@
         if (keyword === '') {
             layer.msg('关键字不可为空');
         } else {
-            $('#search-form').submit();
+            searchForm.submit();
         }
     });
 
     $('body').css({
         paddingTop: $('#nav').height()
     });
+
+
+    $('#search-trigger').click(function (e) {
+        e.preventDefault();
+        searchForm.show();
+        searchForm.find('input').focus();
+    });
+
+    searchForm.find('input').blur(function () {
+        searchForm.hide();
+        $(this).val('');
+    })
 })(window, jQuery);

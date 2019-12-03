@@ -2,7 +2,7 @@
 $mini-header-height: 50px;
 $border-radius: 6px;
 $tools-item-width: 50px;
-$menu-header: 40px;
+$menu-header: 50px;
 $side-bar-width: 330px;
 $separation: 10px;
 
@@ -23,7 +23,7 @@ $separation: 10px;
 /**
  * 主色调
  */
-$primary: #409EFF;
+$primary: #37f;
 
 /**
  * 主色调加深4%, 主要跟主色调产生对比
@@ -74,7 +74,7 @@ $sliver: #8492A6;
 /**
  * 多用于链接的hover颜色
  */
-$blue: #20A0FF;
+$blue: $primary;
 
 /**
  * 深颜色边框

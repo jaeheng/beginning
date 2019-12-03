@@ -63,12 +63,10 @@ if (blog_tool_ishome()) {
 
 <!--网站小工具-->
 <div class="site-tools">
-    <?php if (!empty(_g('gift'))):?>
-    <a href="<?php echo _g('gift');?>" class="item" target="_blank">
-        <i class="iconfont icon-gift"></i>
+    <a href="javascript:;" class="item" target="_blank" id="search-trigger">
+        <i class="iconfont icon-search"></i>
     </a>
-    <?php endif; ?>
-    <?php 
+    <?php
     if (_g('reward')): ?>
     <a href="javascript:;" class="item layer-reward" data-url="<?php echo TEMPLATE_URL; ?>">
         <i class="iconfont icon-coffee"></i>
