@@ -181,11 +181,19 @@ input, textarea {
 }
 
 .copyright-notice {
-  margin-bottom: 1em;
   color: #000;
   background: #f2f7fb;
-  padding: 10px;
+  padding: 10px 10px 10px 50px;
+  position: relative;
+  .iconfont {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 30px;
+    color: rgba(146,146,146,0.21);
+  }
   a {
     text-decoration: underline;
+    margin: 0 10px;
   }
 }

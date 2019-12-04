@@ -211,7 +211,7 @@
     $('#search-trigger').click(function (e) {
         e.preventDefault();
         searchForm.show();
-        searchForm.find('input').focus();
+        searchForm.find('input').val('').focus();
     });
 
     searchForm.find('input').blur(function () {

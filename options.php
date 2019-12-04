@@ -24,12 +24,6 @@ $options = array(
         'name' => '侧边栏礼物图标链接',
         'default' => $config['gift'],
     ),
-    'relief' => array(
-        'type' => 'text',
-        'name' => '免责声明',
-        'multi' => true,
-        'default' => $config['relief'],
-    ),
     'reward' => array(
         'type' => 'radio',
         'name' => '开启打赏',

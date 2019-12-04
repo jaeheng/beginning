@@ -46,23 +46,24 @@
 
 // 分页
 .pagination {
-  font-size: 0;
   margin: 25px auto 0;
   text-align: center;
   a, span {
-    @include box-shadow-normal;
-    background-color: #fff;
-    font-size: 14px;
     display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    min-width: 30px;
+    height: 28px;
+    line-height: 28px;
     text-decoration: none;
-    padding: 0 5px;
+    padding: 0 4px;
     box-sizing: border-box;
+    margin: 0 3px;
+    background-color: #f4f4f5;
+    color: #606266;
+    min-width: 30px;
+    border-radius: 2px;
   }
   span, a:hover {
-    background-color: $light-grey;
+    background-color: #409eff;
+    color: #fff;
   }
 }
 .ias-noneleft {
@@ -170,16 +171,14 @@
 }
 .content .panel {
   margin-bottom: 15px;
-  @include box-shadow-normal;
 }
 
 //log
 .log-info {
-  padding: 0 0 1em;
+  padding: 1em 0;
   color: $sliver;
   border-bottom: 1px solid $light-grey;
   text-align: center;
-  margin-top: 1em;
   a {
     color: $sliver;
   }
@@ -187,7 +186,7 @@
     margin-right: 5px;
   }
   span {
-    margin-right: 20px;
+    margin: 0 10px;
   }
 }
 .log-title {
@@ -195,9 +194,16 @@
   color: $extra-light-black;
   font-size: 20px;
   font-weight: bold;
+  position: relative;
+  a {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #e5e9f2;
+  }
 }
 .log-body {
-  padding: 10px 0;
+  padding: 30px 0;
   line-height: 2.2;
   font-size: 16px;
   p, strong {
@@ -411,5 +417,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
+  }
+}
+// 作者侧边栏
+.author-follow {
+  .iconfont {
+    font-size: 20px;
+    padding: 0 5px;
+  }
+}
+.layer-reward {
+  cursor: pointer;
+  &:hover {
+    color: $primary;
   }
 }

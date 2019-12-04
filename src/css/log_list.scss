@@ -241,3 +241,22 @@
     transform: translateY(0);
   }
 }
+
+.search-list {
+  background: #fff;
+  padding: 30px;
+  h1 {
+    font-size: 24px;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+}
+.search-list-item {
+  border-bottom: 1px dashed #eee;
+  padding: 5px 0;
+  height: 28px;
+  white-space: nowrap;
+  .log-tag {
+    margin: 0 15px 0 0;
+  }
+}

@@ -21,61 +21,32 @@ if (!defined('EMLOG_ROOT')) {
         <div class="content" id="content">
             <div class="panel echo_log">
                 <div class="panel-body">
-                    <h2 class="log-title"><?php echo $log_title; ?></h2>
+                    <h2 class="log-title"><?php echo $log_title; ?><?php editable($logid, $author); ?></h2>
                     <div class="log-info">
-                        <span><i class="iconfont icon-user"></i><?php blog_author($author); ?></span>
-                        <span><i class="iconfont icon-time"></i><i class="date"><?php echo gmdate('Y-n-j', $date); ?></i></span>
+                        <span><?php blog_author($author); ?></span>
+                        <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-m-d h:i:s', $date); ?></span>
                         <span><i class="iconfont icon-comment"></i><a href="#comments" class="comments"><?php echo $comnum; ?></a></span>
                         <span><i class="iconfont icon-view"></i><i class="view"><?php echo $views; ?></i></span>
-                        <?php editflg($logid, $author); ?>
-                        <div class="tags"><?php blog_tag($logid, true); ?></div>
                     </div>
                     <div class="log-body" id="log-body">
                         <?php echo $log_content; ?>
+
+                        <div class="tags"><?php blog_tag($logid, true); ?></div>
                     </div>
 
                     <?php if (_g('showRep')): ?>
-                    <p class="copyright-notice"><i class="iconfont icon-zhuanfa"></i> 转载请注明出处:
-                        <a href="<?php echo BLOG_URL;?>" target="_blank"><?php echo $blogname;?></a>
-                        本文链接地址：
-                        <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a>
-                    </p>
+                    <div class="copyright-notice">
+                        <i class="iconfont icon-zhuanfa"></i>
+                        <p>转载请注明出处:
+                            <a href="<?php echo BLOG_URL;?>" target="_blank"><?php echo $blogname;?></a></p>
+                        <p>本文的链接地址:
+                            <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a></p>
+                    </div>
                     <?php endif;?>
 
                     <div style="padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>
-                </div>
-            </div>
-
-            <!--作者信息-->
-            <div class="panel">
-                <div class="panel-heading">
-                    <?php $the_author = get_author_by_uid($author); ?>
-                    作者: <?php blog_author($author); ?>
-                    <span class="pull-right"
-                          style="font-size: 12px;">本文发布于<?php echo gmdate('Y-n-j h:i:s', $date); ?></span>
-                </div>
-                <?php if (_g('showAuthor')): ?>
-                <div class="panel-body author">
-                    <img src="<?php echo !empty($the_author['avatar']) ? BLOG_URL . $the_author['avatar'] : TEMPLATE_URL . 'static/images/default_avatar.png'; ?>"
-                         alt="<?php echo $the_author['name']; ?>" class="avatar">
-                    <p class="author-desc"><?php echo $the_author['des']; ?></p>
-                    <!--打赏-->
-                    <?php if (_g('reward')): ?>
-                        <button class="btn btn-danger i-reward layer-reward" data-url="<?php echo TEMPLATE_URL; ?>">
-                            <i class="iconfont icon-dashang"></i> 赞赏作者
-                        </button>
-                    <?php endif;?>
-                    <!--/打赏-->
-                </div>
-                <?php endif;?>
-            </div>
-            <!--/作者信息-->
-
-            <div class="panel">
-                <div class="panel-body relief">
-                    <?php echo _g('relief'); ?>
                 </div>
             </div>
 

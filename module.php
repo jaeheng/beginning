@@ -76,6 +76,21 @@ function widget_blogger($title)
 
         <div class="desc">
             <div class="username"><?php echo $user_cache[1]['name']; ?></div>
+            <div class="author-follow">
+                <!--打赏-->
+                <?php if (_g('reward')): ?>
+                    <i class="iconfont icon-coffee layer-reward" data-url="<?php echo TEMPLATE_URL; ?>"></i>
+                <?php endif;?>
+                <!--/打赏-->
+
+                <?php if (!empty(_g('weibo'))): ?>
+                    <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>" target="_blank"><i class="iconfont icon-weibo"></i></a>
+                <?php endif; ?>
+
+                <?php if (Option::get('rss_output_num')): ?>
+                    <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅" target="_blank"><i class="iconfont icon-rss1"></i></a>
+                <?php endif; ?>
+            </div>
             <p><?php echo $user_cache[1]['des']; ?></p>
         </div>
     </div>
@@ -483,11 +498,15 @@ function blog_navi()
     </ul>
 <?php } ?>
 <?php
-//blog：编辑
-function editflg($logid, $author)
+/**
+ * 如果登录的用户是管理员，或是本篇文章的作者，则可编辑
+ * @param $gid int 本篇文章id
+ * @param $author int 本篇文章作者uid
+ */
+function editable($gid, $author)
 {
-    $editflg = ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . DASHBOARD_DIR . '/write_log.php?action=edit&gid=' . $logid . '" target="_blank" class="edit">编辑</a>' : '';
-    echo $editflg;
+    $editable = ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . DASHBOARD_DIR . '/write_log.php?action=edit&gid=' . $gid . '" target="_blank" class="edit"><i class="iconfont icon-edit"></i></a>' : '';
+    echo $editable;
 }
 
 /**
@@ -527,7 +546,7 @@ function blog_tag($blogid, $btag = false)
     if (!empty($log_cache_tags)) {
         $tag = '';
         if ($btag) {
-            $tag = '<div class="b-tag"> <i class="iconfont icon-tag"></i>标签: ';
+            $tag = '<div class="b-tag"> <i class="iconfont icon-tag"></i> ';
         }
         foreach ($log_cache_tags as $value) {
             $tag .= "<a href='" . Url::tag($value['tagname']) . "'>" . $value['tagname'] . '</a>·';
