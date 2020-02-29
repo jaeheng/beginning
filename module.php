@@ -8,16 +8,13 @@ if (!defined('EMLOG_ROOT')) {
 }
 
 /**
- * 获取配置信息
+ * 没安装模板设置插件，则给出提示
  * 如果安装了模板设置插件(tpl_options: http://www.emlog.net/plugin/144)
  * 则_g函数会存在，此时会从该插件中读取配置项
- * 如果未安装模板设置插件，则会从config.php中读取
+ * 不存在则会给出提示
  */
 if (!function_exists('_g')) {
-    function _g ($key) {
-        $config = include(TEMPLATE_PATH . '/config.php');
-        return isset($config[$key]) ? $config[$key] : false;
-    }
+    require_once View::getView('components/no_setting_plugin');
 }
 
 /**
@@ -28,9 +25,9 @@ define('DASHBOARD_DIR', _g('dashboardDir'));
 
 /**
  * 模板的版本
- * @Date 2019年08月02日
+ * @Date 2020年02月17日
  */
-define('TPL_VERSION', 'v2.5.8');
+define('TPL_VERSION', 'v1.0');
 
 /**
  * 获取Gravatar头像
@@ -951,7 +948,11 @@ function getRandomDarkColor () {
     return $colors[$index];
 }
 
-
+/**
+ * 根据uid获取用户信息
+ * @param $uid
+ * @return mixed
+ */
 function bloggerInfo($uid)
 {
     global $CACHE;
@@ -959,6 +960,8 @@ function bloggerInfo($uid)
     $author = $user_cache[$uid];
     if (empty($author['avatar'])) {
         $author['avatar'] = TEMPLATE_URL . 'static/images/default_avatar.png';
+    } else {
+        $author['avatar'] = BLOG_URL . $author['avatar'];
     }
     return $author;
 }

@@ -37,7 +37,7 @@ if (!defined('EMLOG_ROOT')) exit('error!');?>
 
                     <div class="pull-right">
                         <?php blog_sort($value['logid']); ?>
-                        <?php echo gmdate('Y-m-d', $value['date']); ?>
+                        <?php echo gmdate('Y/m/d', $value['date']); ?>
                     </div>
                 </li>
             <?php

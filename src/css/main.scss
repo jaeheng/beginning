@@ -38,6 +38,7 @@
   color: #fff;
   display: inline-block;
   margin-bottom: 5px;
+  border-radius: 4px;
   &:hover {
     color: #fff;
     background-color: $dark-primary;
@@ -195,11 +196,12 @@
   font-size: 20px;
   font-weight: bold;
   position: relative;
+  padding-right: 20px;
+  padding-left: 20px;
   a {
     position: absolute;
     right: 0;
     top: 0;
-    color: #e5e9f2;
   }
 }
 .log-body {

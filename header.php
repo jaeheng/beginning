@@ -1,8 +1,8 @@
 <?php
 /*
-Template Name:beginning
+Template Name:z-Pro
 Description:简洁,时尚,科技,实用 <br /> <a href="https://blog.zhangziheng.com/481.html" target="_blank">模板介绍页</a>
-Version:3.0.0
+Version:1.0
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1

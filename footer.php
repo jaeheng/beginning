@@ -55,7 +55,7 @@ if (blog_tool_ishome()) {
     <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a>  Powered
     by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>
     <br>
-    Theme by <a href="https://blog.zhangziheng.com" target="_blank">beginning <?php echo TPL_VERSION;?></a>
+    Theme by <a href="https://blog.zhangziheng.com" target="_blank">z-Pro <?php echo TPL_VERSION;?></a>
     <?php echo $footer_info; ?>
     <?php doAction('index_footer'); ?>
 </div>
