@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name:z-Pro
+Template Name:z-pro
 Description:简洁,时尚,科技,实用 <br /> <a href="https://blog.zhangziheng.com/481.html" target="_blank">模板介绍页</a>
 Version:1.0
 Author:jaeheng

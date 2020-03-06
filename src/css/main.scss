@@ -209,7 +209,7 @@
   line-height: 2.2;
   font-size: 16px;
   p, strong {
-    margin-bottom: 1em;
+    margin-bottom: 0;
     font-size: 16px;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -218,22 +218,21 @@
   h1 {
     font-size: 24px;
     text-align: center;
+    margin-bottom: 1em;
   }
-  h2, h3, h4, h5, h6 {
+  h2 {
     width: 100%;
     padding: 0.2em 15px;
     background: #f3f4f6;
     margin-bottom: 1em;
     box-sizing: border-box;
-
-  }
-  h4, h5, h6 {
-    font-size: 14px;
-    border-left: 2px solid $blue;
-  }
-  h2, h3 {
     border-left: 4px solid $blue;
     font-size: 18px;
+  }
+  h3, h4, h5, h6 {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0.5em 0;
   }
   strong {
     font-weight: bold;

@@ -9,7 +9,7 @@ if (!defined('EMLOG_ROOT')) {
 <!--横条广告-->
 <div class="container">
     <div class="banner-ad">
-        <a href="<?php echo _g('cmsAd');?>" target="_blank">
+        <a href="/" target="_blank">
             <img src="<?php echo TEMPLATE_URL;?>static/images/banner-ad.jpg">
         </a>
     </div>

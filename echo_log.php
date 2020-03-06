@@ -19,9 +19,9 @@ if (!defined('EMLOG_ROOT')) {
 <div class="main container">
     <div class="content-wrap">
         <div class="content" id="content">
-            <div class="panel echo_log">
+            <div class="panel echo-log">
                 <div class="panel-body">
-                    <h2 class="log-title"><?php echo $log_title; ?><?php editable($logid, $author); ?></h2>
+                    <h1 class="log-title"><?php echo $log_title; ?><?php editable($logid, $author); ?></h1>
                     <div class="log-info">
                         <span><?php blog_author($author); ?></span>
                         <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-m-d h:i:s', $date); ?></span>
@@ -33,8 +33,6 @@ if (!defined('EMLOG_ROOT')) {
 
                         <div class="tags"><?php blog_tag($logid, true); ?></div>
                     </div>
-
-                    <?php if (_g('showRep')): ?>
                     <div class="copyright-notice">
                         <i class="iconfont icon-zhuanfa"></i>
                         <p>转载请注明出处:
@@ -42,8 +40,6 @@ if (!defined('EMLOG_ROOT')) {
                         <p>本文的链接地址:
                             <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a></p>
                     </div>
-                    <?php endif;?>
-
                     <div style="padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
                     </div>

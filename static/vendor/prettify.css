@@ -1,41 +1,79 @@
 pre.prettyprint {
-    border: 0px solid #888;
-    font-family: Consolas , "Courier New" , Courier , monospace;
-    font-size: 12px;
-    overflow: auto;
-    margin: 5px 0px;
-	padding: 0px;
+    border: 0 solid #888;
+    font-family: Consolas, "Courier New", Courier, monospace;
+    font-size: 13px;
+    margin: 5px 0;
+    padding: 0;
     line-height: 12pt;
 }
-.code{
+
+.code {
     width: 90%;
     border: 1px solid #888;
 }
-.pln { color: #eee }
-@media screen {
-  .str { color: #080 }
-  .kwd { color: #e8be6a;font-weight: bold;}
-  .com { color: #800 }
-  .typ { color: #606 }
-  .lit { color: #066 }
-  .pun, .opn, .clo { color: #660 }
-  .tag { color: #008 }
-  .atn { color: #606 }
-  .atv { color: #080 }
-  .dec, .var { color: #606 }
-  .fun { color: red }
+
+.pln {
+    color: #48494a;
 }
-@media print, projection {
-  .str { color: #060 }
-  .kwd { color: #e8be6a;font-weight: bold }
-  .com { color: #600;font-style: italic }
-  .typ { color: #404;font-weight: bold }
-  .lit { color: #044 }
-  .pun, .opn, .clo { color: #440 }
-  .tag { color: #006;font-weight: bold }
-  .atn { color: #404 }
-  .atv { color: #060 }
+.str {
+    color: #080
 }
-ol.linenums { margin-top: 0;margin-bottom: 0;background: #292929;  } /* IE indents via margin-left */
-ol.linenums li { list-style-type: decimal;color: #eee;padding-left: 10px;}
+
+.kwd {
+    color: #cc7832;
+    font-weight: bold;
+}
+
+.com {
+    color: #800
+}
+
+.typ {
+    color: #a9b7c6;
+}
+
+.lit {
+    color: #6897bb
+}
+
+.pun, .opn, .clo {
+    color: #a9b7c6
+}
+
+.tag {
+    color: #008
+}
+
+.atn {
+    color: #606
+}
+
+.atv {
+    color: #080
+}
+
+.dec, .var {
+    color: #606
+}
+
+.fun {
+    color: red
+}
+
+ol.linenums {
+    border-radius: 4px;
+    padding: 15px 10px 15px;
+    position: relative;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    margin: 2em 0;
+}
+
+/* IE indents via margin-left */
+ol.linenums li {
+    color: #eee;
+    padding-left: 10px;
+    list-style: none;
+}
+
 /*ol.linenums li:nth-of-type(2n-1) { list-style-type: decimal;background: #eee; }*/

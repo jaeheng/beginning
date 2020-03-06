@@ -9,7 +9,7 @@ if (!defined('EMLOG_ROOT')) {
 <div class="product">
     <div class="jumbotron">
         <div class="container">
-            <h2 class="title">z-Pro for Emlog</h2>
+            <h2 class="title">z-pro for Emlog</h2>
             <p class="slogan">简洁大方，多种布局可供选择,非常适合个人博客,兼容官方Emlog6.0.0 <br />最新更新日期: 2019/08/02 </p>
             <a href="https://pan.baidu.com/s/1zxcu87vhtlE0VwYY8y4fHA" target="_blank" class="btn btn-blue">立即下载</a>
             <span class="version">当前版本<?php echo TPL_VERSION;?></span>

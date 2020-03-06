@@ -217,5 +217,5 @@
     searchForm.find('input').blur(function () {
         searchForm.hide();
         $(this).val('');
-    })
+    });
 })(window, jQuery);

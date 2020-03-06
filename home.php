@@ -7,10 +7,7 @@ if (!defined('EMLOG_ROOT')) {
 }
 $sorts = getSorts();
 // 横条广告
-$cmsAd = _g('cmsAd');
-if (!empty($cmsAd)) {
-    include View::getView('components/banner_ad');
-}
+include View::getView('components/banner_ad');
 ?>
 <link rel="stylesheet" href="<?php echo TEMPLATE_URL;?>static/vendor/swiper-4.2.6.min.css">
 

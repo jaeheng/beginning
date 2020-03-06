@@ -18,7 +18,7 @@ if (!defined('EMLOG_ROOT')) {
     <div class="main container">
         <div class="content-wrap">
             <div class="content" id="content">
-                <div class="panel echo_log">
+                <div class="panel echo-log">
                     <div class="panel-body">
                         <h2 class="log-title"><?php echo $log_title; ?><?php editable($logid, $author); ?></h2>
                         <div class="log-info">
