@@ -7,8 +7,8 @@ $authorInfo = bloggerInfo($author);
 $systemInfo = getSystemInfo($author);
 ?>
 <!--作者头部区域-->
-<div class="container">
-    <header id="header" class="header" style="<?php echo getRandomHeaderBg();?>">
+<header id="header" class="header" style="<?php echo getRandomHeaderBg();?>">
+    <div class="container">
         <div class="avatar">
             <div class="img">
                 <img src="<?php echo $authorInfo['avatar']; ?>" alt="<?php echo $authorInfo['name']; ?>">
@@ -29,6 +29,6 @@ $systemInfo = getSystemInfo($author);
                 <span class="num"><?php echo $systemInfo['viewNum']; ?></span>
             </li>
         </ul>
-    </header>
-</div>
+    </div>
+</header>
 <!--作者头部区域 ／-->
