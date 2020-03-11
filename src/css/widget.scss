@@ -256,3 +256,22 @@ $avatarWidth: 86px;
     color: #fff;
   }
 }
+
+.widget-sort-desc {
+  .widget-body {
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 20px;
+  }
+  .sort-pic {
+    width: 64px;
+    height: 64px;
+    background: #0e9eff;
+    color: #fff;
+    margin: 10px auto;
+    line-height: 64px;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px #ddd;
+  }
+}

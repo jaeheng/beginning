@@ -6,12 +6,8 @@ if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
 
-if (blog_tool_ishome()) {
-    require_once View::getView('components/notice');
-} else {
-    // <!--面包屑导航-->
-    require_once View::getView('components/bread');
-}
+// <!--面包屑导航-->
+require_once View::getView('components/bread');
 doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
@@ -27,9 +23,10 @@ doAction('index_loglist_top'); ?>
             <h2 class="title"><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h2>
 
             <div class="info">
-                <?php blog_sort($value['logid']); ?>
-                <i class="iconfont icon-view"></i> <span class="views"><?php echo $value['views']; ?></span>
-                <span class="pull-right"><?php echo gmdate('n.j', $value['date']); ?></span>
+                <?php echo gmdate('Y/m/d', $value['date']); ?>
+                <span class="pull-right">
+                    <i class="iconfont icon-view"></i> <?php echo nineplus($value['views']); ?>
+                </span>
             </div>
         </li>
         <?php

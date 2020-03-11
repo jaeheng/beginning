@@ -197,3 +197,13 @@ input, textarea {
     margin: 0 10px;
   }
 }
+
+.topflag {
+  color: #f3304d;
+  font-size: 12px;
+  vertical-align: text-bottom;
+}
+.log_list_img .topflag,
+.log_list_mv .topflag {
+  vertical-align: baseline;
+}

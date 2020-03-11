@@ -40,7 +40,7 @@ require_once View::getView('module');
 
 <!--搜索栏-->
 <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="search" id="search-form">
-    <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="请输入关键字搜索" id="keyword" required/>
+    <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="请输入关键字，按Enter搜索" id="keyword" required/>
 </form>
 <!--搜索栏 /-->
 

@@ -67,7 +67,7 @@ $searchHeight: 50px;
   position: fixed;
   left: 0;
   right: 0;
-  top: 110px;
+  top: 150px;
   z-index: 999;
   display: none;
   box-sizing: border-box;
@@ -130,16 +130,13 @@ $searchHeight: 50px;
   .sub-menu {
     position: absolute;
     z-index: 999;
-    background-color: $dark-black;
+    background-color: rgb(32, 41, 50);
     display: none;
     line-height: 36px;
     color: #fff;
     box-shadow: $box-shadow rgba(0, 0, 0, .2);
     a:hover {
       background-color: rgba(255,255,255,.1);
-    }
-    li {
-      border-bottom: 1px solid rgba(255,255,255,.1);
     }
   }
 }

@@ -30,23 +30,22 @@ if (isset($tag)) {
 }
 
 ?>
-<?php if (!empty($breadTitle)):?>
-<header class="bread-header" style="background: <?php echo $background;?>;">
-    <div class="container">
-        <div class="title"><?php echo strip_tags($breadTitle); ?></div>
-        <?php echo $desc;?>
-    </div>
-</header>
-
-<?php endif; ?>
+<?php //if (!empty($breadTitle)):?>
+<!--<header class="bread-header" style="background: --><?php //echo $background;?><!--">-->
+<!--    <div class="container">-->
+<!--        <div class="title">--><?php //echo strip_tags($breadTitle); ?><!--</div>-->
+<!--        --><?php //echo $desc;?>
+<!--    </div>-->
+<!--</header>-->
+<?php //endif; ?>
 
 <!--面包屑导航-->
+<?php if (!empty($breadTitle)):?>
 <div class="breadthumb">
     <div class="container">
-<?php if (!empty($breadTitle)):?>
         <a href="<?php echo BLOG_URL; ?>" class="bread-item">首页</a>
         <?php echo $breadTitle; ?>
     </div>
-<?php endif;?>
 </div>
+<?php endif;?>
 <!--面包屑导航-->

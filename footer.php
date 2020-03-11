@@ -51,12 +51,12 @@ if (blog_tool_ishome()) {
 
 <!--版权信息-->
 <div class="copyright">
-    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>
-    <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a>  Powered
-    by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>
-    <br>
-    Theme by <a href="https://blog.zhangziheng.com" target="_blank">z-pro <?php echo TPL_VERSION;?></a>
+    Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>&nbsp;&nbsp;
     <?php echo $footer_info; ?>
+    <br>
+    Powered by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>&nbsp;&nbsp;
+    Theme by <a href="https://blog.zhangziheng.com" target="_blank">z-pro <?php echo TPL_VERSION;?></a>&nbsp;&nbsp;
+    <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a>
     <?php doAction('index_footer'); ?>
 </div>
 <!--版权信息 ／-->

@@ -5,12 +5,7 @@
 if (!defined('EMLOG_ROOT')) {
     exit('error!');
 }
-if (blog_tool_ishome()) {
-    require_once View::getView('components/notice');
-} else {
-    // <!--面包屑导航-->
-    require_once View::getView('components/bread');
-}
+require_once View::getView('components/bread');
 doAction('index_loglist_top'); ?>
 
 <!--双栏列表-->
@@ -25,7 +20,7 @@ doAction('index_loglist_top'); ?>
                     <a href="<?php echo $value['log_url']; ?>" class="img-link" title="<?php echo $value['log_title']; ?>">
                         <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
                     </a>
-                    <h2 class="info"><?php echo $value['log_title']; ?>
+                    <h2 class="info"><?php echo topflag($value['top'], $value['sortop']) . $value['log_title']; ?>
                         <span class="fr">上传于: <?php echo gmdate('Y-n-j', $value['date']); ?></span>
                     </h2>
                 </li>

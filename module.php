@@ -546,7 +546,7 @@ function blog_tag($blogid, $btag = false)
             $tag = '<div class="b-tag"> <i class="iconfont icon-tag"></i> ';
         }
         foreach ($log_cache_tags as $value) {
-            $tag .= "<a href='" . Url::tag($value['tagname']) . "'>" . $value['tagname'] . '</a>·';
+            $tag .= "<a href='" . Url::tag($value['tagname']) . "'>" . $value['tagname'] . '</a> · ';
         }
         $tag = rtrim($tag, "·");
         if ($btag) {
@@ -990,4 +990,18 @@ function getRelationLogs($sid, $num = 10)
         $data[] = $row;
     }
     return $data;
+}
+
+/**
+ * 返回置顶标志
+ * @param string $top
+ * @param string $sortop
+ * @param string $type
+ * @return string
+ */
+function topflag ($top = "y", $sortop = "n", $type = "text") {
+    if ($top === "y" || $sortop === "y") {
+        return "<span class='topflag'>【置顶】</span>";
+    }
+    return "";
 }

@@ -1,6 +1,6 @@
 /* 面包屑导航 */
 .breadthumb {
-  padding: 15px 0;
+  margin: 15px 0;
   .bread-item {
     color: $light-black;
     margin-right: 5px;
@@ -18,6 +18,7 @@
 .main {
   position: relative;
   min-height: 500px;
+  margin-top: 15px;
 }
 
 .content-wrap {
@@ -75,8 +76,8 @@
 .footer {
   margin-top: 30px;
   padding: 30px 0;
-  background-color: $light-black;
-  color: $dark-white;
+  background-color: #131313;
+  color: #9E9E9E;
   overflow: hidden;
   .widget {
     float: left;
@@ -86,7 +87,7 @@
     box-sizing: border-box;
     box-shadow: none;
     h3 {
-      border-color: $extra-light-black;
+      border-color: $light-black;
       &:after {
         display: none;
       }
@@ -101,7 +102,7 @@
 .copyright {
   text-align: center;
   padding: 30px 0;
-  background-color: $black;
+  background-color: #000;
   color: #9E9E9E;
 }
 
@@ -432,4 +433,11 @@
   &:hover {
     color: $primary;
   }
+}
+// 分类描述
+.sort-desc {
+  padding: 10px 15px;
+  border-left: 5px solid #2196F3;
+  margin-bottom: 15px;
+  background: #fff;
 }

@@ -45,9 +45,8 @@ doAction('index_loglist_top'); ?>
                                     ?>
                                 </a></h2>
                             <div class="info">
-                                <?php blog_sort($value['logid']); ?>
-                                <span class="pull-right"><?php echo gmdate('n.j', $value['date']); ?></span>
-                                <?php blog_tag($value['logid']);?>
+                                <span class="pull-right"><?php echo gmdate('Y/m/d', $value['date']); ?></span>
+                                <?php blog_tag($value['logid'], true);?>
                             </div>
                         </li>
                     <?php
@@ -69,6 +68,17 @@ doAction('index_loglist_top'); ?>
         </div>
     </div>
     <div class="sidebar" id="sidebar">
+
+        <div class="widget widget-sort-desc">
+            <h3>板块介绍</h3>
+            <div class="widget-body">
+                <div class="sort-pic" style="background: <?php echo $background;?>">
+                    <?php echo mb_substr($sortName, 0, 1);?>
+                </div>
+                <h4><?php echo $sortName;?></h4>
+                <?php echo $sort['description'];?>
+            </div>
+        </div>
         <?php widget_sort('网站板块'); ?>
         <?php widget_newcomm('最新评论'); ?>
     </div>

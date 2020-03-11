@@ -53,7 +53,7 @@ doAction('index_loglist_top'); ?>
                                         <i class="iconfont icon-lock"></i>
                                     <?php
                                         endif;
-                                        echo $value['log_title'];
+                                        echo topflag($value['top'], $value['sortop']) . $value['log_title'];
                                     ?>
                                 </a>
                             </h2>
@@ -61,7 +61,7 @@ doAction('index_loglist_top'); ?>
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
                                 <i class="iconfont icon-view"></i> <span class="view"><?php echo $value['views']; ?></span>
-                                <span class="pull-right"><?php echo gmdate('Y-m-d', $value['date']); ?></span>
+                                <span class="pull-right"><?php echo gmdate('Y/m/d', $value['date']); ?></span>
                                 <div class="b-tag"><?php blog_tag($value['logid']);?></div>
                             </div>
                         </li>
