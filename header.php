@@ -15,8 +15,7 @@ require_once View::getView('module');
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="<?php echo $site_key; ?>"/>
     <meta name="description" content="<?php echo $site_description; ?>"/>
@@ -26,7 +25,7 @@ require_once View::getView('module');
     <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_etra1u0garl.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo TPL_VERSION; ?>">
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
-    <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js" type="text/javascript"></script>
+    <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js"></script>
 </head>
 <body class="headerFixed">
 <!--[if lte IE 8]>

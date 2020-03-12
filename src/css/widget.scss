@@ -257,11 +257,14 @@ $avatarWidth: 86px;
   }
 }
 
+.widget-body {
+    padding: 20px 15px;
+}
+
 .widget-sort-desc {
   .widget-body {
     text-align: center;
     padding-bottom: 40px;
-    padding-top: 20px;
   }
   .sort-pic {
     width: 64px;

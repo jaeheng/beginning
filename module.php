@@ -234,7 +234,7 @@ function widget_newcomm($title)
                 ?>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo _getGravatar($value['mail']); ?>">
+                        <img class="avatar lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo _getGravatar($value['mail']); ?>" alt="<?php echo $value['name'];?>">
                         <i class="username"><?php echo $value['name']; ?></i>
                         <span class="time"><?php echo $time; ?></span>
                         <p class="comment-content"><?php echo $value['content']; ?></p>
@@ -355,7 +355,7 @@ function widget_archive($title)
             ?>
             <div id="archive-chart" style="height: 250px;width: 100%;" data-value='<?php echo json_encode($myChartData);?>'></div>
             <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
-            <script type="text/javascript">
+            <script>
                 $(function () {
                    // 存档折线图
                     var archiveChart = document.getElementById('archive-chart');
@@ -429,9 +429,9 @@ function widget_custom_text($title, $content)
 { ?>
     <div class="widget">
         <h3><?php echo $title; ?></h3>
-        <ul>
+        <div class="widget-body">
             <?php echo $content; ?>
-        </ul>
+        </div>
     </div>
 <?php } ?>
 <?php

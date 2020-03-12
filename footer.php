@@ -77,16 +77,16 @@ if (blog_tool_ishome()) {
     <div class="item active gotoup" id="gotoup"><i class="iconfont icon-up"></i></div>
 </div>
 <!--网站小工具 ／-->
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.js"></script>
 <link href="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/layer/layer.js" type="text/javascript"></script>
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/lazyload.min.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/layer/layer.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/lazyload.min.js"></script>
 <?php if(_g('showEffect')):?>
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/effect.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/effect.js"></script>
 <?php endif;?>
 <script src="<?php echo TEMPLATE_URL;?>static/js/main.min.js?version=<?php echo TPL_VERSION;?>"></script>
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/jquery-ias.min.js" type="text/javascript"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/vendor/jquery-ias.min.js"></script>
 <script>
   $(function () {
     var ias = $.ias({
