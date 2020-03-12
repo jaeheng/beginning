@@ -23,7 +23,7 @@ require_once View::getView('module');
     <meta name="generator" content="emlog"/>
     <title><?php echo $site_title; ?></title>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_nrx1o3xsthd.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_etra1u0garl.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo TPL_VERSION; ?>">
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
     <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js" type="text/javascript"></script>
