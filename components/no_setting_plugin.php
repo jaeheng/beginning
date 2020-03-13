@@ -44,7 +44,7 @@ if (!defined('EMLOG_ROOT')) {
     <div class="no-setting">
         <h3>请安装模板设置插件：</h3>
 
-        <p>- 插件文件在 <code>z-pro/plugins</code> 目录</p>
+        <p>- 插件文件在 <code>beginning/plugins</code> 目录</p>
         <p>- 将模板文件解压到 <code>content/plugins</code> 目录</p>
         <p>- 在 <code>emlog后台->插件</code> 中开启模板设置插件</p>
 

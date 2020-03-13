@@ -25,9 +25,9 @@ define('DASHBOARD_DIR', _g('dashboardDir'));
 
 /**
  * 模板的版本
- * @Date 2020年02月17日
+ * @Date 2020年03月13日
  */
-define('TPL_VERSION', 'v1.0');
+define('TPL_VERSION', 'v2.6');
 
 /**
  * 获取Gravatar头像
