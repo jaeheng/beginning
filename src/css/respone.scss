@@ -13,12 +13,13 @@
         z-index: 1000;
       }
       .menu {
-        display: none;
+        display: block;
         position: fixed;
         right: 0;
         top: 50px;
         width: 61.8%;
-        height: 80%;
+        height: 0;
+        transition: height .2s;
         box-sizing: border-box;
         background-color: $dark-black;
         z-index: 997;

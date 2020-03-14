@@ -2,13 +2,19 @@
 /*
 Template Name:Beginning
 Description:简洁,时尚,科技,实用 <br /> <a href="https://blog.zhangziheng.com/481.html" target="_blank">模板介绍页</a>
-Version:2.6
+Version:2.6.1
 Author:jaeheng
 Author Url:http://www.zhangziheng.com
 Sidebar Amount:1
 */
 
 if (!defined('EMLOG_ROOT')) exit('error!');
+/**
+ * 模板的版本
+ * @Date 2020年03月14日
+ */
+define('TPL_VERSION', 'v2.6.1');
+
 require_once View::getView('module');
 ?>
 <!doctype html>

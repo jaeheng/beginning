@@ -56,7 +56,7 @@ if (blog_tool_ishome()) {
     <br>
     Powered by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>&nbsp;&nbsp;
     Theme by <a href="https://blog.zhangziheng.com" target="_blank">Beginning <?php echo TPL_VERSION;?></a>&nbsp;&nbsp;
-    <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a>
+    <a href="http://beian.miit.gov.cn" target="_blank"><?php echo $icp; ?></a>
     <?php doAction('index_footer'); ?>
 </div>
 <!--版权信息 ／-->
@@ -86,6 +86,8 @@ if (blog_tool_ishome()) {
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/effect.js"></script>
 <?php endif;?>
 <script src="<?php echo TEMPLATE_URL;?>static/js/main.min.js?version=<?php echo TPL_VERSION;?>"></script>
+
+<?php if(_g('infiniteScrollList')):?>
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/jquery-ias.min.js"></script>
 <script>
   $(function () {
@@ -106,5 +108,6 @@ if (blog_tool_ishome()) {
     });
   })
 </script>
+<?php endif;?>
 </body>
 </html>

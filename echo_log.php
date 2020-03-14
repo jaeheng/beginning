@@ -53,7 +53,9 @@ if (!defined('EMLOG_ROOT')) {
             </div>
 
             <!--相关文章-->
-            <?php $relationLogs = getRelationLogs($sortid); ?>
+            <?php
+            if (_g('relationLogs')):
+            $relationLogs = getRelationLogs($sortid); ?>
             <div class="panel">
                 <div class="panel-heading">
                     您可能对以下文章感兴趣
@@ -69,6 +71,7 @@ if (!defined('EMLOG_ROOT')) {
                 </div>
             </div>
             <!--/相关文章-->
+            <?php endif;?>
 
             <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
             <?php blog_comments($comments); ?>

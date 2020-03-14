@@ -24,12 +24,6 @@ if (!function_exists('_g')) {
 define('DASHBOARD_DIR', _g('dashboardDir'));
 
 /**
- * 模板的版本
- * @Date 2020年03月13日
- */
-define('TPL_VERSION', 'v2.6');
-
-/**
  * 获取Gravatar头像
  * @param $email
  * @param int $s
