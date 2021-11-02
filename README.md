@@ -1,5 +1,14 @@
 # Emlog模板 beginning v2.6.1
 
+**本项目不再维护**
+> 最新版本v3.1 支持Emlog Pro
+
+> 新版本请查看 https://blog.zhangziheng.com/481.html
+
+> 新版本请查看 https://blog.zhangziheng.com/481.html
+
+> 新版本请查看 https://blog.zhangziheng.com/481.html
+
 ## 特性
 
 1. 多种文章列表布局
