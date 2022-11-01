@@ -20,7 +20,7 @@
   },
   "homepage": "http://blog.zhangziheng.com/play/451.html",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
