@@ -16,9 +16,9 @@
   "author": "jaeheng",
   "license": "MIT",
   "bugs": {
-    "url": "http://blog.zhangziheng.com/play/451.html"
+    "url": "https://blog.phpat.com/play/451.html"
   },
-  "homepage": "http://blog.zhangziheng.com/play/451.html",
+  "homepage": "https://blog.phpat.com/play/451.html",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
