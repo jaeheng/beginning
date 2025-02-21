@@ -45,36 +45,14 @@ $options = array(
             '3' => '仅网站名称'
         ),
     ),
+    'logo_url' => array(
+        'type' => 'image',
+        'name' => '上传Logo',
+        'default' => TEMPLATE_URL . '/static/images/logo.png',
+    ),
     'displayLoginBtn' => array(
         'type' => 'radio',
         'name' => '是否显示登录入口',
-        'default' => '1',
-        'values' => array(
-            '1' => '显示',
-            '0' => '不显示'
-        ),
-    ),
-    'showEffect' => array(
-        'type' => 'radio',
-        'name' => '是否显示彩带背景',
-        'default' => '0',
-        'values' => array(
-            '1' => '显示',
-            '0' => '不显示'
-        ),
-    ),
-    'infiniteScrollList' => array(
-        'type' => 'radio',
-        'name' => '是否开启无限滚动加载数据',
-        'default' => '1',
-        'values' => array(
-            '1' => '开启',
-            '0' => '不开启'
-        ),
-    ),
-    'relationLogs' => array(
-        'type' => 'radio',
-        'name' => '是否显示相关推荐',
         'default' => '1',
         'values' => array(
             '1' => '显示',

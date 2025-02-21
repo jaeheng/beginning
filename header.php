@@ -2,7 +2,7 @@
 /*
 Template Name:Beginning
 Description:简洁,时尚,科技,实用 <br /> <a href="https://blog.phpat.com/481.html" target="_blank">模板介绍页</a>
-Version:2.6.1
+Version:2.6.2
 Author:jaeheng
 Author Url:http://www.phpat.com
 Sidebar Amount:1
@@ -13,7 +13,7 @@ if (!defined('EMLOG_ROOT')) exit('error!');
  * 模板的版本
  * @Date 2020年03月14日
  */
-define('TPL_VERSION', 'v2.6.1');
+define('TPL_VERSION', 'v2.6.2');
 
 require_once View::getView('module');
 ?>
@@ -62,10 +62,11 @@ require_once View::getView('module');
             <!--            //    Logo模式: 1仅logo 2logo+网站名称 3 仅网站名称-->
             <?php
             $logoMode = _g('logo');
+            $logUrl = _g('logo_url');
             if ($logoMode == 1):?>
-                <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.png" alt="<?php echo $blogname; ?>">
+                <img src="<?php echo $logUrl; ?>" alt="<?php echo $blogname; ?>">
             <?php elseif ($logoMode == 2): ?>
-                <img src="<?php echo TEMPLATE_URL; ?>static/images/logo.png" alt="<?php echo $blogname; ?>">
+                <img src="<?php echo $logUrl; ?>" alt="<?php echo $blogname; ?>">
                 <?php echo $blogname; ?>
             <?php else: ?>
                 <?php echo $blogname; ?>

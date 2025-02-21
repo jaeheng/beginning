@@ -10,7 +10,8 @@ body {
     -webkit-font-smoothing: antialiased;
     background-color: #f9f9f9;
     color: #48494a;
-    overflow-x: hidden
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -532,12 +533,13 @@ input, textarea {
 .nav .logo {
     float: left;
     line-height: 50px;
-    margin-right: 10px
+    margin-right: 50px
 }
 
 .nav .logo img {
     vertical-align: middle;
-    margin-right: 10px
+    margin-right: 10px;
+    height: 32px;
 }
 
 .nav .logo:hover {

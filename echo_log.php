@@ -25,7 +25,8 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="log-info">
                         <span><?php blog_author($author); ?></span>
                         <span><i class="iconfont icon-time"></i><?php echo gmdate('Y-m-d h:i:s', $date); ?></span>
-                        <span><i class="iconfont icon-comment"></i><a href="#comments" class="comments"><?php echo $comnum; ?></a></span>
+                        <span><i class="iconfont icon-comment"></i><a href="#comments"
+                                                                      class="comments"><?php echo $comnum; ?></a></span>
                         <span><i class="iconfont icon-view"></i><i class="view"><?php echo $views; ?></i></span>
                     </div>
                     <div class="log-body" id="log-body">
@@ -36,9 +37,10 @@ if (!defined('EMLOG_ROOT')) {
                     <div class="copyright-notice">
                         <i class="iconfont icon-zhuanfa"></i>
                         <p>转载请注明出处:
-                            <a href="<?php echo BLOG_URL;?>" target="_blank"><?php echo $blogname;?></a></p>
+                            <a href="<?php echo BLOG_URL; ?>" target="_blank"><?php echo $blogname; ?></a></p>
                         <p>本文的链接地址:
-                            <a href="<?php echo Url::log($logid);?>" target="_blank"><?php echo Url::log($logid);?></a></p>
+                            <a href="<?php echo Url::log($logid); ?>"
+                               target="_blank"><?php echo Url::log($logid); ?></a></p>
                     </div>
                     <div style="padding-top: 10px;">
                         <?php doAction('log_related', $logData); ?>
@@ -54,7 +56,6 @@ if (!defined('EMLOG_ROOT')) {
 
             <!--相关文章-->
             <?php
-            if (_g('relationLogs')):
             $relationLogs = getRelationLogs($sortid); ?>
             <div class="panel">
                 <div class="panel-heading">
@@ -63,15 +64,15 @@ if (!defined('EMLOG_ROOT')) {
                 <div class="panel-body">
                     <div class="relation-log">
                         <ul>
-                            <?php foreach($relationLogs as $value):?>
-                                <li><a href="<?php echo $value['url'];?>" target="_blank"><?php echo $value['title'];?></a></li>
-                            <?php endforeach;?>
+                            <?php foreach ($relationLogs as $value): ?>
+                                <li><a href="<?php echo $value['url']; ?>"
+                                       target="_blank"><?php echo $value['title']; ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
             </div>
             <!--/相关文章-->
-            <?php endif;?>
 
             <?php blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allow_remark); ?>
             <?php blog_comments($comments); ?>

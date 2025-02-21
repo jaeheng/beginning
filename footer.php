@@ -21,13 +21,15 @@ if (blog_tool_ishome()) {
                 <?php if (!empty(_g('email'))): ?>
                     <p>
                         <i class="iconfont icon-email"></i>
-                        <a href="mailto:<?php echo _g('email'); ?>" title="Email" target="_blank"><?php echo _g('email'); ?></a>
+                        <a href="mailto:<?php echo _g('email'); ?>" title="Email"
+                           target="_blank"><?php echo _g('email'); ?></a>
                     </p>
                 <?php endif; ?>
                 <?php if (!empty(_g('weibo'))): ?>
                     <p>
                         <i class="iconfont icon-weibo"></i>
-                        <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>" target="_blank"><?php echo _g('weibo'); ?></a>
+                        <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>"
+                           target="_blank"><?php echo _g('weibo'); ?></a>
                     </p>
                 <?php endif; ?>
                 <?php if (Option::get('rss_output_num')): ?>
@@ -36,10 +38,11 @@ if (blog_tool_ishome()) {
                         <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅" target="_blank">RSS订阅</a>
                     </p>
                 <?php endif; ?>
-                <?php if (!empty( _g('qq'))):?>
+                <?php if (!empty(_g('qq'))): ?>
                     <p>
                         <i class="iconfont icon-qq"></i>
-                        <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes';?>" target="_blank"><?php echo _g('qq');?></a>
+                        <a href="<?php echo 'http://wpa.qq.com/msgrd?v=3&uin=' . _g('qq') . '&site=qq&menu=yes'; ?>"
+                           target="_blank"><?php echo _g('qq'); ?></a>
                     </p>
                 <?php endif; ?>
             </div>
@@ -54,8 +57,8 @@ if (blog_tool_ishome()) {
     Copyright &copy; <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>&nbsp;&nbsp;
     <?php echo $footer_info; ?>
     <br>
-    Powered by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION;?>" target="_blank">Emlog</a>&nbsp;&nbsp;
-    Theme by <a href="https://blog.phpat.com" target="_blank">Beginning <?php echo TPL_VERSION;?></a>&nbsp;&nbsp;
+    Powered by <a href="http://www.emlog.net" title="采用emlog系统<?php echo Option::EMLOG_VERSION; ?>" target="_blank">Emlog</a>&nbsp;&nbsp;
+    Theme by <a href="https://blog.phpat.com" target="_blank">Beginning <?php echo TPL_VERSION; ?></a>&nbsp;&nbsp;
     <a href="http://beian.miit.gov.cn" target="_blank"><?php echo $icp; ?></a>
     <?php doAction('index_footer'); ?>
 </div>
@@ -68,9 +71,9 @@ if (blog_tool_ishome()) {
     </a>
     <?php
     if (_g('reward')): ?>
-    <a href="javascript:;" class="item layer-reward" data-url="<?php echo TEMPLATE_URL; ?>" title="打赏">
-        <i class="iconfont icon-coffee"></i>
-    </a>
+        <a href="javascript:;" class="item layer-reward" data-url="<?php echo TEMPLATE_URL; ?>" title="打赏">
+            <i class="iconfont icon-coffee"></i>
+        </a>
     <?php
     endif;
     ?>
@@ -78,36 +81,31 @@ if (blog_tool_ishome()) {
 </div>
 <!--网站小工具 ／-->
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.js"></script>
-<link href="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo TEMPLATE_URL; ?>static/vendor/prettify.css" rel="stylesheet" type="text/css"/>
 
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/layer/layer.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/lazyload.min.js"></script>
-<?php if(_g('showEffect')):?>
-<script src="<?php echo TEMPLATE_URL; ?>static/vendor/effect.js"></script>
-<?php endif;?>
-<script src="<?php echo TEMPLATE_URL;?>static/js/main.min.js?version=<?php echo TPL_VERSION;?>"></script>
+<script src="<?php echo TEMPLATE_URL; ?>static/js/main.min.js?version=<?php echo TPL_VERSION; ?>"></script>
 
-<?php if(_g('infiniteScrollList')):?>
 <script src="<?php echo TEMPLATE_URL; ?>static/vendor/jquery-ias.min.js"></script>
 <script>
-  $(function () {
-    var ias = $.ias({
-      container:  '#log_list',
-      item:       '.log_list_item',
-      pagination: '#pagenavi',
-      next:       '#pagenavi .next'
-    });
-    ias.extension(new IASSpinnerExtension({
-      html: '<div class="log-loading">Loading...</div>',
-    }));
-    ias.extension(new IASNoneLeftExtension({
-      text: '<div class="log-loading">加载完毕!</div>',
-    }));
-    ias.on('rendered', function (items) {
-      lazyload()
-    });
-  })
+    $(function () {
+        var ias = $.ias({
+            container: '#log_list',
+            item: '.log_list_item',
+            pagination: '#pagenavi',
+            next: '#pagenavi .next'
+        });
+        ias.extension(new IASSpinnerExtension({
+            html: '<div class="log-loading">Loading...</div>',
+        }));
+        ias.extension(new IASNoneLeftExtension({
+            text: '<div class="log-loading">加载完毕!</div>',
+        }));
+        ias.on('rendered', function (items) {
+            lazyload()
+        });
+    })
 </script>
-<?php endif;?>
 </body>
 </html>

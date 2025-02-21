@@ -148,12 +148,10 @@ function widget_sort($title)
         <h3><?php echo $title; ?></h3>
         <ul id="blogsort">
             <?php
-            $sid = $_GET['sort'];
             foreach ($sort_cache as $value):
                 if ($value['pid'] != 0) continue;
-
                 ?>
-                <li class="<?php echo $sid == $value['sid'] ? 'active' : ''; ?>">
+                <li>
                     <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                         (<?php echo $value['lognum'] ?>)</a>
                 </li>
@@ -163,7 +161,7 @@ function widget_sort($title)
                 foreach ($children as $key):
                     $value = $sort_cache[$key];
                     ?>
-                    <li class="<?php echo $sid == $value['sid'] ? 'active' : ''; ?>">
+                    <li>
                         <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                             (<?php echo $value['lognum'] ?>)</a>
                     </li>

@@ -8,7 +8,7 @@ if (!defined('EMLOG_ROOT')) {
 /**
  * 搜索页面
  */
-if (isset($_GET['keyword'])) {
+if (Input::getStrVar('keyword')) {
     require_once View::getView('components/search');
     return false;
 }
@@ -36,7 +36,7 @@ doAction('index_loglist_top'); ?>
             <ul class="log_list" id="log_list" style="min-height: 400px;">
                 <?php
                 if (!empty($logs)):
-                    foreach($logs as $value):
+                    foreach ($logs as $value):
                         $isLock = !empty($value['password']);
                         $imgsrc = getFirstAtt($value['logid']);
                         if (!$imgsrc) {
@@ -45,44 +45,46 @@ doAction('index_loglist_top'); ?>
                         ?>
                         <li class="log_list_item">
                             <a href="<?php echo $value['log_url']; ?>" class="pic-link">
-                                <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc;?>" alt="<?php echo $value['log_title']; ?>">
+                                <img class="lazyload" src="<?php echo TEMPLATE_URL; ?>static/images/dna.svg"
+                                     data-src="<?php echo $imgsrc; ?>" alt="<?php echo $value['log_title']; ?>">
                             </a>
                             <h2 class="title">
                                 <a href="<?php echo $value['log_url']; ?>" title="<?php echo $value['log_title']; ?>">
-                                    <?php if ($isLock):?>
+                                    <?php if ($isLock): ?>
                                         <i class="iconfont icon-lock"></i>
                                     <?php
-                                        endif;
-                                        echo topflag($value['top'], $value['sortop']) . $value['log_title'];
+                                    endif;
+                                    echo topflag($value['top'], $value['sortop']) . $value['log_title'];
                                     ?>
                                 </a>
                             </h2>
 
                             <div class="info">
                                 <?php blog_sort($value['logid']); ?>
-                                <i class="iconfont icon-view"></i> <span class="view"><?php echo $value['views']; ?></span>
+                                <i class="iconfont icon-view"></i> <span
+                                        class="view"><?php echo $value['views']; ?></span>
                                 <span class="pull-right"><?php echo gmdate('Y/m/d', $value['date']); ?></span>
-                                <div class="b-tag"><?php blog_tag($value['logid']);?></div>
+                                <div class="b-tag"><?php blog_tag($value['logid']); ?></div>
                             </div>
                         </li>
-                        <?php
+                    <?php
                     endforeach;
                 else:
                     ?>
                     <li style="background-color: #fff;padding: 30px;">未找到 <br>抱歉，没有符合您查询条件的结果。</li>
-                <?php endif;?>
+                <?php endif; ?>
             </ul>
             <!--分页-->
             <div class="pagination" id="pagenavi">
-                <?php echo $page_url;?>
-                <?php if ($total_pages > $page):?>
-                    <a class="next" href="<?php echo $pageurl . ($page + 1);?>">下一页</a>
-                <?php endif;?>
+                <?php echo $page_url; ?>
+                <?php if ($total_pages > $page): ?>
+                    <a class="next" href="<?php echo $pageurl . ($page + 1); ?>">下一页</a>
+                <?php endif; ?>
             </div>
             <!--分页 ／-->
         </div>
     </div>
-    <?php include View::getView('side');?>
+    <?php include View::getView('side'); ?>
     <div class="clearfix"></div>
 </div>
 
