@@ -30,8 +30,8 @@ require_once View::getView('module');
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_228781_etra1u0garl.css">
     <link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>static/css/style.css?version=<?php echo TPL_VERSION; ?>">
-    <script src="<?php echo TEMPLATE_URL;?>/static/vendor/jquery-3.2.1.min.js"></script>
-    <script src="<?php echo TEMPLATE_URL;?>/static/vendor/common-tpl.js"></script>
+    <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/common-tpl.js"></script>
 </head>
 <body class="headerFixed">
 <!--[if lte IE 8]>
@@ -45,7 +45,8 @@ require_once View::getView('module');
 
 <!--搜索栏-->
 <form action="<?php echo BLOG_URL; ?>index.php" method="get" class="search" id="search-form">
-    <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>" placeholder="请输入关键字，按Enter搜索" id="keyword" required/>
+    <input type="search" name="keyword" class="search-input" value="<?php echo $keyword; ?>"
+           placeholder="请输入关键字，按Enter搜索" id="keyword" required/>
 </form>
 <!--搜索栏 /-->
 
@@ -68,11 +69,11 @@ require_once View::getView('module');
                 <?php echo $blogname; ?>
             <?php else: ?>
                 <?php echo $blogname; ?>
-            <?php endif;?>
+            <?php endif; ?>
         </a>
 
         <?php blog_navi(); ?>
-        <?php if(_g('displayLoginBtn')):?>
+        <?php if (_g('displayLoginBtn')): ?>
             <div class="pull-right login-entry">
                 <?php if (ISLOGIN):
                     global $CACHE;
@@ -80,18 +81,20 @@ require_once View::getView('module');
                     $name = $user_cache[UID]['name'];
                     ?>
                     <ul class="menu" id="menu">
-                        <li class="menu-item bold"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/write_log.php"><i class="iconfont icon-write"></i> 写文章</a></li>
+                        <li class="menu-item bold"><a href="<?php echo BLOG_URL; ?>/admin/article.php?action=write"><i
+                                        class="iconfont icon-write"></i> 写文章</a></li>
                         <li class="menu-item">
-                            <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/"><?php echo $name;?></a>
+                            <a href="<?php echo BLOG_URL; ?>/admin"><?php echo $name; ?></a>
                             <ul class="sub-menu">
-                                <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/comment.php">管理评论</a></li>
-                                <li class="divider"><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">后台管理</a></li>
-                                <li><a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/?action=logout">退出登录</a></li>
+                                <li><a href="<?php echo BLOG_URL; ?>/admin/comment.php">管理评论</a></li>
+                                <li class="divider"><a href="<?php echo BLOG_URL; ?>/admin">后台管理</a></li>
+                                <li><a href="<?php echo BLOG_URL; ?>/admin/account.php?action=logout">退出登录</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
                 <?php else: ?>
-                    <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>/">登录</a>
+                    <a href="<?php echo BLOG_URL; ?>/admin/account.php?action=signin">登录</a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

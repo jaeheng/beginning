@@ -2,13 +2,6 @@
 /*@support tpl_options*/
 !defined('EMLOG_ROOT') && exit('access deined!');
 $options = array(
-    'dashboardDir' => array(
-        'type' => 'text',
-        'name' => '后台文件夹',
-        'multi' => false,
-        'default' => 'admin',
-        'description' => '如果你修改了后台文件夹名称，需要修改此项(此配置项并不会帮你修改后台文件夹) '
-    ),
     'weibo' => array(
         'type' => 'text',
         'name' => '微博链接',

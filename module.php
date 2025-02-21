@@ -18,12 +18,6 @@ if (!function_exists('_g')) {
 }
 
 /**
- * 后台文件夹名称
- * 从配置文件或者模板设置插件中读取，默认admin,一般不用修改
- */
-define('DASHBOARD_DIR', _g('dashboardDir'));
-
-/**
  * 获取Gravatar头像
  * @param $email
  * @param int $s
@@ -31,7 +25,8 @@ define('DASHBOARD_DIR', _g('dashboardDir'));
  * @param string $g
  * @return string
  */
-function _getGravatar($email, $s = 40, $d = 'mm', $g = 'g') {
+function _getGravatar($email, $s = 40, $d = 'mm', $g = 'g')
+{
     $hash = md5($email);
     return "//cn.gravatar.com/avatar/$hash?s=$s&d=$d&r=$g";
 }
@@ -40,7 +35,8 @@ function _getGravatar($email, $s = 40, $d = 'mm', $g = 'g') {
  * 判断是否为作者页面
  * @return bool
  */
-function _isAuthorPage () {
+function _isAuthorPage()
+{
     $url = $_SERVER['REQUEST_URI'];
     return strpos($url, 'author') !== false;
 }
@@ -53,12 +49,12 @@ function widget_blogger($title)
     if (_isAuthorPage()) return; # 作者页面可不显示
     ?>
     <div class="widget widget-user" id="bloggerinfo">
-        <a href="<?php echo BLOG_URL . DASHBOARD_DIR;?>" target="_blank">
+        <a href="<?php echo BLOG_URL; ?>/admin" target="_blank">
             <?php if (!empty($user_cache[1]['photo']['src'])): ?>
                 <img src="<?php echo BLOG_URL . $user_cache[1]['photo']['src']; ?>"
                      width="<?php echo $user_cache[1]['photo']['width']; ?>"
                      height="<?php echo $user_cache[1]['photo']['height']; ?>" alt="blogger" class="img-l"/>
-            <?php else:?>
+            <?php else: ?>
                 <div class="img-l">
                     <?php echo $user_cache[1]['name'][0]; ?>
                 </div>
@@ -71,15 +67,17 @@ function widget_blogger($title)
                 <!--打赏-->
                 <?php if (_g('reward')): ?>
                     <i class="iconfont icon-coffee layer-reward" data-url="<?php echo TEMPLATE_URL; ?>"></i>
-                <?php endif;?>
+                <?php endif; ?>
                 <!--/打赏-->
 
                 <?php if (!empty(_g('weibo'))): ?>
-                    <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>" target="_blank"><i class="iconfont icon-weibo"></i></a>
+                    <a href="<?php echo _g('weibo'); ?>" title="<?php echo _g('weibo'); ?>" target="_blank"><i
+                                class="iconfont icon-weibo"></i></a>
                 <?php endif; ?>
 
                 <?php if (Option::get('rss_output_num')): ?>
-                    <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅" target="_blank"><i class="iconfont icon-rss1"></i></a>
+                    <a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅" target="_blank"><i
+                                class="iconfont icon-rss1"></i></a>
                 <?php endif; ?>
             </div>
             <p><?php echo $user_cache[1]['des']; ?></p>
@@ -89,7 +87,8 @@ function widget_blogger($title)
 <?php
 //widget：日历
 function widget_calendar($title)
-{?>
+{
+    ?>
     <div class="widget widget-calendar">
         <h3><?php echo $title; ?></h3>
         <div id="calendar">
@@ -108,10 +107,9 @@ function widget_tag($title)
         <h3><?php echo $title; ?></h3>
         <div class="widget-inner">
             <?php foreach ($tag_cache as $value):
-                $tag = $_GET['tag'];
                 ?>
-                <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章" class="widget-tag <?php echo $tag === $value['tagname'] ? 'active' : '';?>">
-                    <i class="iconfont icon-tag"></i>
+                <a href="<?php echo Url::tag($value['tagurl']); ?>" title="<?php echo $value['usenum']; ?> 篇文章"
+                   class="widget-tag">
                     <?php echo $value['tagname']; ?>
                 </a>
             <?php endforeach; ?>
@@ -155,7 +153,7 @@ function widget_sort($title)
                 if ($value['pid'] != 0) continue;
 
                 ?>
-                <li class="<?php echo $sid == $value['sid'] ? 'active' : '';?>">
+                <li class="<?php echo $sid == $value['sid'] ? 'active' : ''; ?>">
                     <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                         (<?php echo $value['lognum'] ?>)</a>
                 </li>
@@ -165,7 +163,7 @@ function widget_sort($title)
                 foreach ($children as $key):
                     $value = $sort_cache[$key];
                     ?>
-                    <li class="<?php echo $sid == $value['sid'] ? 'active' : '';?>">
+                    <li class="<?php echo $sid == $value['sid'] ? 'active' : ''; ?>">
                         <a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>
                             (<?php echo $value['lognum'] ?>)</a>
                     </li>
@@ -180,19 +178,16 @@ function widget_sort($title)
 function widget_twitter($title)
 {
     global $CACHE;
-    $newtws_cache = $CACHE->readCache('newtw');
-    $istwitter = Option::get('istwitter');
+    $index_newtwnum = Option::get('index_newtwnum') ?: 10;
+    $Twitter_Model = new Twitter_Model();
+    $ts = $Twitter_Model->getTwitters('', 1, $index_newtwnum);
+    $user_cache = $CACHE->readCache('user');
     ?>
     <div class="widget widget_twitter">
-        <h3><?php echo $title; ?>
-            <?php if ($istwitter == 'y') : ?>
-                <a href="<?php echo BLOG_URL . 't/'; ?>" class="more">更多<?php echo $title; ?></a>
-            <?php endif; ?>
-        </h3>
+        <h3><?php echo $title; ?></h3>
         <ul id="twitter">
-            <?php foreach ($newtws_cache as $value): ?>
-                <?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" target="_blank"> <img src="' . TEMPLATE_URL . 'static/images/dna.svg" data-src="' . BLOG_URL . str_replace('thum-', '', $value['img']) . '" class="img lazyload"></a>'; ?>
-                <li><?php echo $value['t']; ?><?php echo $img; ?><p><?php echo smartDate($value['date']); ?></p></li>
+            <?php foreach ($ts as $value): ?>
+                <li><?php echo $value['t']; ?><p><?php echo $value['date']; ?></p></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -228,14 +223,16 @@ function widget_newcomm($title)
                 ?>
                 <li>
                     <div class="comment-inner">
-                        <img class="avatar lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo _getGravatar($value['mail']); ?>" alt="<?php echo $value['name'];?>">
+                        <img class="avatar lazyload" src="<?php echo TEMPLATE_URL; ?>static/images/dna.svg"
+                             data-src="<?php echo _getGravatar($value['mail']); ?>" alt="<?php echo $value['name']; ?>">
                         <i class="username"><?php echo $value['name']; ?></i>
                         <span class="time"><?php echo $time; ?></span>
                         <p class="comment-content"><?php echo $value['content']; ?></p>
                     </div>
                     <div class="comment-refer">
                         <i class="iconfont icon-yinhao"></i>
-                        <span class="t">><a href="<?php echo $url; ?>" target="_blank"><?php echo $log['log_title']; ?></a></span>
+                        <span class="t">><a href="<?php echo $url; ?>"
+                                            target="_blank"><?php echo $log['log_title']; ?></a></span>
                     </div>
                 </li>
             <?php endforeach; ?>
@@ -272,19 +269,21 @@ function widget_hotlog($title)
             <?php foreach ($hotlogs as $value):
                 $imgsrc = getFirstAtt($value['logid']);
                 if (!$imgsrc) {
-                  $imgsrc = getImgFromDesc($value['content']);
+                    $imgsrc = getImgFromDesc($value['content']);
                 }
                 ?>
                 <li>
                     <a href="<?php echo Url::log($value['gid']); ?>">
-                        <img class="lazyload" src="<?php echo TEMPLATE_URL;?>static/images/dna.svg" data-src="<?php echo $imgsrc; ?>"
+                        <img class="lazyload" src="<?php echo TEMPLATE_URL; ?>static/images/dna.svg"
+                             data-src="<?php echo $imgsrc; ?>"
                              alt="<?php echo $value['title']; ?>">
                         <h4>
                             <?php echo $value['title']; ?>
                         </h4>
                         <p class="info">
                             <span class="time"><?php echo gmdate('Y-n-j', $value['date']); ?></span>
-                            <i class="iconfont icon-tongji"></i> <span class="view"><?php echo $value['views']; ?></span>
+                            <i class="iconfont icon-tongji"></i> <span
+                                    class="view"><?php echo $value['views']; ?></span>
                         </p>
                     </a>
                 </li>
@@ -310,14 +309,15 @@ function widget_random_log($title)
 <?php } ?>
 <?php
 //widget：搜索
-function widget_search($title) {
-    $keyword = $_GET['keyword'];
+function widget_search($title)
+{
+    $keyword = Input::getStrVar('keyword');
     ?>
     <div class="widget widget-search">
         <h3><?php echo $title; ?></h3>
         <ul id="logsearch">
             <form name="keyform" method="get" action="<?php echo BLOG_URL; ?>index.php">
-                <input name="keyword" class="input" placeholder="search.." type="text" value="<?php echo $keyword;?>"/>
+                <input name="keyword" class="input" placeholder="search.." type="text" value="<?php echo $keyword; ?>"/>
             </form>
         </ul>
     </div>
@@ -331,27 +331,28 @@ function widget_archive($title)
     ?>
     <div class="widget widget-archive">
         <h3><?php echo $title; ?></h3>
-        <?php if (count($record_cache) < 5):?>
-        <ul id="record">
-            <?php foreach ($record_cache as $value): ?>
-                <li><a href="<?php echo Url::record($value['date']); ?>">
-                        <?php echo $value['record']; ?>
-                        (<?php echo $value['lognum']; ?>)</a></li>
-            <?php endforeach; ?>
-        </ul>
-            <?php else: ?>
-            <?php
-                $myChartData = array();
-                foreach ($record_cache as $value) {
-                    $myChartData['x'][] = $value['date'];
-                    $myChartData['y'][] = $value['lognum'];
-                }
-            ?>
-            <div id="archive-chart" style="height: 250px;width: 100%;" data-value='<?php echo json_encode($myChartData);?>'></div>
-            <script src="<?php echo TEMPLATE_URL;?>/static/vendor/echarts.min.js"></script>
+        <?php if (count($record_cache) < 5): ?>
+            <ul id="record">
+                <?php foreach ($record_cache as $value): ?>
+                    <li><a href="<?php echo Url::record($value['date']); ?>">
+                            <?php echo $value['record']; ?>
+                            (<?php echo $value['lognum']; ?>)</a></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+        <?php
+        $myChartData = array();
+        foreach ($record_cache as $value) {
+            $myChartData['x'][] = $value['date'];
+            $myChartData['y'][] = $value['lognum'];
+        }
+        ?>
+            <div id="archive-chart" style="height: 250px;width: 100%;"
+                 data-value='<?php echo json_encode($myChartData); ?>'></div>
+            <script src="<?php echo TEMPLATE_URL; ?>/static/vendor/echarts.min.js"></script>
             <script>
                 $(function () {
-                   // 存档折线图
+                    // 存档折线图
                     var archiveChart = document.getElementById('archive-chart');
                     if (archiveChart) {
                         var data = $(archiveChart).data('value');
@@ -494,10 +495,13 @@ function blog_navi()
  * @param $gid int 本篇文章id
  * @param $author int 本篇文章作者uid
  */
-function editable($gid, $author)
+function editable($gid, $author, $type = 'blog')
 {
-    $editable = ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . DASHBOARD_DIR . '/write_log.php?action=edit&gid=' . $gid . '" target="_blank" class="edit"><i class="iconfont icon-edit"></i></a>' : '';
-    echo $editable;
+    if ($type == 'blog') {
+        echo ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . '/admin/article.php?action=edit&gid=' . $gid . '" target="_blank" class="edit"><i class="iconfont icon-edit"></i></a>' : '';
+    } else {
+        echo ROLE == ROLE_ADMIN || $author == UID ? '<a href="' . BLOG_URL . '/admin/page.php?action=mod&id=' . $gid . '" target="_blank" class="edit"><i class="iconfont icon-edit"></i></a>' : '';
+    }
 }
 
 /**
@@ -505,11 +509,13 @@ function editable($gid, $author)
  * @param $sortid
  * @return mixed|string
  */
-function blog_sort_color ($sortid) {
+function blog_sort_color($sortid)
+{
     $colors = array('#5d6e75', '#3870a8', '#4ba2ff', '#4f5356', '#e0a64c', '#177cb0', '#2e4e7e', '#057748', '#f05654', '#725e82');
     $color = $colors[intval($sortid % count($colors))];
     return $color ? $color : '#5d6e75';
 }
+
 //blog：分类
 function blog_sort($blogid)
 {
@@ -577,24 +583,24 @@ function get_author_by_uid($uid)
 function neighbor_log($neighborLog)
 {
     extract($neighborLog); ?>
-        <div class="prev">
-            <i class="iconfont icon-left"></i>
-            上一篇
-            <?php if ($prevLog): ?>
+    <div class="prev">
+        <i class="iconfont icon-left"></i>
+        上一篇
+        <?php if ($prevLog): ?>
             <h3><a href="<?php echo Url::log($prevLog['gid']) ?>"><?php echo $prevLog['title']; ?></a></h3>
-            <?php else: ?>
+        <?php else: ?>
             <h3>往前没有了~</h3>
-            <?php endif; ?>
-        </div>
-        <div class="next">
-            下一篇
-            <i class="iconfont icon-right"></i>
-            <?php if ($nextLog): ?>
+        <?php endif; ?>
+    </div>
+    <div class="next">
+        下一篇
+        <i class="iconfont icon-right"></i>
+        <?php if ($nextLog): ?>
             <h3><a href="<?php echo Url::log($nextLog['gid']) ?>"><?php echo $nextLog['title']; ?></a></h3>
-            <?php else: ?>
+        <?php else: ?>
             <h3>往后没有了~</h3>
-            <?php endif; ?>
-        </div>
+        <?php endif; ?>
+    </div>
 <?php } ?>
 <?php
 //blog：评论列表
@@ -602,38 +608,40 @@ function blog_comments($comments)
 {
     extract($comments);
     if ($commentStacks): ?>
-    <div class="panel comment-box">
-        <div class="panel-heading">
-            <a name="comments"></a>
-            <h3 class="comment-header">评论列表：</h3>
-        </div>
-        <div class="panel-body">
-            <?php
-            $isGravatar = Option::get('isgravatar');
-            foreach ($commentStacks as $cid):
-            $comment = $comments[$cid];
-            $comment['poster'] = $comment['url'] ? '<a href="' . $comment['url'] . '" target="_blank">' . $comment['poster'] . '</a>' : $comment['poster'];
-            ?>
-            <div class="comment" id="comment-<?php echo $comment['cid']; ?>">
-                <a name="<?php echo $comment['cid']; ?>"></a>
-                <?php if ($isGravatar == 'y'): ?>
-                    <div class="avatar"><img src="<?php echo _getGravatar($comment['mail']); ?>"/></div><?php endif; ?>
-                <div class="comment-info">
-                    <div class="poster"><?php echo $comment['poster']; ?> </div>
-                    <span class="comment-time"><?php echo
-                        $comment['date']; ?></span>
-                    <div class="comment-content"><?php echo $comment['content']; ?></div>
-                    <div class="comment-reply"><a href="#comment-<?php echo $comment['cid']; ?>"
-                                                  onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
+        <div class="panel comment-box">
+            <div class="panel-heading">
+                <a name="comments"></a>
+                <h3 class="comment-header">评论列表：</h3>
+            </div>
+            <div class="panel-body">
+                <?php
+                $isGravatar = Option::get('isgravatar');
+                foreach ($commentStacks as $cid):
+                    $comment = $comments[$cid];
+                    $comment['poster'] = $comment['url'] ? '<a href="' . $comment['url'] . '" target="_blank">' . $comment['poster'] . '</a>' : $comment['poster'];
+                    ?>
+                    <div class="comment" id="comment-<?php echo $comment['cid']; ?>">
+                        <a name="<?php echo $comment['cid']; ?>"></a>
+                        <?php if ($isGravatar == 'y'): ?>
+                            <div class="avatar"><img src="<?php echo _getGravatar($comment['mail']); ?>"/>
+                            </div><?php endif; ?>
+                        <div class="comment-info">
+                            <div class="poster"><?php echo $comment['poster']; ?> </div>
+                            <span class="comment-time"><?php echo
+                                $comment['date']; ?></span>
+                            <div class="comment-content"><?php echo $comment['content']; ?></div>
+                            <div class="comment-reply"><a href="#comment-<?php echo $comment['cid']; ?>"
+                                                          onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php blog_comments_children($comments, $comment['children']); ?>
+                <?php endforeach; ?>
+                <div class="pagination" id="pagenavi">
+                    <?php echo $commentPageUrl; ?>
                 </div>
             </div>
-            <?php blog_comments_children($comments, $comment['children']); ?>
-        <?php endforeach; ?>
-            <div class="pagination" id="pagenavi">
-                <?php echo $commentPageUrl; ?>
-            </div>
         </div>
-    </div>
     <?php endif; ?>
 <?php } ?>
 <?php
@@ -671,7 +679,8 @@ function blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allo
             <div class="panel" id="comment-post">
                 <div class="panel-heading">
                     <h3 class="comment-header">发表评论<a name="respond"></a>
-                    <a href="javascript:void(0);" id="cancel-reply" style="display: none;" class="fr" onclick="cancelReply()">取消回复</a>
+                        <a href="javascript:void(0);" id="cancel-reply" style="display: none;" class="fr"
+                           onclick="cancelReply()">取消回复</a>
                     </h3>
                 </div>
                 <div class="comment-post panel-body">
@@ -681,32 +690,36 @@ function blog_comments_post($logid, $ckname, $ckmail, $ckurl, $verifyCode, $allo
                         <?php if (ROLE == ROLE_VISITOR): ?>
                             <div class="form-group">
                                 <label for="comname">昵称</label>
-                                <input type="text" class="input" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22"
+                                <input type="text" class="input" name="comname" maxlength="49"
+                                       value="<?php echo $ckname; ?>" size="22"
                                        tabindex="1" placeholder="昵称">
                             </div>
                             <div class="form-group">
                                 <label for="commail">邮件地址 (选填)</label>
-                                <input type="text" class="input" name="commail" maxlength="128" value="<?php echo $ckmail; ?>" size="22"
+                                <input type="text" class="input" name="commail" maxlength="128"
+                                       value="<?php echo $ckmail; ?>" size="22"
                                        tabindex="2" placeholder="填写邮件方便联系">
                             </div>
                             <div class="form-group">
                                 <label for="comurl">个人主页 (选填)</label>
-                                <input type="text" class="input" name="comurl" maxlength="128" value="<?php echo $ckurl; ?>" size="22"
+                                <input type="text" class="input" name="comurl" maxlength="128"
+                                       value="<?php echo $ckurl; ?>" size="22"
                                        tabindex="3">
                             </div>
                         <?php endif; ?>
                         <div class="form-group">
                             <label for="comment">评论内容</label>
-                            <textarea name="comment" class="input" id="comment" rows="5" tabindex="4" placeholder="请文明评论"></textarea>
+                            <textarea name="comment" class="input" id="comment" rows="5" tabindex="4"
+                                      placeholder="请文明评论"></textarea>
                         </div>
-                        <?php if (!empty($verifyCode)):?>
-                        <div class="form-group">
-                            <label for="comment">验证码</label>
-                            <div class="verify-code">
-                                <?php echo $verifyCode; ?>
+                        <?php if (!empty($verifyCode)): ?>
+                            <div class="form-group">
+                                <label for="comment">验证码</label>
+                                <div class="verify-code">
+                                    <?php echo $verifyCode; ?>
+                                </div>
                             </div>
-                        </div>
-                        <?php endif;?>
+                        <?php endif; ?>
                         <div class="form-group">
                             <button type="submit" id="comment_submit" class="btn">发表评论</button>
                         </div>
@@ -768,12 +781,13 @@ function getSystemInfo($uid)
 /**
  * 获取第一个上传的图片附件,没有则返回默认图片
  */
-function getFirstAtt ($blogid) {
+function getFirstAtt($blogid)
+{
     $db = Database::getInstance();
     $sql = 'select * from ' . DB_PREFIX . 'attachment where blogid = ' . $blogid . ' and mimetype like "image%"';
     $query = $db->query($sql);
     $filepath = '';
-    while($res = $db->fetch_array($query)) {
+    while ($res = $db->fetch_array($query)) {
         if ($res['thumfor'] > 0) {
             $filepath = $res['filepath'];
             break;
@@ -809,7 +823,7 @@ function getAuthorAvatar($uid = 1)
     global $CACHE;
     $user_cache = $CACHE->readCache('user');
     $photo = $user_cache[$uid]['photo'];
-    return !empty($photo) ? BLOG_URL . $photo['src'] : BLOG_URL . DASHBOARD_DIR . '/views/images/avatar.jpg';
+    return !empty($photo) ? BLOG_URL . $photo['src'] : TEMPLATE_URL . '/static/images/default_avatar.png';
 }
 
 /**
@@ -818,7 +832,8 @@ function getAuthorAvatar($uid = 1)
  * @param int $perPageNum
  * @return array
  */
-function getArticleBySortID ($sid, $perPageNum = 20) {
+function getArticleBySortID($sid, $perPageNum = 20)
+{
     $log = new Log_Model();
     return $log->getLogsForHome('and sortid = "' . $sid . '" order by sortop desc, gid desc', 1, $perPageNum);
 }
@@ -828,12 +843,13 @@ function getArticleBySortID ($sid, $perPageNum = 20) {
  * @param $except array 要排除的分类id数组
  * @return array
  */
-function getSorts ($except = array()) {
+function getSorts($except = array())
+{
     global $CACHE;
     $sort_cache = $CACHE->readCache('sort');
     $data = array();
     foreach ($sort_cache as $key => $item) {
-        if (!in_array($key,$except)) {
+        if (!in_array($key, $except)) {
             $data[$key] = $item;
         }
     }
@@ -846,7 +862,8 @@ function getSorts ($except = array()) {
  * @param int $perPageNum
  * @return array
  */
-function getTopArticle ($sid = 0, $perPageNum = 20) {
+function getTopArticle($sid = 0, $perPageNum = 20)
+{
     $log = new Log_Model();
     $map = 'and top = "y"';
     if ($sid) {
@@ -860,7 +877,8 @@ function getTopArticle ($sid = 0, $perPageNum = 20) {
  * @param int $num
  * @return mixed
  */
-function getHotTag ($num = 10) {
+function getHotTag($num = 10)
+{
     global $CACHE;
     $tag_cache = $CACHE->readCache('tags');
     $sort = array(
@@ -868,8 +886,8 @@ function getHotTag ($num = 10) {
         'field' => 'usenum',       //排序字段
     );
     $arrSort = array();
-    foreach ($tag_cache AS $uniqid => $row) {
-        foreach ($row AS $key => $value) {
+    foreach ($tag_cache as $uniqid => $row) {
+        foreach ($row as $key => $value) {
             $arrSort[$key][$uniqid] = $value;
         }
     }
@@ -884,19 +902,20 @@ function getHotTag ($num = 10) {
  * @param int $num
  * @return array
  */
-function getRandomTags ($num = 10) {
+function getRandomTags($num = 10)
+{
     global $CACHE;
     $tag_cache = $CACHE->readCache('tags');
-    
+
     $data = array();
     $len = count($tag_cache);
     $num = $num > $len ? $len : $num;
 
-    for($i = 0; $i < $num; $i++) {
+    for ($i = 0; $i < $num; $i++) {
         $len = count($tag_cache);
         $index = rand(1, $len);
-        $data[] = $tag_cache[$index-1];
-        array_splice($tag_cache, $index-1, 1);
+        $data[] = $tag_cache[$index - 1];
+        array_splice($tag_cache, $index - 1, 1);
     }
     return $data;
 }
@@ -905,7 +924,8 @@ function getRandomTags ($num = 10) {
  * 获取随机banner图片
  * @return string
  */
-function getRandomHeaderBg () {
+function getRandomHeaderBg()
+{
     $len = count(scandir(TEMPLATE_PATH . 'static' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'banner')) - 2;
     $index = rand(1, $len);
     return "background-image: url('" . TEMPLATE_URL . "static/images/banner/banner{$index}.jpg');";
@@ -916,7 +936,8 @@ function getRandomHeaderBg () {
  * @param int $num
  * @return int|string
  */
-function smartNum ($num = 0) {
+function smartNum($num = 0)
+{
     $num = intval($num);
     if ($num > 9999999) {
         return round($num / 10000000, 2) . 'kw';
@@ -935,7 +956,8 @@ function smartNum ($num = 0) {
  * 获取随机的一个深颜色
  * @return mixed
  */
-function getRandomDarkColor () {
+function getRandomDarkColor()
+{
     $colors = array('#5d6e75', '#3870a8', '#4ba2ff', '#4f5356', '#e0a64c', '#177cb0', '#2e4e7e', '#057748', '#f05654', '#725e82');
     $len = count($colors) - 1;
     $index = rand(0, $len);
@@ -965,7 +987,8 @@ function bloggerInfo($uid)
  * @param $num
  * @return int|string
  */
-function nineplus ($num) {
+function nineplus($num)
+{
     return $num > 999 ? '999+' : $num;
 }
 
@@ -993,7 +1016,8 @@ function getRelationLogs($sid, $num = 10)
  * @param string $type
  * @return string
  */
-function topflag ($top = "y", $sortop = "n", $type = "text") {
+function topflag($top = "y", $sortop = "n", $type = "text")
+{
     if ($top === "y" || $sortop === "y") {
         return "<span class='topflag'>【置顶】</span>";
     }
